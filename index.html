@@ -136,6 +136,18 @@ footer a:hover{color:#007acc;}
   26 Desember 2025 | 04:30:15
 </div>
 
+  function updateDateTime() {
+  const now = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const dateStr = now.toLocaleDateString('id-ID', options); // Tanggal lokal Indonesia
+  const timeStr = now.toLocaleTimeString('id-ID'); // Jam lokal Indonesia
+  document.getElementById('dateTimeDisplay').innerText = `${dateStr} | ${timeStr}`;
+}
+  
+// Update setiap detik
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
 
 <!-- ABOUT -->
 <section id="about">
