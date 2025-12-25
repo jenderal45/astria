@@ -103,12 +103,13 @@ footer a:hover{color:#007acc;}
 
 <!-- NAVBAR -->
 <nav>
-  <div class="logo">Astria Group</div>
+  <div class="logo">
+   <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria.png" alt="Astria Group" style="height:50px;">
   <ul>
     <li><a href="#home" data-lang="home">Beranda</a></li>
     <li><a href="#about" data-lang="about">Tentang</a></li>
+        <li><a href="#tridharma" data-lang="tridharma">Tri Dharma</a></li>
     <li><a href="#units" data-lang="units">Unit Bisnis</a></li>
-    <li><a href="#tridharma" data-lang="tridharma">Tri Dharma</a></li>
     <li><a href="#contact" data-lang="contact">Kontak</a></li>
   </ul>
   <div>
@@ -131,23 +132,17 @@ footer a:hover{color:#007acc;}
   </div>
 </section>
 
-<!-- DATE & TIME REAL-TIME -->
-<div id="dateTimeDisplay" style="text-align:center; font-size:1.2rem; margin:20px 0; font-weight:bold; color:#00bfff;">
-  26 Desember 2025 | 04:30:15
+<!-- CURRENT TIME -->
+<div id="currentTime" style="text-align:center; font-size:1.2rem; margin-bottom:20px; font-weight:bold; color:#00bfff;"></div>
+
+<!-- COUNTDOWN DETAIL -->
+<div id="countdown">
+  <div><span id="days">0</span><label>Hari</label></div>
+  <div><span id="hours">0</span><label>Jam</label></div>
+  <div><span id="minutes">0</span><label>Menit</label></div>
+  <div><span id="seconds">0</span><label>Detik</label></div>
+  <div><span id="milliseconds">0</span><label>Ms</label></div>
 </div>
-
-  function updateDateTime() {
-  const now = new Date();
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const dateStr = now.toLocaleDateString('id-ID', options); // Tanggal lokal Indonesia
-  const timeStr = now.toLocaleTimeString('id-ID'); // Jam lokal Indonesia
-  document.getElementById('dateTimeDisplay').innerText = `${dateStr} | ${timeStr}`;
-}
-  
-// Update setiap detik
-setInterval(updateDateTime, 1000);
-updateDateTime();
-
 
 <!-- ABOUT -->
 <section id="about">
@@ -272,25 +267,17 @@ langToggle.innerText=currentLang==='id'?'EN':'ID';
 });
 
 // COUNTDOWN DETAIL
-const countdownDate=new Date();
-countdownDate.setDate(countdownDate.getDate()+10);
-function updateCountdown(){
-const now=new Date().getTime();
-const distance=countdownDate-now;
-if(distance<0){document.getElementById('countdown').innerHTML="Event Telah Dimulai!";return;}
-const days=Math.floor(distance/(1000*60*60*24));
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-const seconds=Math.floor((distance%(1000*60))/1000);
-const milliseconds=Math.floor(distance%1000);
-document.getElementById('days').innerText=days;
-document.getElementById('hours').innerText=hours.toString().padStart(2,'0');
-document.getElementById('minutes').innerText=minutes.toString().padStart(2,'0');
-document.getElementById('seconds').innerText=seconds.toString().padStart(2,'0');
-document.getElementById('milliseconds').innerText=milliseconds.toString().padStart(3,'0');
+function updateCurrentTime(){
+const now = new Date();
+// Format: Hari, Tanggal Bulan Tahun | Jam:Menit:Detik
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const dateStr = now.toLocaleDateString('id-ID', options);
+const timeStr = now.toLocaleTimeString('id-ID', {hour12:false});
+document.getElementById('currentTime').innerText = `${dateStr} | ${timeStr}`;
 }
-setInterval(updateCountdown,50);
-updateCountdown();
+setInterval(updateCurrentTime, 1000); // Update tiap detik
+updateCurrentTime();
+
 </script>
 </body>
 </html>
