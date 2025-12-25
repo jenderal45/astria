@@ -74,11 +74,57 @@ footer{background:#020617;color:#fff;padding:50px;text-align:center;}
 footer p{margin-bottom:15px;}
 footer a{color:#00bfff;}
 
-/* FLOATING WHATSAPP & SOCIAL */
-#whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;}
-#whatsapp:hover{transform:scale(1.1);}
-#instagram{position:fixed;bottom:100px;right:25px;background:#E1306C;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
-#linkedin{position:fixed;bottom:175px;right:25px;background:#0A66C2;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
+<!-- FLOATING TOGGLE BUTTON -->
+<div id="floatToggle" style="position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#007acc;color:#fff;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:10000;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);">
+  ☰
+</div>
+
+<!-- FLOATING SOCIAL BUTTONS -->
+<a href="https://wa.me/6289652435067" target="_blank" id="whatsapp" class="floating-btn">💬</a>
+<a href="https://www.instagram.com/astriagroup/" target="_blank" id="instagram" class="floating-btn">📸</a>
+<a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" id="linkedin" class="floating-btn">in</a>
+
+<style>
+.floating-btn {
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  transition:0.3s, transform 0.3s ease;
+  z-index:9999;
+}
+
+/* Warna masing-masing */
+#whatsapp{background:#25D366; bottom:100px;}
+#instagram{background:#E1306C; bottom:175px;}
+#linkedin{background:#0A66C2; bottom:250px;}
+
+/* Hidden state */
+.floating-hidden { transform: scale(0); opacity:0; pointer-events:none; }
+</style>
+
+<script>
+const floatToggle = document.getElementById('floatToggle');
+const floatingButtons = document.querySelectorAll('.floating-btn');
+let floatOpen = true;
+
+floatToggle.addEventListener('click', () => {
+  floatOpen = !floatOpen;
+  floatingButtons.forEach(btn => {
+    if(floatOpen) btn.classList.remove('floating-hidden');
+    else btn.classList.add('floating-hidden');
+  });
+});
+</script>
 
 /* STICKY CTA */
 #stickyCTA{position:fixed;right:30px;bottom:250px;background:#00bfff;color:#fff;padding:15px 25px;border-radius:50px;font-weight:bold;z-index:9999;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;transition:0.3s;}
