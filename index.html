@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Astria Group | Integrated Business Ecosystem</title>
+<!-- LOTTIE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+<!-- PARTICLES -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <style>
-/* --- RESET & BASE --- */
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f5;color:#111;overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
 section{padding:80px 50px;}
-body.dark{background:#020617;color:#fff;}
-body.dark a{color:#00bfff;}
 
-/* --- NAVBAR --- */
+/* NAVBAR */
 nav{position:sticky;top:0;background:#fff;color:#111;display:flex;justify-content:space-between;align-items:center;padding:15px 50px;z-index:999;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
 body.dark nav{background:#020617;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.5);}
 nav .logo{font-size:1.8rem;font-weight:bold;color:#00bfff;cursor:pointer;}
@@ -26,7 +26,7 @@ nav ul li a:hover{color:#007acc;}
 #modeToggle,#langToggle{cursor:pointer;padding:5px 10px;border-radius:5px;background:#00bfff;color:#fff;font-weight:bold;margin-left:10px;transition:0.3s;}
 #modeToggle:hover,#langToggle:hover{background:#007acc;}
 
-/* --- HERO --- */
+/* HERO */
 .hero{height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;}
 .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 #particles-js{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
@@ -36,20 +36,21 @@ nav ul li a:hover{color:#007acc;}
 .hero .cta{background:#00bfff;padding:12px 30px;border-radius:50px;color:#fff;font-weight:bold;margin:5px;transition:0.3s;}
 .hero .cta:hover{background:#007acc;transform:scale(1.1);}
 
-/* --- ANIMATIONS --- */
+/* ANIMATIONS */
 @keyframes slideDown{from{transform:translateY(-50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
-/* --- SECTION TITLES --- */
+/* SECTION TITLES */
 .section-title{text-align:center;margin-bottom:50px;}
 .section-title h2{font-size:2.5rem;position:relative;}
 .section-title h2::after{content:'';width:60px;height:4px;background:#00bfff;display:block;margin:10px auto 0;border-radius:2px;}
 
-/* --- CARDS --- */
+/* CARDS */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
 .card{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}
 body.dark .card{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
 .card.show{opacity:1;transform:translateY(0);}
+.card img{width:80px;margin-bottom:15px;transition:0.4s;}
 .card h3{font-size:1.5rem;margin-bottom:10px;color:#020617;}
 body.dark .card h3{color:#fff;}
 .card p{font-size:1rem;color:#555;margin-bottom:15px;}
@@ -58,10 +59,7 @@ body.dark .card p{color:#ccc;}
 .card a:hover{color:#007acc;transform:scale(1.05);}
 .card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 15px 25px rgba(0,0,0,0.2);filter: drop-shadow(0 0 10px #00bfff);}
 
-/* --- LOTTIE CONTAINERS --- */
-.lottie{width:150px;height:150px;margin:0 auto 15px;}
-
-/* --- TRIDHARMA --- */
+/* TRIDHARMA */
 .tridharma{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
 .tridharma-item{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}
 body.dark .tridharma-item{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
@@ -71,21 +69,22 @@ body.dark .tridharma-item h4{color:#fff;}
 .tridharma-item p{color:#555;font-size:1rem;}
 body.dark .tridharma-item p{color:#ccc;}
 
-/* --- FOOTER --- */
+/* FOOTER */
 footer{background:#020617;color:#fff;padding:50px;text-align:center;}
+footer p{margin-bottom:15px;}
 footer a{color:#00bfff;}
 
-/* --- FLOATING WHATSAPP & SOCIAL --- */
-#whatsapp,#instagram,#linkedin{position:fixed;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
-#whatsapp{bottom:25px;right:25px;background:#25D366;color:#fff;}
-#instagram{bottom:100px;right:25px;background:#E1306C;color:#fff;}
-#linkedin{bottom:175px;right:25px;background:#0A66C2;color:#fff;}
+/* FLOATING WHATSAPP & SOCIAL */
+#whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;}
+#whatsapp:hover{transform:scale(1.1);}
+#instagram{position:fixed;bottom:100px;right:25px;background:#E1306C;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
+#linkedin{position:fixed;bottom:175px;right:25px;background:#0A66C2;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
 
-/* --- STICKY CTA --- */
+/* STICKY CTA */
 #stickyCTA{position:fixed;right:30px;bottom:250px;background:#00bfff;color:#fff;padding:15px 25px;border-radius:50px;font-weight:bold;z-index:9999;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;transition:0.3s;}
 #stickyCTA:hover{transform:scale(1.05);background:#007acc;}
 
-/* --- RESPONSIVE --- */
+/* RESPONSIVE */
 @media(max-width:768px){
   nav{flex-direction:column;padding:15px 20px;}
   nav ul{flex-direction:column;gap:15px;margin-top:10px;}
@@ -139,17 +138,14 @@ footer a{color:#00bfff;}
   <div class="section-title"><h2 data-lang="tridharmaTitle">Tri Dharma Astria</h2></div>
   <div class="tridharma">
     <div class="tridharma-item">
-      <div id="lottieDharma1" class="lottie"></div>
       <h4 data-lang="dharma1Title">Mengelola Sumber Daya Alam</h4>
       <p data-lang="dharma1Desc">Kami berdedikasi memanfaatkan sumber daya alam secara bertanggung jawab, menjamin keberlanjutan lingkungan dan generasi mendatang.</p>
     </div>
     <div class="tridharma-item">
-      <div id="lottieDharma2" class="lottie"></div>
       <h4 data-lang="dharma2Title">Membangun Sumber Daya Manusia</h4>
       <p data-lang="dharma2Desc">Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.</p>
     </div>
     <div class="tridharma-item">
-      <div id="lottieDharma3" class="lottie"></div>
       <h4 data-lang="dharma3Title">Mengkapitalisasi Sumber Daya Keuangan</h4>
       <p data-lang="dharma3Desc">Menggunakan keahlian finansial untuk stabilitas dan kemakmuran, mendukung investasi strategis, lapangan kerja, dan inisiatif sosial.</p>
     </div>
@@ -160,30 +156,10 @@ footer a{color:#00bfff;}
 <section id="units">
   <div class="section-title"><h2 data-lang="unitsTitle">Unit Bisnis Kami</h2></div>
   <div class="cards">
-    <div class="card">
-      <div id="lottieOravita" class="lottie"></div>
-      <h3 data-lang="oravitaTitle">Oravita Global</h3>
-      <p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p>
-      <a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-    <div class="card">
-      <div id="lottieNeulink" class="lottie"></div>
-      <h3 data-lang="neulinkTitle">Neulink News</h3>
-      <p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p>
-      <a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-    <div class="card">
-      <div id="lottieExmind" class="lottie"></div>
-      <h3 data-lang="exmindTitle">Exmind Digital</h3>
-      <p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p>
-      <a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-    <div class="card">
-      <div id="lottieFDX" class="lottie"></div>
-      <h3 data-lang="fdxTitle">FDX Management</h3>
-      <p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p>
-      <a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/oravita.png" alt="Oravita"><h3 data-lang="oravitaTitle">Oravita Global</h3><p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p><a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/neulink.png" alt="Neulink News"><h3 data-lang="neulinkTitle">Neulink News</h3><p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p><a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/exmind.png" alt="Exmind Digital"><h3 data-lang="exmindTitle">Exmind Digital</h3><p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p><a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/fdx.png" alt="FDX Management"><h3 data-lang="fdxTitle">FDX Management</h3><p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p><a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
   </div>
 </section>
 
@@ -205,7 +181,7 @@ footer a{color:#00bfff;}
   </div>
 </footer>
 
-<!-- FLOATING SOCIAL -->
+<!-- FLOATING WHATSAPP & SOCIAL -->
 <a href="https://wa.me/6289652435067" target="_blank" id="whatsapp">💬</a>
 <a href="https://www.instagram.com/astriagroup/" target="_blank" id="instagram">📸</a>
 <a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" id="linkedin">in</a>
@@ -221,7 +197,10 @@ particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#00bfff"}
 const faders=document.querySelectorAll('.card,.tridharma-item,.hero p');
 const appearOptions={threshold:0.2,rootMargin:"0px 0px -50px 0px"};
 const appearOnScroll=new IntersectionObserver((entries,observer)=>{
-entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('show');observer.unobserve(entry.target);});
+entries.forEach(entry=>{
+if(!entry.isIntersecting)return;
+entry.target.classList.add('show');observer.unobserve(entry.target);
+});
 },appearOptions);
 faders.forEach(fader=>appearOnScroll.observe(fader));
 
@@ -257,20 +236,7 @@ lang=lang==="id"?"en":"id";
 document.querySelectorAll('[data-lang]').forEach(el=>{const key=el.getAttribute('data-lang');el.textContent=translations[lang]?.[key]??el.textContent;});
 langToggle.textContent=lang==="id"?"EN":"ID";
 });
-
-// LOTTIE ANIMATIONS
-const lottieConfigs=[
-{el:'lottieDharma1',path:'https://assets9.lottiefiles.com/packages/lf20_1xV1Jv.json'},
-{el:'lottieDharma2',path:'https://assets9.lottiefiles.com/packages/lf20_JwS8XY.json'},
-{el:'lottieDharma3',path:'https://assets9.lottiefiles.com/packages/lf20_V9o0QB.json'},
-{el:'lottieOravita',path:'https://assets9.lottiefiles.com/packages/lf20_X5sT5l.json'},
-{el:'lottieNeulink',path:'https://assets9.lottiefiles.com/packages/lf20_q0X33.json'},
-{el:'lottieExmind',path:'https://assets9.lottiefiles.com/packages/lf20_MK9dLQ.json'},
-{el:'lottieFDX',path:'https://assets9.lottiefiles.com/packages/lf20_sXqJWa.json'}
-];
-lottieConfigs.forEach(cfg=>{
-  lottie.loadAnimation({container:document.getElementById(cfg.el),renderer:'svg',loop:true,autoplay:true,path:cfg.path});
-});
 </script>
+
 </body>
 </html>
