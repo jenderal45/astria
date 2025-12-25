@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Astria Group | Integrated Business Ecosystem</title>
+<title>Astria Group | Startup High-Conversion Landing</title>
 
-<!-- LOTTIE -->
+<!-- Lottie -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
-<!-- PARTICLES -->
+<!-- Particles -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<!-- GSAP for animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.1/gsap.min.js"></script>
 
 <style>
 /* RESET */
@@ -16,10 +18,10 @@
 body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f5;color:#111;overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
-section{padding:80px 50px;}
+section{padding:80px 50px;position:relative;}
 
 /* NAVBAR */
-nav{position:sticky;top:0;background:#fff;color:#111;display:flex;justify-content:space-between;align-items:center;padding:15px 50px;z-index:999;box-shadow:0 2px 5px rgba(0,0,0,0.1);transition:0.3s;}
+nav{position:sticky;top:0;background:#fff;color:#111;display:flex;justify-content:space-between;align-items:center;padding:15px 50px;z-index:999;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
 body.dark nav{background:#020617;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.5);}
 nav .logo{font-size:1.8rem;font-weight:bold;color:#00bfff;cursor:pointer;}
 nav ul{list-style:none;display:flex;gap:25px;}
@@ -44,10 +46,6 @@ nav ul li a:hover{color:#007acc;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
 
-.section-title{text-align:center;margin-bottom:50px;}
-.section-title h2{font-size:2.5rem;position:relative;}
-.section-title h2::after{content:'';width:60px;height:4px;background:#00bfff;display:block;margin:10px auto 0;border-radius:2px;}
-
 /* UNIT BISNIS */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;justify-items:center;}
 .card{background:none;text-align:center;padding:0;transition:0.5s transform,0.5s box-shadow;opacity:0;transform:translateY(50px);}
@@ -63,6 +61,9 @@ nav ul li a:hover{color:#007acc;}
 .tridharma-item.show{opacity:1;transform:translateY(0);}
 .tridharma-item h4{font-size:1.3rem;margin-bottom:10px;color:#020617;}
 .tridharma-item p{color:#555;font-size:1rem;}
+
+/* COUNTERS */
+.counter{font-size:2.5rem;color:#00bfff;font-weight:bold;margin-bottom:10px;}
 
 /* FOOTER */
 footer{background:#020617;color:#fff;padding:50px 20px;text-align:center;font-family:'Segoe UI',sans-serif;}
@@ -134,26 +135,26 @@ footer .copyright{margin-top:20px;font-size:0.9rem;color:#ccc;}
 <section id="units">
   <div class="section-title"><h2 data-lang="unitsTitle">Unit Bisnis Kami</h2></div>
   <div class="cards">
-    <div class="card">
-      <div class="lottie-container" id="lottieOravita"></div>
+    <div class="card" data-lottie="https://assets1.lottiefiles.com/packages/lf20_u4yrau.json">
+      <div class="lottie-container"></div>
       <h3 data-lang="oravitaTitle">Oravita Global</h3>
       <p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p>
       <a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
     </div>
-    <div class="card">
-      <div class="lottie-container" id="lottieNeulink"></div>
+    <div class="card" data-lottie="https://assets3.lottiefiles.com/packages/lf20_H2lAEm.json">
+      <div class="lottie-container"></div>
       <h3 data-lang="neulinkTitle">Neulink News</h3>
       <p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p>
       <a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
     </div>
-    <div class="card">
-      <div class="lottie-container" id="lottieExmind"></div>
+    <div class="card" data-lottie="https://assets5.lottiefiles.com/packages/lf20_ktxnzlsf.json">
+      <div class="lottie-container"></div>
       <h3 data-lang="exmindTitle">Exmind Digital</h3>
       <p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p>
       <a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
     </div>
-    <div class="card">
-      <div class="lottie-container" id="lottieFDX"></div>
+    <div class="card" data-lottie="https://assets5.lottiefiles.com/packages/lf20_e0d5gkvg.json">
+      <div class="lottie-container"></div>
       <h3 data-lang="fdxTitle">FDX Management</h3>
       <p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p>
       <a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
@@ -208,16 +209,25 @@ footer .copyright{margin-top:20px;font-size:0.9rem;color:#ccc;}
 // PARTICLES
 particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#00bfff"},shape:{type:"circle"},opacity:{value:0.5},size:{value:3},line_linked:{enable:true,distance:150,color:"#00bfff",opacity:0.4,width:1},move:{enable:true,speed:2}}});
 
-// SCROLL REVEAL
-const faders=document.querySelectorAll('.card,.tridharma-item,.hero p');
-const appearOptions={threshold:0.2,rootMargin:"0px 0px -50px 0px"};
-const appearOnScroll=new IntersectionObserver((entries,observer)=>{
-entries.forEach(entry=>{
-if(!entry.isIntersecting)return;
-entry.target.classList.add('show');observer.unobserve(entry.target);
-});
-},appearOptions);
-faders.forEach(fader=>appearOnScroll.observe(fader));
+// SCROLL REVEAL + LOTTIE LOAD
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      const container=entry.target.querySelector('.lottie-container');
+      const path=entry.target.getAttribute('data-lottie');
+      if(container && path && !container.dataset.loaded){
+        lottie.loadAnimation({container,renderer:'svg',loop:true,autoplay:true,path});
+        container.dataset.loaded=true;
+      }
+    }
+  });
+},{threshold:0.3});
+cards.forEach(card=>observer.observe(card));
+
+const tridharmaItems=document.querySelectorAll('.tridharma-item');
+tridharmaItems.forEach(item=>observer.observe(item));
 
 // DARK/LIGHT
 document.getElementById('modeToggle').addEventListener('click',()=>{document.body.classList.toggle('dark');});
@@ -231,18 +241,11 @@ const floatingButtons=document.querySelectorAll('.floating-btn');
 let floatOpen=true;
 floatToggle.addEventListener('click',()=>{floatOpen=!floatOpen;floatingButtons.forEach(btn=>{btn.style.transform=floatOpen?'scale(1)':'scale(0)';btn.style.opacity=floatOpen?'1':'0';btn.style.pointerEvents=floatOpen?'auto':'none';});});
 
-// LOTTIE ANIMATIONS
-lottie.loadAnimation({container: document.getElementById('lottieOravita'),renderer:'svg',loop:true,autoplay:true,path:'https://assets1.lottiefiles.com/packages/lf20_u4yrau.json'});
-lottie.loadAnimation({container: document.getElementById('lottieNeulink'),renderer:'svg',loop:true,autoplay:true,path:'https://assets3.lottiefiles.com/packages/lf20_H2lAEm.json'});
-lottie.loadAnimation({container: document.getElementById('lottieExmind'),renderer:'svg',loop:true,autoplay:true,path:'https://assets5.lottiefiles.com/packages/lf20_ktxnzlsf.json'});
-lottie.loadAnimation({container: document.getElementById('lottieFDX'),renderer:'svg',loop:true,autoplay:true,path:'https://assets5.lottiefiles.com/packages/lf20_e0d5gkvg.json'});
-
 // MULTI-LANGUAGE
 const langToggle=document.getElementById('langToggle');
-const translations={en:{home:"Home",about:"About",units:"Business Units",tridharma:"Tri Dharma",contact:"Contact",heroTitle:"Building Integrated Business Ecosystem",heroDesc:"Holding company committed to sustainable value creation through innovative and globally competitive multi-business portfolios.",learnMore:"Learn More",viewUnits:"View Units",aboutTitle:"About Us",aboutDesc:"PT Astria Sukses Internasional (Astria Group) is a holding company building an integrated, innovative, and globally competitive business ecosystem.",tridharmaTitle:"Tri Dharma Astria",dharma1Title:"Managing Natural Resources",dharma1Desc:"We are dedicated to responsibly utilizing natural resources, ensuring environmental sustainability and future generations.",dharma2Title:"Developing Human Capital",dharma2Desc:"Providing products and services that educate, improve health, and empower communities. Human capital development is the foundation of national progress.",dharma3Title:"Leveraging Financial Resources",dharma3Desc:"Using financial expertise for stability and prosperity, supporting strategic investments, job creation, and social initiatives.",unitsTitle:"Our Business Units",oravitaTitle:"Oravita Global",oravitaDesc:"Consumer & Agribusiness, focusing on quality and sustainable food and agribusiness products.",neulinkTitle:"Neulink News",neulinkDesc:"Digital Media, news portal and creative content that is informative, educational, and inspiring.",exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, providing branding, social media, website, and professional creative campaigns.",fdxTitle:"FDX Management",fdxDesc:"Talent Agency, managing talent, influencers, KOLs, and creative campaigns.",visitWebsite:"Visit Website",contactTitle:"Contact Us",contactDesc:"Join us to build a better future with Astria Group",stickyCTA:"Contact Us"}};
+const translations={en:{home:"Home",about:"About",units:"Business Units",tridharma:"Tri Dharma",contact:"Contact",heroTitle:"Building Integrated Business Ecosystem",heroDesc:"Holding company committed to sustainable value creation through innovative and globally competitive multi-business portfolios.",oravitaTitle:"Oravita Global",oravitaDesc:"Consumer & Agribusiness, focusing on quality and sustainable food and agribusiness products.",neulinkTitle:"Neulink News",neulinkDesc:"Digital Media, news portal and creative content that is informative, educational, and inspiring.",exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, providing branding, social media, website, and professional creative campaigns.",fdxTitle:"FDX Management",fdxDesc:"Talent Agency, managing talent, influencers, KOLs, and creative campaigns.",visitWebsite:"Visit Website",unitsTitle:"Our Business Units",tridharmaTitle:"Tri Dharma Astria",dharma1Title:"Managing Natural Resources",dharma1Desc:"We are dedicated to responsibly utilizing natural resources, ensuring environmental sustainability and future generations.",dharma2Title:"Developing Human Capital",dharma2Desc:"Providing products and services that educate, improve health, and empower communities. Human capital development is the foundation of national progress.",dharma3Title:"Leveraging Financial Resources",dharma3Desc:"Using financial expertise for stability and prosperity, supporting strategic investments, job creation, and social initiatives.",stickyCTA:"Contact Us"}};
 let lang="id";
 langToggle.addEventListener('click',()=>{lang=lang==="id"?"en":"id";document.querySelectorAll('[data-lang]').forEach(el=>{const key=el.getAttribute('data-lang');el.textContent=translations[lang]?.[key]??el.textContent;});langToggle.textContent=lang==="id"?"EN":"ID";});
 </script>
-
 </body>
 </html>
