@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astria Group | Konsumen, Media, Digital, Talent</title>
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* NAVBAR */
+nav {
+  position: sticky;
+  top: 0;
+  background: #020617;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 999;
+}
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00bfff;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+nav ul li a {
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  color: #00bfff;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(2,6,23,0.8), rgba(2,6,23,0.8)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease-out;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-in;
+}
+.hero .cta {
+  background: #00bfff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.hero .cta:hover {
+  background: #007acc;
+}
+
+/* ANIMATIONS */
+@keyframes slideDown {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 50px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-title h2 {
+  font-size: 2.5rem;
+  color: #020617;
+  position: relative;
+}
+.section-title h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background: #00bfff;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* UNIT BUSINESS CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 30px;
+}
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #020617;
+}
+.card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+.card a {
+  color: #00bfff;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  background: #020617;
+  color: #fff;
+  padding: 50px;
+  text-align: center;
+}
+footer p {
+  margin-bottom: 15px;
+}
+footer a {
+  color: #00bfff;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Astria Group</div>
+  <ul>
+    <li><a href="#home">Beranda</a></li>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#units">Unit Bisnis</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h1>Solusi Lengkap: Konsumen, Media, Digital & Talent</h1>
+  <p>Mendorong inovasi dan nilai berkelanjutan untuk brand, media, dan talenta.</p>
+  <a href="#units" class="cta">Lihat Unit Bisnis</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">
+    <h2>Tentang Astria Group</h2>
+  </div>
+  <p style="text-align:center; max-width:800px; margin:0 auto; font-size:1.1rem;">
+    PT. Astria Sukses Internasional adalah perusahaan holding yang berkomitmen membangun ekosistem usaha inovatif dan terintegrasi. Kami fokus pada pertumbuhan berkelanjutan melalui konsumen, media digital, agensi kreatif, dan manajemen talenta profesional.
+  </p>
+</section>
+
+<!-- UNITS -->
+<section id="units">
+  <div class="section-title">
+    <h2>Unit Bisnis Kami</h2>
+  </div>
+  <div class="cards">
+
+    <!-- Oravita -->
+    <div class="card">
+      <img src="https://oravita.vercel.app/favicon.ico" alt="Oravita">
+      <h3>Oravita Global</h3>
+      <p>Produk unggulan Emping Cisono, camilan premium berbasis melinjo dengan standar higienis.</p>
+      <a href="https://oravita.vercel.app/" target="_blank">Kunjungi Website</a>
+    </div>
+
+    <!-- Neulink News -->
+    <div class="card">
+      <img src="https://neulinknews.vercel.app/favicon.ico" alt="Neulink News">
+      <h3>Neulink News</h3>
+      <p>Portal berita video terkini, edukatif, dan informatif untuk publik dan komunitas bisnis.</p>
+      <a href="https://neulinknews.vercel.app/" target="_blank">Kunjungi Website</a>
+    </div>
+
+    <!-- Exmind Digital -->
+    <div class="card">
+      <img src="https://exmind.vercel.app/favicon.ico" alt="Exmind Digital">
+      <h3>Exmind Digital</h3>
+      <p>Digital agency profesional untuk branding, social media, website, dan campaign kreatif.</p>
+      <a href="https://exmind.vercel.app/" target="_blank">Kunjungi Website</a>
+    </div>
+
+    <!-- FDX Management -->
+    <div class="card">
+      <img src="https://fdx-mg.vercel.app/favicon.ico" alt="FDX Management">
+      <h3>FDX Management</h3>
+      <p>Talent & creative agency untuk manajemen influencer, KOL, buzzer, dan kampanye kreatif.</p>
+      <a href="https://fdx-mg.vercel.app/" target="_blank">Kunjungi Website</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title">
+    <h2>Kontak Kami</h2>
+  </div>
+  <p style="text-align:center; margin-bottom:30px;">
+    Hubungi kami untuk informasi lebih lanjut, kolaborasi, atau partnership.
+  </p>
+  <p style="text-align:center;">
+    Email: <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a> | WA: <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 PT. Astria Sukses Internasional</p>
+  <p>
+    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+  </p>
+</footer>
+
+</body>
+</html>
