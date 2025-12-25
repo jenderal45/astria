@@ -1,4 +1,5 @@
 <audio id="bgMusic" autoplay loop>
-  <source src="https://github.com/jenderal45/astria/raw/main/background-music-453291.mp3" type="audio/mpeg">
+  <source src="https://raw.githubusercontent.com/jenderal45/astria/main/background-music-453291.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+
