@@ -6,60 +6,73 @@
 <title>Astria Group | Integrated Business Ecosystem</title>
 <style>
 /* RESET */
-* { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth;}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; transition:0.3s;}
 body { font-family:'Segoe UI',Tahoma,sans-serif; background:#f5f5f5; color:#111;}
 a { text-decoration:none; color:inherit; }
 img { max-width:100%; display:block; }
 
 /* PRELOADER */
 #preloader { position:fixed; top:0; left:0; width:100%; height:100%; background:#020617; display:flex; justify-content:center; align-items:center; z-index:9999;}
-#preloader div { width:50px; height:50px; border:5px solid #00bfff; border-top:5px solid #fff; border-radius:50%; animation: spin 1s linear infinite; }
+#preloader div { width:60px; height:60px; border:6px solid #00bfff; border-top:6px solid #fff; border-radius:50%; animation: spin 1s linear infinite; }
 @keyframes spin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
 
+/* DARK/LIGHT MODE */
+body.dark { background:#020617; color:#fff; }
+body.dark a { color:#00bfff; }
+
 /* NAVBAR */
-nav { position: sticky; top:0; background:#020617; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; z-index:999; box-shadow:0 2px 5px rgba(0,0,0,0.3);}
-nav .logo { font-size:1.8rem; font-weight:bold; color:#00bfff;}
+nav { position: sticky; top:0; background:#fff; color:#111; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; z-index:999; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+body.dark nav { background:#020617; color:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+nav .logo { font-size:1.8rem; font-weight:bold; color:#00bfff; cursor:pointer;}
 nav ul { list-style:none; display:flex; gap:25px;}
-nav ul li a { color:#fff; font-weight:500; transition:0.3s;}
-nav ul li a:hover { color:#00bfff;}
+nav ul li a { font-weight:500; transition:0.3s;}
+nav ul li a:hover { color:#007acc;}
+#modeToggle { cursor:pointer; padding:5px 10px; border-radius:5px; background:#00bfff; color:#fff; font-weight:bold; transition:0.3s;}
+#modeToggle:hover { background:#007acc; }
 
 /* HERO */
-.hero { height:100vh; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#fff; overflow:hidden; }
+.hero { height:100vh; position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
 #particles-js { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
 .hero-content { z-index:2; max-width:900px; }
-.hero h1 { font-size:3rem; margin-bottom:20px; animation: slideDown 1s ease-out;}
-.hero p { font-size:1.2rem; margin-bottom:30px; animation: fadeIn 2s ease-in;}
+.hero h1 { font-size:3rem; margin-bottom:20px; background:linear-gradient(90deg,#00bfff,#007acc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation: slideDown 1s ease-out;}
+.hero p { font-size:1.2rem; margin-bottom:30px; opacity:0; animation: fadeIn 2s ease-in forwards;}
 .hero .cta { background:#00bfff; padding:12px 30px; border-radius:50px; color:#fff; font-weight:bold; margin:5px; transition:0.3s;}
-.hero .cta:hover { background:#007acc; transform:scale(1.05);}
+.hero .cta:hover { background:#007acc; transform:scale(1.1);}
 
 /* ANIMATIONS */
 @keyframes slideDown { from {transform: translateY(-50px); opacity:0;} to {transform: translateY(0); opacity:1;} }
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-.fade-in { opacity:0; transform:translateY(50px); transition:0.8s; }
-.fade-in.show { opacity:1; transform:translateY(0); }
 
 /* SECTIONS */
 section { padding:80px 50px; }
 .section-title { text-align:center; margin-bottom:50px; }
 .section-title h2 { font-size:2.5rem; color:#020617; position:relative;}
+body.dark .section-title h2 { color:#fff; }
 .section-title h2::after { content:''; width:60px; height:4px; background:#00bfff; display:block; margin:10px auto 0; border-radius:2px; }
 
 /* CARDS */
 .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.card { background:#fff; padding:25px; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1); text-align:center; transition:0.3s; opacity:0; transform:translateY(50px);}
+.card { background:#fff; padding:25px; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1); text-align:center; transition:0.4s; opacity:0; transform:translateY(50px);}
+body.dark .card { background:#1a1a2e; box-shadow:0 10px 25px rgba(0,0,0,0.5);}
 .card.show { opacity:1; transform:translateY(0);}
-.card img { width:80px; margin-bottom:15px;}
+.card img { width:80px; margin-bottom:15px; transition:0.4s; }
 .card h3 { font-size:1.5rem; margin-bottom:10px; color:#020617;}
+body.dark .card h3 { color:#fff; }
 .card p { font-size:1rem; color:#555; margin-bottom:15px;}
+body.dark .card p { color:#ccc; }
 .card a { color:#00bfff; font-weight:bold; transition:0.3s;}
-.card a:hover { color:#007acc; transform:scale(1.05); }
+.card a:hover { color:#007acc; transform:scale(1.05);}
+.card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 15px 25px rgba(0,0,0,0.2);}
 
 /* TRIDHARMA */
 .tridharma { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.tridharma-item { background:#fff; padding:25px; border-radius:15px; text-align:center; box-shadow:0 10px 20px rgba(0,0,0,0.1); transition:0.3s; opacity:0; transform:translateY(50px);}
+.tridharma-item { background:#fff; padding:25px; border-radius:15px; text-align:center; box-shadow:0 10px 20px rgba(0,0,0,0.1); transition:0.4s; opacity:0; transform:translateY(50px);}
+body.dark .tridharma-item { background:#1a1a2e; box-shadow:0 10px 25px rgba(0,0,0,0.5);}
 .tridharma-item.show { opacity:1; transform:translateY(0);}
 .tridharma-item h4 { font-size:1.3rem; margin-bottom:10px; color:#020617;}
+body.dark .tridharma-item h4 { color:#fff; }
 .tridharma-item p { color:#555; font-size:1rem; }
+body.dark .tridharma-item p { color:#ccc; }
 
 /* FOOTER */
 footer { background:#020617; color:#fff; padding:50px; text-align:center;}
@@ -109,6 +122,7 @@ footer a { color:#00bfff; }
     <li><a href="#tridharma">Tri Dharma</a></li>
     <li><a href="#contact">Kontak</a></li>
   </ul>
+  <div id="modeToggle">Dark/Light</div>
 </nav>
 
 <!-- HERO -->
@@ -116,7 +130,7 @@ footer a { color:#00bfff; }
   <div id="particles-js"></div>
   <div class="hero-content">
     <h1>Membangun Ekosistem Bisnis Terintegrasi</h1>
-    <p>Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui pengembangan portofolio multibisnis yang inovatif dan kompetitif secara global.</p>
+    <p>Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui portofolio multibisnis yang inovatif dan kompetitif secara global.</p>
     <a href="#about" class="cta">Pelajari Lebih Lanjut</a>
     <a href="#units" class="cta">Lihat Unit Bisnis</a>
   </div>
@@ -126,7 +140,7 @@ footer a { color:#00bfff; }
 <section id="about">
   <div class="section-title"><h2>Tentang Kami</h2></div>
   <p style="text-align:center; max-width:900px; margin:0 auto; font-size:1.1rem;">
-    PT Astria Sukses Internasional (Astria Group) merupakan holding company yang berkomitmen membangun ekosistem bisnis yang terintegrasi, inovatif, dan kompetitif secara global.
+    PT Astria Sukses Internasional (Astria Group) merupakan holding company yang membangun ekosistem bisnis terintegrasi, inovatif, dan kompetitif secara global.
   </p>
 </section>
 
@@ -136,15 +150,15 @@ footer a { color:#00bfff; }
   <div class="tridharma">
     <div class="tridharma-item">
       <h4>Mengelola Sumber Daya Alam</h4>
-      <p>Kami berdedikasi untuk memanfaatkan sumber daya alam secara bertanggung jawab, memastikan keberlanjutan lingkungan dan kesejahteraan generasi mendatang.</p>
+      <p>Kami berdedikasi memanfaatkan sumber daya alam secara bertanggung jawab, menjamin keberlanjutan lingkungan dan generasi mendatang.</p>
     </div>
     <div class="tridharma-item">
       <h4>Membangun Sumber Daya Manusia</h4>
-      <p>Menyediakan produk dan layanan yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.</p>
+      <p>Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.</p>
     </div>
     <div class="tridharma-item">
       <h4>Mengkapitalisasi Sumber Daya Keuangan</h4>
-      <p>Menggunakan keahlian finansial untuk menciptakan stabilitas dan kemakmuran, mendukung investasi cerdas, lapangan kerja, dan inisiatif sosial.</p>
+      <p>Menggunakan keahlian finansial untuk stabilitas dan kemakmuran, mendukung investasi strategis, lapangan kerja, dan inisiatif sosial.</p>
     </div>
   </div>
 </section>
@@ -163,7 +177,7 @@ footer a { color:#00bfff; }
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-title"><h2>Hubungi Kami</h2></div>
-  <p style="text-align:center; margin-bottom:30px;">Mari bergabung dalam membangun masa depan yang lebih baik bersama Astria Group</p>
+  <p style="text-align:center; margin-bottom:30px;">Mari bergabung membangun masa depan yang lebih baik bersama Astria Group</p>
   <p style="text-align:center;">Email: <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a> | WA: <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a></p>
   <p style="text-align:center;">Alamat: Gedung Puskopal Lt.2, Komplek TNI AL Jl. Tabah Raya No.19, Kelapa Gading, Jakarta Utara</p>
 </section>
@@ -177,7 +191,7 @@ footer a { color:#00bfff; }
 <!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/6289652435067" target="_blank" id="whatsapp">💬</a>
 
-<!-- PARTICLES.JS -->
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
 particlesJS("particles-js", {
@@ -191,11 +205,9 @@ particlesJS("particles-js", {
     "move": { "enable": true, "speed": 2 }
   }
 });
-</script>
 
-<!-- SCROLL REVEAL -->
-<script>
-const faders = document.querySelectorAll('.card, .tridharma-item');
+// Scroll reveal
+const faders = document.querySelectorAll('.card, .tridharma-item, .hero p');
 const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
 const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
   entries.forEach(entry => {
@@ -208,6 +220,10 @@ faders.forEach(fader => appearOnScroll.observe(fader));
 
 // Preloader
 window.addEventListener('load', () => { document.getElementById('preloader').style.display='none'; });
+
+// Dark/Light toggle
+const toggle = document.getElementById('modeToggle');
+toggle.addEventListener('click', () => { document.body.classList.toggle('dark'); });
 </script>
 
 </body>
