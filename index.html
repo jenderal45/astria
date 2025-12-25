@@ -200,7 +200,13 @@ footer a:hover{color:#007acc;}
   <div><span id="seconds">0</span><label>Detik</label></div>
   <div><span id="milliseconds">0</span><label>Ms</label></div>
 </div>
-
+    
+<!-- MUSIC BACKGROUND -->
+<audio id="bgMusic" autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7f6e4ee4a3.mp3?filename=calm-background-ambient-10809.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+    
 <!-- ABOUT -->
 <section id="about">
   <div class="section-title"><h2 data-lang="aboutTitle">Tentang Kami</h2></div>
@@ -327,6 +333,11 @@ el.innerText=translations[currentLang][key]||el.innerText;
 });
 langToggle.innerText=currentLang==='id'?'EN':'ID';
 });
+
+// MUSIC BACKGROUND
+const bgMusic = document.getElementById('bgMusic');
+bgMusic.volume = 0.2; // 20% volume
+bgMusic.play().catch(e => console.log('Autoplay blocked', e));
 
 // COUNTDOWN DETAIL
 function updateCurrentTime(){
