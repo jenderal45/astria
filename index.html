@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Astria Group | Integrated Business Ecosystem</title>
+
 <!-- LOTTIE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
 <!-- PARTICLES -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
@@ -45,93 +47,54 @@ nav ul li a:hover{color:#007acc;}
 .section-title h2{font-size:2.5rem;position:relative;}
 .section-title h2::after{content:'';width:60px;height:4px;background:#00bfff;display:block;margin:10px auto 0;border-radius:2px;}
 
-/* CARDS */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.card{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}
-body.dark .card{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
+/* CARDS UNIT BISNIS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;justify-items:center;}
+.card{background:none;text-align:center;padding:0;transition:0.4s;opacity:0;transform:translateY(50px);}
 .card.show{opacity:1;transform:translateY(0);}
-.card img{width:80px;margin-bottom:15px;transition:0.4s;}
-.card h3{font-size:1.5rem;margin-bottom:10px;color:#020617;}
-body.dark .card h3{color:#fff;}
-.card p{font-size:1rem;color:#555;margin-bottom:15px;}
-body.dark .card p{color:#ccc;}
-.card a{color:#00bfff;font-weight:bold;transition:0.3s;}
-.card a:hover{color:#007acc;transform:scale(1.05);}
-.card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 15px 25px rgba(0,0,0,0.2);filter: drop-shadow(0 0 10px #00bfff);}
+.card img{width:120px;margin-bottom:15px;border-radius:15px;}
+.card h3{margin-top:10px;font-size:1.5rem;color:#020617;}
+.card p{font-size:1rem;color:#555;}
+.card a{display:inline-block;margin-top:10px;background:#00bfff;color:#fff;padding:10px 20px;border-radius:50px;font-weight:bold;transition:0.3s;}
+.card a:hover{background:#007acc;transform:scale(1.05);}
 
 /* TRIDHARMA */
-.tridharma{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.tridharma{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;justify-items:center;}
 .tridharma-item{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}
-body.dark .tridharma-item{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
 .tridharma-item.show{opacity:1;transform:translateY(0);}
 .tridharma-item h4{font-size:1.3rem;margin-bottom:10px;color:#020617;}
-body.dark .tridharma-item h4{color:#fff;}
 .tridharma-item p{color:#555;font-size:1rem;}
-body.dark .tridharma-item p{color:#ccc;}
 
 /* FOOTER */
-footer{background:#020617;color:#fff;padding:50px;text-align:center;}
-footer p{margin-bottom:15px;}
-footer a{color:#00bfff;}
+footer{background:#020617;color:#fff;padding:50px 20px;text-align:center;font-family:'Segoe UI',sans-serif;}
+footer h3{font-size:1.8rem;margin-bottom:15px;color:#00bfff;}
+footer p{margin:5px 0;font-size:1rem;}
+footer a{color:#00bfff;text-decoration:none;font-weight:bold;transition:0.3s;}
+footer a:hover{color:#007acc;}
+.footer-socials{margin:15px 0;display:flex;justify-content:center;gap:15px;}
+.footer-socials a{display:inline-flex;justify-content:center;align-items:center;width:45px;height:45px;border-radius:50%;background:#00bfff;color:#fff;font-size:1.2rem;transition:0.3s;}
+.footer-socials a:hover{background:#007acc;}
+footer .copyright{margin-top:20px;font-size:0.9rem;color:#ccc;}
 
-<!-- FLOATING TOGGLE BUTTON -->
-<div id="floatToggle" style="position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#007acc;color:#fff;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:10000;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);">
-  ☰
-</div>
+/* STICKY CTA */
+#stickyCTA{position:fixed;right:30px;bottom:200px;background:#00bfff;color:#fff;padding:15px 25px;border-radius:50px;font-weight:bold;z-index:9999;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;text-align:center;transition:0.3s ease,transform 0.3s ease;}
+#stickyCTA:hover{transform:scale(1.05);background:#007acc;}
 
-<!-- FLOATING SOCIAL BUTTONS -->
-<a href="https://wa.me/6289652435067" target="_blank" id="whatsapp" class="floating-btn">💬</a>
-<a href="https://www.instagram.com/astriagroup/" target="_blank" id="instagram" class="floating-btn">📸</a>
-<a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" id="linkedin" class="floating-btn">in</a>
+/* FLOATING SOCIAL BUTTONS */
+.floating-btn{position:fixed;display:flex;justify-content:center;align-items:center;width:60px;height:60px;border-radius:50%;font-size:30px;color:#fff;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:0.3s;z-index:9999;}
+#whatsapp{background:#25D366;bottom:100px;right:25px;}
+#instagram{background:#E1306C;bottom:175px;right:25px;}
+#linkedin{background:#0A66C2;bottom:250px;right:25px;}
+.floating-hidden{transform:scale(0);opacity:0;pointer-events:none;}
 
-<style>
-.floating-btn {
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:30px;
-  color:#fff;
-  text-decoration:none;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
-  transition:0.3s, transform 0.3s ease;
-  z-index:9999;
-}
-
-/* Warna masing-masing */
-#whatsapp{background:#25D366; bottom:100px;}
-#instagram{background:#E1306C; bottom:175px;}
-#linkedin{background:#0A66C2; bottom:250px;}
-
-/* Hidden state */
-.floating-hidden { transform: scale(0); opacity:0; pointer-events:none; }
-</style>
-
-<script>
-const floatToggle = document.getElementById('floatToggle');
-const floatingButtons = document.querySelectorAll('.floating-btn');
-let floatOpen = true;
-
-floatToggle.addEventListener('click', () => {
-  floatOpen = !floatOpen;
-  floatingButtons.forEach(btn => {
-    if(floatOpen) btn.classList.remove('floating-hidden');
-    else btn.classList.add('floating-hidden');
-  });
-});
-</script>
+/* FLOAT TOGGLE BUTTON */
+#floatToggle{position:fixed;bottom:25px;right:25px;width:60px;height:60px;border-radius:50%;background:#007acc;color:#fff;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:10000;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.3);}
 
 /* RESPONSIVE */
 @media(max-width:768px){
   nav{flex-direction:column;padding:15px 20px;}
   nav ul{flex-direction:column;gap:15px;margin-top:10px;}
   .hero h1{font-size:2rem;}
-  #stickyCTA{bottom:200px;right:20px;padding:12px 20px;}
+  #stickyCTA{bottom:150px;right:20px;padding:12px 20px;}
 }
 </style>
 </head>
@@ -175,6 +138,17 @@ floatToggle.addEventListener('click', () => {
   </p>
 </section>
 
+<!-- UNIT BISNIS -->
+<section id="units">
+  <div class="section-title"><h2 data-lang="unitsTitle">Unit Bisnis Kami</h2></div>
+  <div class="cards">
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oravita.png" alt="Oravita"><h3 data-lang="oravitaTitle">Oravita Global</h3><p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p><a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-neulink-news.png" alt="Neulink News"><h3 data-lang="neulinkTitle">Neulink News</h3><p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p><a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-exmind-digital.jpg" alt="Exmind Digital"><h3 data-lang="exmindTitle">Exmind Digital</h3><p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p><a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-fdx-management.jpg" alt="FDX Management"><h3 data-lang="fdxTitle">FDX Management</h3><p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p><a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+  </div>
+</section>
+
 <!-- TRIDHARMA -->
 <section id="tridharma">
   <div class="section-title"><h2 data-lang="tridharmaTitle">Tri Dharma Astria</h2></div>
@@ -194,17 +168,6 @@ floatToggle.addEventListener('click', () => {
   </div>
 </section>
 
-<!-- UNIT BISNIS -->
-<section id="units">
-  <div class="section-title"><h2 data-lang="unitsTitle">Unit Bisnis Kami</h2></div>
-  <div class="cards">
-    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oravita.png" alt="Oravita"><h3 data-lang="oravitaTitle">Oravita Global</h3><p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p><a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-neulink-news.png" alt="Neulink News"><h3 data-lang="neulinkTitle">Neulink News</h3><p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p><a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-exmind-digital.jpg" alt="Exmind Digital"><h3 data-lang="exmindTitle">Exmind Digital</h3><p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p><a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
-    <div class="card"><img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-fdx-management.jpg" alt="FDX Management"><h3 data-lang="fdxTitle">FDX Management</h3><p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p><a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-title"><h2 data-lang="contactTitle">Hubungi Kami</h2></div>
@@ -213,20 +176,29 @@ floatToggle.addEventListener('click', () => {
   <p style="text-align:center;">Alamat: Gedung Puskopal Lt.2, Komplek TNI AL Jl. Tabah Raya No.19, Kelapa Gading, Jakarta Utara</p>
 </section>
 
+<!-- STICKY CTA -->
+<a href="#contact" id="stickyCTA">Hubungi Kami</a>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 PT Astria Sukses Internasional (Astria Group) | Semua Hak Dilindungi.</p>
-  <p>Proudly crafted by Oqline Technology • Professional Web Development Solutions</p>
-  <div style="margin-top:15px;">
-    <a href="https://www.instagram.com/astriagroup/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30"></a>
-    <a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="30"></a>
+  <div class="footer-container">
+    <h3>Hubungi Kami</h3>
+    <p>Email: <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a></p>
+    <p>WA: <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a></p>
+    <p>Alamat: Gedung Puskopal Lt.2, Komplek TNI AL Jl. Tabah Raya No.19, Kelapa Gading, Jakarta Utara</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/astriagroup/" target="_blank">📸</a>
+      <a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank">in</a>
+    </div>
+    <p class="copyright">© 2025 PT Astria Sukses Internasional (Astria Group)</p>
   </div>
 </footer>
 
-<!-- FLOATING WHATSAPP & SOCIAL -->
-<a href="https://wa.me/6289652435067" target="_blank" id="whatsapp">💬</a>
-<a href="https://www.instagram.com/astriagroup/" target="_blank" id="instagram">📸</a>
-<a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" id="linkedin">in</a>
+<!-- FLOATING SOCIAL & TOGGLE -->
+<div id="floatToggle">☰</div>
+<a href="https://wa.me/6289652435067" target="_blank" id="whatsapp" class="floating-btn">💬</a>
+<a href="https://www.instagram.com/astriagroup/" target="_blank" id="instagram" class="floating-btn">📸</a>
+<a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" id="linkedin" class="floating-btn">in</a>
 
 <script>
 // PARTICLES
@@ -249,31 +221,13 @@ document.getElementById('modeToggle').addEventListener('click',()=>{document.bod
 // STICKY CTA
 window.addEventListener('scroll',()=>{const sticky=document.getElementById('stickyCTA');window.scrollY>400?sticky.style.display='flex':sticky.style.display='none';});
 
-// MULTI-LANGUAGE
-const langToggle=document.getElementById('langToggle');
-const translations={
-en:{
-home:"Home",about:"About",units:"Business Units",tridharma:"Tri Dharma",contact:"Contact",
-heroTitle:"Building Integrated Business Ecosystem",
-heroDesc:"Holding company committed to sustainable value creation through innovative and globally competitive multi-business portfolios.",
-learnMore:"Learn More",viewUnits:"View Units",
-aboutTitle:"About Us",aboutDesc:"PT Astria Sukses Internasional (Astria Group) is a holding company building an integrated, innovative, and globally competitive business ecosystem.",
-tridharmaTitle:"Tri Dharma Astria",
-dharma1Title:"Managing Natural Resources",dharma1Desc:"We are dedicated to responsibly utilizing natural resources, ensuring environmental sustainability and future generations.",
-dharma2Title:"Developing Human Capital",dharma2Desc:"Providing products and services that educate, improve health, and empower communities. Human capital development is the foundation of national progress.",
-dharma3Title:"Leveraging Financial Resources",dharma3Desc:"Using financial expertise for stability and prosperity, supporting strategic investments, job creation, and social initiatives.",
-unitsTitle:"Our Business Units",
-oravitaTitle:"Oravita Global",oravitaDesc:"Consumer & Agribusiness, focusing on quality and sustainable food and agribusiness products.",
-neulinkTitle:"Neulink News",neulinkDesc:"Digital Media, news portal and creative content that is informative, educational, and inspiring.",
-exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, providing branding, social media, website, and professional creative campaigns.",
-fdxTitle:"FDX Management",fdxDesc:"Talent Agency, managing talent, influencers, KOLs, and creative campaigns.",
-visitWebsite:"Visit Website",contactTitle:"Contact Us",contactDesc:"Join us to build a better future with Astria Group",stickyCTA:"Contact Us"
-}};
-let lang="id";
-langToggle.addEventListener('click',()=>{
-lang=lang==="id"?"en":"id";
-document.querySelectorAll('[data-lang]').forEach(el=>{const key=el.getAttribute('data-lang');el.textContent=translations[lang]?.[key]??el.textContent;});
-langToggle.textContent=lang==="id"?"EN":"ID";
+// FLOAT TOGGLE
+const floatToggle = document.getElementById('floatToggle');
+const floatingButtons = document.querySelectorAll('.floating-btn');
+let floatOpen = true;
+floatToggle.addEventListener('click', () => {
+  floatOpen = !floatOpen;
+  floatingButtons.forEach(btn => {btn.style.transform = floatOpen ? 'scale(1)' : 'scale(0)'; btn.style.opacity = floatOpen ? '1' : '0'; btn.style.pointerEvents = floatOpen ? 'auto' : 'none';});
 });
 </script>
 
