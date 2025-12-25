@@ -1,301 +1,57 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Astria Group | Integrated Business Ecosystem</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f5;color:#111;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
-img{max-width:100%;display:block;}
-section{padding:80px 50px;}
-body.dark{background:#020617;color:#fff;}
-body.dark a{color:#00bfff;}
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Astria Group | Integrated Business Ecosystem</title><meta name="description" content="Astria Group - Holding company membangun ekosistem bisnis terintegrasi. Unit bisnis: Oravita, Neulink News, Exmind Digital, FDX Management."><meta name="keywords" content="Astria Group, Oravita, Neulink News, Exmind Digital, FDX Management, Holding Company, Bisnis Terintegrasi"><meta property="og:title" content="Astria Group"><meta property="og:description" content="Astria Group - Holding company membangun ekosistem bisnis terintegrasi."><meta property="og:image" content="img/astria-logo.png"><meta property="og:type" content="website"><link rel="icon" href="img/astria-logo.png"><script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script><style>*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}body{font-family:'Segoe UI',sans-serif;background:#f5f5f5;color:#111;overflow-x:hidden;}a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}section{padding:80px 50px;}body.dark{background:#020617;color:#fff;}body.dark a{color:#00bfff;}nav{position:sticky;top:0;background:transparent;color:#111;display:flex;justify-content:space-between;align-items:center;padding:15px 50px;z-index:999;box-shadow:none;}.logo img{height:50px;background:none;}nav ul{list-style:none;display:flex;gap:25px;}nav ul li a{font-weight:500;transition:0.3s;}nav ul li a:hover{color:#007acc;}#modeToggle,#langToggle{cursor:pointer;padding:5px 10px;border-radius:5px;background:#00bfff;color:#fff;font-weight:bold;margin-left:10px;transition:0.3s;}#modeToggle:hover,#langToggle:hover{background:#007acc;}.hero{height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;}.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}#particles-js{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}.hero-content{z-index:2;max-width:900px;}.hero h1{font-size:3rem;margin-bottom:20px;background:linear-gradient(90deg,#00bfff,#007acc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation: slideDown 1s ease-out;}.hero p{font-size:1.2rem;margin-bottom:30px;opacity:0;animation: fadeIn 2s ease-in forwards;}.hero .cta{background:#00bfff;padding:12px 30px;border-radius:50px;color:#fff;font-weight:bold;margin:5px;transition:0.3s;}.hero .cta:hover{background:#007acc;transform:scale(1.1);}@keyframes slideDown{from{transform:translateY(-50px);opacity:0;}to{transform:translateY(0);opacity:1;}}@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}.section-title{text-align:center;margin-bottom:50px;}.section-title h2{font-size:2.5rem;position:relative;}.section-title h2::after{content:'';width:60px;height:4px;background:#00bfff;display:block;margin:10px auto 0;border-radius:2px;}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}.card{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}body.dark .card{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}.card.show{opacity:1;transform:translateY(0);}.card h3{font-size:1.5rem;margin-bottom:10px;color:#020617;}body.dark .card h3{color:#fff;}.card p{font-size:1rem;color:#555;margin-bottom:15px;}body.dark .card p{color:#ccc;}.card a{color:#00bfff;font-weight:bold;transition:0.3s;}.card a:hover{color:#007acc;transform:scale(1.05);}.card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 15px 25px rgba(0,0,0,0.2);filter: drop-shadow(0 0 10px #00bfff);}.lottie{width:150px;height:150px;margin:0 auto 15px;}.tridharma{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}.tridharma-item{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}body.dark .tridharma-item{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}.tridharma-item.show{opacity:1;transform:translateY(0);}.tridharma-item h4{font-size:1.3rem;margin-bottom:10px;color:#020617;}body.dark .tridharma-item h4{color:#fff;}.tridharma-item p{color:#555;font-size:1rem;}body.dark .tridharma-item p{color:#ccc;}footer{background:#0a0a1a;color:#00fff0;padding:60px 20px;text-align:center;font-family:'Segoe UI',sans-serif;position:relative;overflow:hidden;}footer h3{color:#00fff0;font-size:1.8rem;margin-bottom:15px;}footer p{opacity:0.8;margin-bottom:20px;}footer img{filter:drop-shadow(0 0 5px #00fff0);margin:0 10px;transition:0.3s;}footer img:hover{transform:scale(1.2);}@keyframes lineMove{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}#whatsapp,#instagram,#linkedin{position:fixed;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}#whatsapp{bottom:25px;right:25px;background:#25D366;color:#fff;}#instagram{bottom:100px;right:25px;background:#E1306C;color:#fff;}#linkedin{bottom:175px;right:25px;background:#0A66C2;color:#fff;}#stickyCTA{position:fixed;right:30px;bottom:250px;background:#00bfff;color:#fff;padding:15px 25px;border-radius:50px;font-weight:bold;z-index:9999;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;transition:0.3s;}#stickyCTA:hover{transform:scale(1.05);background:#007acc;}@media(max-width:768px){nav{flex-direction:column;padding:15px 20px;}nav ul{flex-direction:column;gap:15px;margin-top:10px;}.hero h1{font-size:2rem;}#stickyCTA{bottom:200px;right:20px;padding:12px 20px;}}</style></head><body>
 
-/* NAVBAR */
-nav{position:sticky;top:0;background:transparent;color:#111;display:flex;justify-content:space-between;align-items:center;padding:15px 50px;z-index:999;box-shadow:none;}
-.logo img{height:50px;background:none;}
-nav ul{list-style:none;display:flex;gap:25px;}
-nav ul li a{font-weight:500;transition:0.3s;}
-nav ul li a:hover{color:#007acc;}
-#modeToggle,#langToggle{cursor:pointer;padding:5px 10px;border-radius:5px;background:#00bfff;color:#fff;font-weight:bold;margin-left:10px;transition:0.3s;}
-#modeToggle:hover,#langToggle:hover{background:#007acc;}
+<nav><div class="logo"><a href="#home"><img src="img/astria-logo.png" alt="Astria Group Logo"></a></div><ul><li><a href="#home" data-lang="home">Beranda</a></li><li><a href="#about" data-lang="about">Tentang</a></li><li><a href="#units" data-lang="units">Unit Bisnis</a></li><li><a href="#tridharma" data-lang="tridharma">Tri Dharma</a></li><li><a href="#contact" data-lang="contact">Kontak</a></li></ul><div><span id="modeToggle">Dark/Light</span><span id="langToggle">EN</span></div></nav>
 
-/* HERO */
-.hero{height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;}
-.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
-#particles-js{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
-.hero-content{z-index:2;max-width:900px;}
-.hero h1{font-size:3rem;margin-bottom:20px;background:linear-gradient(90deg,#00bfff,#007acc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation: slideDown 1s ease-out;}
-.hero p{font-size:1.2rem;margin-bottom:30px;opacity:0;animation: fadeIn 2s ease-in forwards;}
-.hero .cta{background:#00bfff;padding:12px 30px;border-radius:50px;color:#fff;font-weight:bold;margin:5px;transition:0.3s;}
-.hero .cta:hover{background:#007acc;transform:scale(1.1);}
+<section class="hero" id="home"><video autoplay muted loop><source src="https://cdn.pixabay.com/vimeo/524780719/abstract-visual-59639.mp4" type="video/mp4"></video><div id="particles-js"></div><div class="hero-content"><h1 data-lang="heroTitle">Membangun Ekosistem Bisnis Terintegrasi</h1><p data-lang="heroDesc">Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui portofolio multibisnis yang inovatif dan kompetitif secara global.</p><a href="#about" class="cta" data-lang="learnMore">Pelajari Lebih Lanjut</a><a href="#units" class="cta" data-lang="viewUnits">Lihat Unit Bisnis</a></div></section>
 
-/* ANIMATIONS */
-@keyframes slideDown{from{transform:translateY(-50px);opacity:0;}to{transform:translateY(0);opacity:1;}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+<section id="about"><div class="section-title"><h2 data-lang="aboutTitle">Tentang Kami</h2></div><p style="text-align:center; max-width:900px; margin:0 auto; font-size:1.1rem;" data-lang="aboutDesc">PT Astria Sukses Internasional (Astria Group) merupakan holding company yang membangun ekosistem bisnis terintegrasi, inovatif, dan kompetitif secara global.</p></section>
 
-/* SECTION TITLES */
-.section-title{text-align:center;margin-bottom:50px;}
-.section-title h2{font-size:2.5rem;position:relative;}
-.section-title h2::after{content:'';width:60px;height:4px;background:#00bfff;display:block;margin:10px auto 0;border-radius:2px;}
+<section id="tridharma"><div class="section-title"><h2 data-lang="tridharmaTitle">Tri Dharma Astria</h2></div><div class="tridharma">
+<div class="tridharma-item"><div id="lottieDharma1" class="lottie"></div><h4 data-lang="dharma1Title">Mengelola Sumber Daya Alam</h4><p data-lang="dharma1Desc">Kami berdedikasi memanfaatkan sumber daya alam secara bertanggung jawab, menjamin keberlanjutan lingkungan dan generasi mendatang.</p></div>
+<div class="tridharma-item"><div id="lottieDharma2" class="lottie"></div><h4 data-lang="dharma2Title">Membangun Sumber Daya Manusia</h4><p data-lang="dharma2Desc">Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.</p></div>
+<div class="tridharma-item"><div id="lottieDharma3" class="lottie"></div><h4 data-lang="dharma3Title">Mengkapitalisasi Sumber Daya Keuangan</h4><p data-lang="dharma3Desc">Menggunakan keahlian finansial untuk stabilitas dan kemakmuran, mendukung investasi strategis, lapangan kerja, dan inisiatif sosial.</p></div></div></section>
 
-/* CARDS */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.card{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}
-body.dark .card{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
-.card.show{opacity:1;transform:translateY(0);}
-.card h3{font-size:1.5rem;margin-bottom:10px;color:#020617;}
-body.dark .card h3{color:#fff;}
-.card p{font-size:1rem;color:#555;margin-bottom:15px;}
-body.dark .card p{color:#ccc;}
-.card a{color:#00bfff;font-weight:bold;transition:0.3s;}
-.card a:hover{color:#007acc;transform:scale(1.05);}
-.card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 15px 25px rgba(0,0,0,0.2);filter: drop-shadow(0 0 10px #00bfff);}
+<section id="units"><div class="section-title"><h2 data-lang="unitsTitle">Unit Bisnis Kami</h2></div>
+<div class="cards">
+<div class="card"><div id="lottieOravita" class="lottie"></div><h3 data-lang="oravitaTitle">Oravita Global</h3><p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p><a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+<div class="card"><div id="lottieNeulink" class="lottie"></div><h3 data-lang="neulinkTitle">Neulink News</h3><p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p><a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+<div class="card"><div id="lottieExmind" class="lottie"></div><h3 data-lang="exmindTitle">Exmind Digital</h3><p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p><a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+<div class="card"><div id="lottieFDX" class="lottie"></div><h3 data-lang="fdxTitle">FDX Management</h3><p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p><a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a></div>
+</div></section>
 
-/* LOTTIE */
-.lottie{width:150px;height:150px;margin:0 auto 15px;}
+<section id="contact"><div class="section-title"><h2 data-lang="contactTitle">Hubungi Kami</h2></div><p style="text-align:center; margin-bottom:30px;" data-lang="contactDesc">Mari bergabung membangun masa depan yang lebih baik bersama Astria Group</p><p style="text-align:center;">Email: <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a> | WA: <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a></p><p style="text-align:center;">Alamat: Gedung Puskopal Lt.2, Komplek TNI AL Jl. Tabah Raya No.19, Kelapa Gading, Jakarta Utara</p></section>
 
-/* TRIDHARMA */
-.tridharma{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.tridharma-item{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,0.1);transition:0.4s;opacity:0;transform:translateY(50px);}
-body.dark .tridharma-item{background:#1a1a2e;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
-.tridharma-item.show{opacity:1;transform:translateY(0);}
-.tridharma-item h4{font-size:1.3rem;margin-bottom:10px;color:#020617;}
-body.dark .tridharma-item h4{color:#fff;}
-.tridharma-item p{color:#555;font-size:1rem;}
-body.dark .tridharma-item p{color:#ccc;}
-
-/* FOOTER FUTURISTIK */
-footer{background:#0a0a1a;color:#00fff0;padding:60px 20px;text-align:center;font-family:'Segoe UI',sans-serif;position:relative;overflow:hidden;}
-footer h3{color:#00fff0;font-size:1.8rem;margin-bottom:15px;}
-footer p{opacity:0.8;margin-bottom:20px;}
-footer img{filter:drop-shadow(0 0 5px #00fff0);margin:0 10px;transition:0.3s;}
-footer img:hover{transform:scale(1.2);}
-@keyframes lineMove{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
-
-/* FLOATING SOCIAL */
-#whatsapp,#instagram,#linkedin{position:fixed;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:30px;z-index:9999;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none;}
-#whatsapp{bottom:25px;right:25px;background:#25D366;color:#fff;}
-#instagram{bottom:100px;right:25px;background:#E1306C;color:#fff;}
-#linkedin{bottom:175px;right:25px;background:#0A66C2;color:#fff;}
-
-/* STICKY CTA */
-#stickyCTA{position:fixed;right:30px;bottom:250px;background:#00bfff;color:#fff;padding:15px 25px;border-radius:50px;font-weight:bold;z-index:9999;cursor:pointer;box-shadow:0 5px 20px rgba(0,0,0,0.3);display:none;transition:0.3s;}
-#stickyCTA:hover{transform:scale(1.05);background:#007acc;}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav{flex-direction:column;padding:15px 20px;}
-  nav ul{flex-direction:column;gap:15px;margin-top:10px;}
-  .hero h1{font-size:2rem;}
-  #stickyCTA{bottom:200px;right:20px;padding:12px 20px;}
-}
-</style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav>
-  <div class="logo"><a href="#home"><img src="img/logo-astria-group.jpg" alt="Astria Group Logo"></a></div>
-  <ul>
-    <li><a href="#home" data-lang="home">Beranda</a></li>
-    <li><a href="#about" data-lang="about">Tentang</a></li>
-    <li><a href="#units" data-lang="units">Unit Bisnis</a></li>
-    <li><a href="#tridharma" data-lang="tridharma">Tri Dharma</a></li>
-    <li><a href="#contact" data-lang="contact">Kontak</a></li>
-  </ul>
-  <div>
-    <span id="modeToggle">Dark/Light</span>
-    <span id="langToggle">EN</span>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <video autoplay muted loop>
-    <source src="https://cdn.pixabay.com/vimeo/524780719/abstract-visual-59639.mp4" type="video/mp4">
-  </video>
-  <div id="particles-js"></div>
-  <div class="hero-content">
-    <h1 data-lang="heroTitle">Membangun Ekosistem Bisnis Terintegrasi</h1>
-    <p data-lang="heroDesc">Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui portofolio multibisnis yang inovatif dan kompetitif secara global.</p>
-    <a href="#about" class="cta" data-lang="learnMore">Pelajari Lebih Lanjut</a>
-    <a href="#units" class="cta" data-lang="viewUnits">Lihat Unit Bisnis</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-title"><h2 data-lang="aboutTitle">Tentang Kami</h2></div>
-  <p style="text-align:center; max-width:900px; margin:0 auto; font-size:1.1rem;" data-lang="aboutDesc">
-    PT Astria Sukses Internasional (Astria Group) merupakan holding company yang membangun ekosistem bisnis terintegrasi, inovatif, dan kompetitif secara global.
-  </p>
-</section>
-
-<!-- TRIDHARMA -->
-<section id="tridharma">
-  <div class="section-title"><h2 data-lang="tridharmaTitle">Tri Dharma Astria</h2></div>
-  <div class="tridharma">
-    <div class="tridharma-item">
-      <div id="lottieDharma1" class="lottie"></div>
-      <h4 data-lang="dharma1Title">Mengelola Sumber Daya Alam</h4>
-      <p data-lang="dharma1Desc">Kami berdedikasi memanfaatkan sumber daya alam secara bertanggung jawab, menjamin keberlanjutan lingkungan dan generasi mendatang.</p>
-    </div>
-    <div class="tridharma-item">
-      <div id="lottieDharma2" class="lottie"></div>
-      <h4 data-lang="dharma2Title">Membangun Sumber Daya Manusia</h4>
-      <p data-lang="dharma2Desc">Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.</p>
-    </div>
-    <div class="tridharma-item">
-      <div id="lottieDharma3" class="lottie"></div>
-      <h4 data-lang="dharma3Title">Mengkapitalisasi Sumber Daya Keuangan</h4>
-      <p data-lang="dharma3Desc">Menggunakan keahlian finansial untuk stabilitas dan kemakmuran, mendukung investasi strategis, lapangan kerja, dan inisiatif sosial.</p>
-    </div>
-  </div>
-</section>
-
-<!-- UNIT BISNIS -->
-<section id="units">
-  <div class="section-title"><h2 data-lang="unitsTitle">Unit Bisnis Kami</h2></div>
-  <div class="cards">
-    <div class="card">
-      <div id="lottieOravita" class="lottie"></div>
-      <h3 data-lang="oravitaTitle">Oravita Global</h3>
-      <p data-lang="oravitaDesc">Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.</p>
-      <a href="https://oravita.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-    <div class="card">
-      <div id="lottieNeulink" class="lottie"></div>
-      <h3 data-lang="neulinkTitle">Neulink News</h3>
-      <p data-lang="neulinkDesc">Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.</p>
-      <a href="https://neulinknews.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-    <div class="card">
-      <div id="lottieExmind" class="lottie"></div>
-      <h3 data-lang="exmindTitle">Exmind Digital</h3>
-      <p data-lang="exmindDesc">Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.</p>
-      <a href="https://exmind.vercel.app/#contact" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-    <div class="card">
-      <div id="lottieFDX" class="lottie"></div>
-      <h3 data-lang="fdxTitle">FDX Management</h3>
-      <p data-lang="fdxDesc">Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.</p>
-      <a href="https://fdx-mg.vercel.app/" target="_blank" data-lang="visitWebsite">Kunjungi Website</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-title"><h2 data-lang="contactTitle">Hubungi Kami</h2></div>
-  <p style="text-align:center; margin-bottom:30px;" data-lang="contactDesc">Mari bergabung membangun masa depan yang lebih baik bersama Astria Group</p>
-  <p style="text-align:center;">Email: <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a> | WA: <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a></p>
-  <p style="text-align:center;">Alamat: Gedung Puskopal Lt.2, Komplek TNI AL Jl. Tabah Raya No.19, Kelapa Gading, Jakarta Utara</p>
-</section>
-
-<!-- FOOTER FUTURISTIK -->
 <footer>
-  <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;">
-    <div style="position:absolute;width:100%;height:2px;background:linear-gradient(90deg,#00fff0,#007acc);top:20%;animation:lineMove 5s linear infinite;"></div>
-    <div style="position:absolute;width:100%;height:2px;background:linear-gradient(90deg,#ff00ff,#ff8800);top:60%;animation:lineMove 7s linear infinite;"></div>
-  </div>
-  <div style="position:relative;z-index:1;">
-    <h3>Astria Group</h3>
-    <p>Building Integrated Business Ecosystem • © 2025 All Rights Reserved</p>
-    <div style="margin-bottom:20px;">
-      <a href="https://www.instagram.com/astriagroup/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="35"></a>
-      <a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="35"></a>
-      <a href="https://wa.me/6289652435067" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="35"></a>
-    </div>
-    <p>Crafted by Oqline Technology • Professional Web Development</p>
-  </div>
+<div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;">
+<div style="position:absolute;width:100%;height:2px;background:linear-gradient(90deg,#00fff0,#007acc);top:20%;animation:lineMove 5s linear infinite;"></div>
+<div style="position:absolute;width:100%;height:2px;background:linear-gradient(90deg,#ff00ff,#ff8800);top:60%;animation:lineMove 7s linear infinite;"></div>
+</div>
+<div style="position:relative;z-index:1;">
+<h3>Astria Group</h3>
+<p>Building Integrated Business Ecosystem • © 2025 All Rights Reserved</p>
+<div style="margin-bottom:20px;">
+<a href="https://www.instagram.com/astriagroup/" target="_blank"><img src="img/instagram.png" width="35"></a>
+<a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank"><img src="img/linkedin.png" width="35"></a>
+<a href="https://wa.me/6289652435067" target="_blank"><img src="img/whatsapp.png" width="35"></a>
+</div>
+<p>Crafted by Oqline Technology • Professional Web Development</p>
+</div>
 </footer>
 
-<!-- FLOATING SOCIAL -->
 <a href="https://wa.me/6289652435067" target="_blank" id="whatsapp">💬</a>
 <a href="https://www.instagram.com/astriagroup/" target="_blank" id="instagram">📸</a>
 <a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" id="linkedin">in</a>
 
-<!-- STICKY CTA -->
 <div id="stickyCTA" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})" data-lang="stickyCTA">Hubungi Kami</div>
 
-<!-- AUDIO BACKGROUND LOOP -->
-<audio autoplay loop id="bgMusic">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
+<audio autoplay loop id="bgMusic"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
 
 <script>
-// PARTICLES
 particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#00bfff"},shape:{type:"circle"},opacity:{value:0.5},size:{value:3},line_linked:{enable:true,color:"#00bfff",opacity:0.4},move:{enable:true,speed:2}}});
-
-// DARK/LIGHT MODE
-const modeToggle=document.getElementById('modeToggle');
-modeToggle.addEventListener('click',()=>{document.body.classList.toggle('dark');});
-
-// LANGUAGE
-const langToggle=document.getElementById('langToggle');
-const translations={id:{home:"Beranda",about:"Tentang",units:"Unit Bisnis",tridharma:"Tri Dharma",contact:"Kontak",
-heroTitle:"Membangun Ekosistem Bisnis Terintegrasi",heroDesc:"Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui pengembangan portofolio multibisnis yang inovatif dan kompetitif secara global.",
-learnMore:"Pelajari Lebih Lanjut",viewUnits:"Lihat Unit Bisnis",
-aboutTitle:"Tentang Kami",aboutDesc:"PT Astria Sukses Internasional (Astria Group) merupakan holding company yang membangun ekosistem bisnis terintegrasi, inovatif, dan kompetitif secara global.",
-tridharmaTitle:"Tri Dharma Astria",
-dharma1Title:"Mengelola Sumber Daya Alam",dharma1Desc:"Kami berdedikasi memanfaatkan sumber daya alam secara bertanggung jawab, menjamin keberlanjutan lingkungan dan generasi mendatang.",
-dharma2Title:"Membangun Sumber Daya Manusia",dharma2Desc:"Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.",
-dharma3Title:"Mengkapitalisasi Sumber Daya Keuangan",dharma3Desc:"Menggunakan keahlian finansial untuk stabilitas dan kemakmuran, mendukung investasi strategis, lapangan kerja, dan inisiatif sosial.",
-unitsTitle:"Unit Bisnis Kami",
-oravitaTitle:"Oravita Global",oravitaDesc:"Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.",
-neulinkTitle:"Neulink News",neulinkDesc:"Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.",
-exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.",
-fdxTitle:"FDX Management",fdxDesc:"Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.",
-visitWebsite:"Kunjungi Website",contactTitle:"Hubungi Kami",contactDesc:"Mari bergabung membangun masa depan yang lebih baik bersama Astria Group",
-stickyCTA:"Hubungi Kami"},
-en:{home:"Home",about:"About",units:"Business Units",tridharma:"Tri Dharma",contact:"Contact",
-heroTitle:"Building Integrated Business Ecosystem",heroDesc:"Holding company committed to creating sustainable value through an innovative and globally competitive multi-business portfolio.",
-learnMore:"Learn More",viewUnits:"View Units",
-aboutTitle:"About Us",aboutDesc:"PT Astria Sukses Internasional (Astria Group) is a holding company building an integrated, innovative, and globally competitive business ecosystem.",
-tridharmaTitle:"Tri Dharma Astria",
-dharma1Title:"Managing Natural Resources",dharma1Desc:"We are dedicated to responsibly utilizing natural resources, ensuring environmental sustainability and future generations.",
-dharma2Title:"Developing Human Capital",dharma2Desc:"Providing products and services that educate, improve health, and empower communities. Human capital development is the foundation of national progress.",
-dharma3Title:"Leveraging Financial Resources",dharma3Desc:"Using financial expertise for stability and prosperity, supporting strategic investments, job creation, and social initiatives.",
-unitsTitle:"Our Business Units",
-oravitaTitle:"Oravita Global",oravitaDesc:"Consumer & Agribusiness, focusing on quality and sustainable food and agribusiness products.",
-neulinkTitle:"Neulink News",neulinkDesc:"Digital Media, news portal and creative content that is informative, educational, and inspiring.",
-exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, providing branding, social media, website, and professional creative campaigns.",
-fdxTitle:"FDX Management",fdxDesc:"Talent Agency, managing talent, influencers, KOLs, and creative campaigns.",
-visitWebsite:"Visit Website",contactTitle:"Contact Us",contactDesc:"Join us to build a better future with Astria Group",stickyCTA:"Contact Us"}};
-let lang="id";
-langToggle.addEventListener('click',()=>{
-lang=lang==="id"?"en":"id";
-document.querySelectorAll('[data-lang]').forEach(el=>{const key=el.getAttribute('data-lang');el.textContent=translations[lang]?.[key]??el.textContent;});
-langToggle.textContent=lang==="id"?"EN":"ID";
-});
-
-// LOTTIE ANIMATIONS
-const lottieConfigs=[
-{el:'lottieDharma1',path:'https://assets9.lottiefiles.com/packages/lf20_1xV1Jv.json'},
-{el:'lottieDharma2',path:'https://assets9.lottiefiles.com/packages/lf20_JwS8XY.json'},
-{el:'lottieDharma3',path:'https://assets9.lottiefiles.com/packages/lf20_V9o0QB.json'},
-{el:'lottieOravita',path:'https://assets9.lottiefiles.com/packages/lf20_X5sT5l.json'},
-{el:'lottieNeulink',path:'https://assets9.lottiefiles.com/packages/lf20_q0X33.json'},
-{el:'lottieExmind',path:'https://assets9.lottiefiles.com/packages/lf20_MK9dLQ.json'},
-{el:'lottieFDX',path:'https://assets9.lottiefiles.com/packages/lf20_sXqJWa.json'}
-];
-lottieConfigs.forEach(cfg=>{
-  lottie.loadAnimation({container:document.getElementById(cfg.el),renderer:'svg',loop:true,autoplay:true,path:cfg.path});
-});
-
-// SCROLL REVEAL CARDS
-const cards=document.querySelectorAll('.card, .tridharma-item');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');}});},{threshold:0.2});
-cards.forEach(card=>observer.observe(card));
-
-// STICKY CTA SHOW
+const modeToggle=document.getElementById('modeToggle');modeToggle.addEventListener('click',()=>{document.body.classList.toggle('dark');});
+const langToggle=document.getElementById('langToggle');const translations={id:{home:"Beranda",about:"Tentang",units:"Unit Bisnis",tridharma:"Tri Dharma",contact:"Kontak",heroTitle:"Membangun Ekosistem Bisnis Terintegrasi",heroDesc:"Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui pengembangan portofolio multibisnis yang inovatif dan kompetitif secara global.",learnMore:"Pelajari Lebih Lanjut",viewUnits:"Lihat Unit Bisnis",aboutTitle:"Tentang Kami",aboutDesc:"PT Astria Sukses Internasional (Astria Group) merupakan holding company yang membangun ekosistem bisnis terintegrasi, inovatif, dan kompetitif secara global.",tridharmaTitle:"Tri Dharma Astria",dharma1Title:"Mengelola Sumber Daya Alam",dharma1Desc:"Kami berdedikasi memanfaatkan sumber daya alam secara bertanggung jawab, menjamin keberlanjutan lingkungan dan generasi mendatang.",dharma2Title:"Membangun Sumber Daya Manusia",dharma2Desc:"Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. Pengembangan SDM adalah fondasi kemajuan bangsa.",dharma3Title:"Mengkapitalisasi Sumber Daya Keuangan",dharma3Desc:"Menggunakan keahlian finansial untuk stabilitas dan kemakmuran, mendukung investasi strategis, lapangan kerja, dan inisiatif sosial.",unitsTitle:"Unit Bisnis Kami",oravitaTitle:"Oravita Global",oravitaDesc:"Konsumen & Agribisnis, fokus pada produk makanan dan agribisnis berkualitas dan berkelanjutan.",neulinkTitle:"Neulink News",neulinkDesc:"Media Digital, portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.",exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, solusi branding, social media, website, dan kampanye kreatif profesional.",fdxTitle:"FDX Management",fdxDesc:"Talent Agency, manajemen talenta, influencer, KOL, dan kampanye kreatif.",visitWebsite:"Kunjungi Website",contactTitle:"Hubungi Kami",contactDesc:"Mari bergabung membangun masa depan yang lebih baik bersama Astria Group",stickyCTA:"Hubungi Kami"},en:{home:"Home",about:"About",units:"Business Units",tridharma:"Tri Dharma",contact:"Contact",heroTitle:"Building Integrated Business Ecosystem",heroDesc:"Holding company committed to creating sustainable value through an innovative and globally competitive multi-business portfolio.",learnMore:"Learn More",viewUnits:"View Units",aboutTitle:"About Us",aboutDesc:"PT Astria Sukses Internasional (Astria Group) is a holding company building an integrated, innovative, and globally competitive business ecosystem.",tridharmaTitle:"Tri Dharma Astria",dharma1Title:"Managing Natural Resources",dharma1Desc:"We are dedicated to responsibly utilizing natural resources, ensuring environmental sustainability and future generations.",dharma2Title:"Developing Human Capital",dharma2Desc:"Providing products and services that educate, improve health, and empower communities. Human capital development is the foundation of national progress.",dharma3Title:"Leveraging Financial Resources",dharma3Desc:"Using financial expertise for stability and prosperity, supporting strategic investments, job creation, and social initiatives.",unitsTitle:"Our Business Units",oravitaTitle:"Oravita Global",oravitaDesc:"Consumer & Agribusiness, focusing on quality and sustainable food and agribusiness products.",neulinkTitle:"Neulink News",neulinkDesc:"Digital Media, news portal and creative content that is informative, educational, and inspiring.",exmindTitle:"Exmind Digital",exmindDesc:"Digital Agency, providing branding, social media, website, and professional creative campaigns.",fdxTitle:"FDX Management",fdxDesc:"Talent Agency, managing talent, influencers, KOLs, and creative campaigns.",visitWebsite:"Visit Website",contactTitle:"Contact Us",contactDesc:"Join us to build a better future with Astria Group",stickyCTA:"Contact Us"}};let lang="id";langToggle.addEventListener('click',()=>{lang=lang==="id"?"en":"id";document.querySelectorAll('[data-lang]').forEach(el=>{const key=el.getAttribute('data-lang');el.textContent=translations[lang]?.[key]??el.textContent;});langToggle.textContent=lang==="id"?"EN":"ID";});
+const lottieConfigs=[{el:'lottieDharma1',path:'https://assets9.lottiefiles.com/packages/lf20_1xV1Jv.json'},{el:'lottieDharma2',path:'https://assets9.lottiefiles.com/packages/lf20_JwS8XY.json'},{el:'lottieDharma3',path:'https://assets9.lottiefiles.com/packages/lf20_V9o0QB.json'},{el:'lottieOravita',path:'https://assets9.lottiefiles.com/packages/lf20_X5sT5l.json'},{el:'lottieNeulink',path:'https://assets9.lottiefiles.com/packages/lf20_q0X33.json'},{el:'lottieExmind',path:'https://assets9.lottiefiles.com/packages/lf20_MK9dLQ.json'},{el:'lottieFDX',path:'https://assets9.lottiefiles.com/packages/lf20_sXqJWa.json'}];lottieConfigs.forEach(cfg=>{lottie.loadAnimation({container:document.getElementById(cfg.el),renderer:'svg',loop:true,autoplay:true,path:cfg.path});});
+const cards=document.querySelectorAll('.card, .tridharma-item');const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');}});},{threshold:0.2});cards.forEach(card=>observer.observe(card));
 window.addEventListener('scroll',()=>{document.getElementById('stickyCTA').style.display=window.scrollY>600?'flex':'none';});
 </script>
-</body>
-</html>
+</body></html>
