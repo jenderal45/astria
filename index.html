@@ -75,14 +75,6 @@ footer p{margin-bottom:15px;}
 footer a{color:#00bfff;transition:0.3s;}
 footer a:hover{color:#007acc;}
 
-/* FLOATING MUSIC BUTTON */
-#musicControl{
-  position:fixed; bottom:100px; right:20px; width:50px; height:50px;
-  background:#00bfff; border-radius:50%; display:flex; justify-content:center; align-items:center;
-  color:#fff; font-size:24px; cursor:pointer; z-index:9999; box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-#musicControl:hover{background:#007acc;}
-
 /* RESPONSIVE */
 @media(max-width:768px){
   nav{flex-direction:column;padding:15px 20px;}
@@ -155,14 +147,6 @@ footer a:hover{color:#007acc;}
   <p>Email: <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a> | WA: <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a></p>
 </footer>
 
-<!-- MUSIC BACKGROUND -->
-<audio id="bgMusic" autoplay loop>
-  <source src="https://github.com/jenderal45/astria/raw/main/source/background-music-453291.mp3" type="audio/mp3">
-</audio>
-
-<!-- FLOATING MUSIC BUTTON -->
-<div id="musicControl">▶</div>
-
 <script>
 // PARTICLES
 particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#00bfff"},shape:{type:"circle"},opacity:{value:0.5},size:{value:3},line_linked:{enable:true,distance:150,color:"#00bfff",opacity:0.4,width:1},move:{enable:true,speed:2}}});
@@ -192,13 +176,6 @@ document.getElementById('currentTime').innerText=`${dateStr} | ${timeStr}`;
 setInterval(updateCurrentTime,1000);
 updateCurrentTime();
 
-// MUSIC CONTROL
-const bgMusic = document.getElementById('bgMusic');
-const musicControl = document.getElementById('musicControl');
-musicControl.addEventListener('click',()=>{
-if(bgMusic.paused){ bgMusic.play(); musicControl.innerText='⏸'; }
-else{ bgMusic.pause(); musicControl.innerText='▶'; }
-});
 </script>
 </body>
 </html>
