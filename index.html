@@ -134,7 +134,67 @@ body.dark .hamburger span{background:#fff}
   text-align:center;
 }
 #countdown span{font-size:1.8rem;font-weight:bold}
+/* ABOUT */
+.about-section{
+  background:#fff;
+  padding:90px 60px;
+}
 
+body.dark .about-section{
+  background:#020617;
+}
+
+.about-container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.about-container h2{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:35px;
+}
+
+.about-lead{
+  font-size:1.15rem;
+  font-weight:500;
+  margin-bottom:20px;
+}
+
+.about-container p{
+  line-height:1.8;
+  margin-bottom:20px;
+  opacity:.9;
+}
+
+.about-values{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:50px;
+}
+
+.value-box{
+  background:#f8fafc;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  transition:.4s;
+}
+
+body.dark .value-box{
+  background:#0f172a;
+}
+
+.value-box:hover{
+  transform:translateY(-8px);
+}
+
+.value-box h3{
+  color:#0ea5e9;
+  margin-bottom:10px;
+}
+  
 /* CARDS */
 .units-section{
   background:linear-gradient(180deg,#f8fafc,#eef2ff);
@@ -314,6 +374,57 @@ footer{
 </section>
 
 <div id="currentTime"></div>
+
+<section id="about" class="about-section">
+  <div class="about-container">
+
+    <h2>Tentang Astria Group</h2>
+
+    <p class="about-lead">
+      <strong>PT Astria Sukses Internasional (Astria Group)</strong> merupakan hasil
+      transformasi dari <strong>PT Agra Sinergi Tria</strong>, sebuah holding company
+      yang berkomitmen membangun ekosistem bisnis yang terintegrasi dan berkelanjutan.
+    </p>
+
+    <p>
+      Nama <strong>“Astria”</strong> merupakan akronim dari
+      <em>Agra Sinergi Tria</em>. Selain itu, “Astria” juga berasal dari
+      bahasa Yunani yang berarti <strong>“bintang”</strong>, yang merefleksikan
+      kesinambungan nilai, filosofi, serta semangat pendirian perusahaan dalam
+      menavigasi pertumbuhan jangka panjang.
+    </p>
+
+    <div class="about-values">
+
+      <div class="value-box">
+        <h3>Fokus Berkelanjutan</h3>
+        <p>
+          Penciptaan nilai berkelanjutan melalui pengembangan
+          portofolio multibisnis yang strategis dan bertanggung jawab.
+        </p>
+      </div>
+
+      <div class="value-box">
+        <h3>Strategi Integrasi</h3>
+        <p>
+          Membangun sinergi antarunit usaha untuk meningkatkan
+          efisiensi operasional, inovasi, dan daya saing.
+        </p>
+      </div>
+
+      <div class="value-box">
+        <h3>Visi Global</h3>
+        <p>
+          Mendorong transformasi ekonomi nasional menuju masa depan
+          yang kompetitif secara global.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+  
 <section id="units" class="units-section">
   <h2 class="section-title">Unit Bisnis Kami</h2>
 
