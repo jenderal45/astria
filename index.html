@@ -21,6 +21,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <style>
+    /* =========================
+       THEME TOKENS (DARK DEFAULT)
+       ========================= */
     :root{
       --bg:#020617;
       --bg2:#07122a;
@@ -31,9 +34,30 @@
       --muted:#94a3b8;
       --brand:#38bdf8;
       --brand2:#60a5fa;
-      --ok:#22c55e;
       --shadow:0 20px 60px rgba(0,0,0,.55);
       --radius:22px;
+
+      --navbg: rgba(2,6,23,.72);
+      --soft: rgba(255,255,255,.04);
+      --soft2: rgba(2,6,23,.40);
+    }
+
+    /* LIGHT MODE OVERRIDE */
+    body.light{
+      --bg:#f8fafc;
+      --bg2:#eef2ff;
+      --card:rgba(15,23,42,.05);
+      --card2:rgba(15,23,42,.06);
+      --stroke:rgba(15,23,42,.12);
+      --text:#0f172a;
+      --muted:#475569;
+      --brand:#0284c7;
+      --brand2:#2563eb;
+      --shadow:0 18px 55px rgba(2,6,23,.12);
+
+      --navbg: rgba(248,250,252,.78);
+      --soft: rgba(2,6,23,.04);
+      --soft2: rgba(248,250,252,.60);
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
@@ -47,24 +71,30 @@
         linear-gradient(180deg, var(--bg), var(--bg2));
       color:var(--text);
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
+
+    /* Better tap targets */
+    a, button, .pill, .fab{ -webkit-tap-highlight-color: transparent; }
+
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
     section{padding:90px 60px}
-    @media (max-width:900px){section{padding:70px 20px}}
+    @media (max-width:900px){section{padding:70px 18px}}
 
     /* NAV */
     nav{
       position:sticky;top:0;z-index:9999;
-      background:rgba(2,6,23,.72);
+      background:var(--navbg);
       backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid var(--stroke);
     }
     .nav-wrap{
       max-width:1200px;margin:auto;
       display:flex;align-items:center;justify-content:space-between;
-      padding:14px 20px;
-      gap:16px;
+      padding:14px 18px;
+      gap:14px;
     }
 
     .brand{
@@ -76,9 +106,10 @@
       height:52px;width:auto;
       filter: drop-shadow(0 0 10px rgba(255,255,255,.45));
     }
-    .brand .txt{
-      display:flex;flex-direction:column;line-height:1.05;
+    body.light .brand img{
+      filter: drop-shadow(0 0 10px rgba(2,6,23,.22));
     }
+    .brand .txt{display:flex;flex-direction:column;line-height:1.05}
     .brand .txt b{font-size:1.05rem;letter-spacing:.2px}
     .brand .txt span{font-size:.78rem;color:var(--muted)}
 
@@ -88,25 +119,31 @@
     }
     .nav-links a{
       font-size:.95rem;
-      color:rgba(229,231,235,.92);
       opacity:.9;
       transition:.25s;
+      padding:10px 10px;
+      border-radius:12px;
     }
-    .nav-links a:hover{color:#fff;opacity:1}
+    .nav-links a:hover{
+      opacity:1;
+      background:var(--soft);
+    }
+
     .nav-actions{
       display:flex;align-items:center;gap:10px;
     }
 
     .pill{
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      padding:9px 12px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      padding:10px 12px;
       border-radius:999px;
       font-size:.85rem;
       cursor:pointer;
       transition:.25s;
       user-select:none;
       display:flex;align-items:center;gap:8px;
+      min-height:40px;
     }
     .pill:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.35)}
     .pill strong{color:var(--brand)}
@@ -114,7 +151,7 @@
 
     /* hamburger */
     .hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer}
-    .hamburger span{width:26px;height:2px;background:#fff;border-radius:10px;opacity:.9}
+    .hamburger span{width:26px;height:2px;background:currentColor;border-radius:10px;opacity:.9}
     @media (max-width:900px){
       .nav-links{display:none}
       .hamburger{display:flex}
@@ -128,20 +165,31 @@
       backdrop-filter:blur(18px);
       display:flex;flex-direction:column;
       align-items:center;justify-content:center;
-      gap:22px;
+      gap:14px;
       transform:translateY(-110%);
       transition:.38s;
       z-index:9998;
+      padding:22px;
+    }
+    body.light .mobile-menu{
+      background:rgba(248,250,252,.94);
     }
     .mobile-menu.show{transform:translateY(0)}
     .mobile-menu a{
-      font-size:1.35rem;
-      padding:10px 18px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      width:min(420px,88%);
+      font-size:1.15rem;
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      width:min(460px,92%);
       text-align:center;
+      font-weight:800;
+    }
+    .mobile-menu .close{
+      margin-top:10px;
+      width:min(460px,92%);
+      display:flex;justify-content:center;
+      gap:10px;
     }
 
     /* HERO */
@@ -149,7 +197,7 @@
       min-height:100vh;
       position:relative;
       display:flex;align-items:center;
-      padding:110px 20px 70px;
+      padding:110px 18px 70px;
     }
     .hero .wrap{
       max-width:1200px;margin:auto;
@@ -162,16 +210,17 @@
     }
     @media (max-width:900px){
       .hero{padding-top:95px}
-      .hero .wrap{grid-template-columns:1fr;gap:26px}
+      .hero .wrap{grid-template-columns:1fr;gap:22px}
     }
 
     #particles-js{position:absolute;inset:0;z-index:1;opacity:.55}
+    body.light #particles-js{opacity:.30}
 
     .hero h1{
-      font-size:3.25rem;
+      font-size:3.15rem;
       line-height:1.05;
       letter-spacing:-.8px;
-      background:linear-gradient(90deg, #e2e8f0, #38bdf8, #60a5fa);
+      background:linear-gradient(90deg, var(--text), var(--brand), var(--brand2));
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       text-shadow:0 0 35px rgba(56,189,248,.12);
@@ -184,19 +233,23 @@
       line-height:1.75;
       max-width:58ch;
     }
+    body.light .hero p{color:rgba(15,23,42,.80)}
+
     .hero-cta{
       margin-top:26px;
       display:flex;gap:12px;flex-wrap:wrap;
     }
+
     .btn{
-      padding:12px 18px;
+      padding:13px 18px;
       border-radius:999px;
-      font-weight:700;
+      font-weight:900;
       font-size:.95rem;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
+      border:1px solid var(--stroke);
+      background:var(--soft);
       transition:.25s;
       display:inline-flex;align-items:center;gap:10px;
+      min-height:46px;
     }
     .btn:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
     .btn.primary{
@@ -211,8 +264,8 @@
     /* right hero card */
     .hero-panel{
       border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, var(--card2), var(--card));
       box-shadow:var(--shadow);
       padding:22px;
       overflow:hidden;
@@ -227,6 +280,7 @@
       opacity:.9;
       z-index:0;
     }
+    body.light .hero-panel::before{opacity:.55}
     .hero-panel .inner{position:relative;z-index:1}
     .panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px}
     .panel-title b{font-size:1rem}
@@ -235,17 +289,18 @@
       margin-top:14px;
       padding:16px;
       border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(2,6,23,.45);
+      border:1px solid var(--stroke);
+      background:var(--soft2);
     }
     .clock .date{color:rgba(229,231,235,.88);font-size:.95rem}
+    body.light .clock .date{color:rgba(15,23,42,.80)}
     .clock .time{
       font-size:2rem;
-      font-weight:800;
+      font-weight:900;
       letter-spacing:1px;
       margin-top:8px;
-      color:#fff;
-      text-shadow:0 0 20px rgba(56,189,248,.20);
+      color:var(--text);
+      text-shadow:0 0 20px rgba(56,189,248,.15);
     }
 
     .mini-grid{
@@ -254,11 +309,12 @@
       grid-template-columns:1fr 1fr;
       gap:12px;
     }
+    @media (max-width:520px){.mini-grid{grid-template-columns:1fr}}
     .mini{
       padding:14px;
       border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      background:var(--soft);
     }
     .mini b{display:block;font-size:.9rem}
     .mini span{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;line-height:1.4}
@@ -287,11 +343,12 @@
     .glass{
       max-width:1200px;margin:auto;
       border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, var(--card2), var(--card));
       box-shadow:var(--shadow);
       padding:28px;
     }
+    @media (max-width:900px){.glass{padding:20px}}
 
     /* ABOUT */
     .about-grid{
@@ -302,6 +359,8 @@
     }
     @media (max-width:900px){.about-grid{grid-template-columns:1fr}}
     .about-grid p{color:rgba(229,231,235,.86);line-height:1.85}
+    body.light .about-grid p{color:rgba(15,23,42,.80)}
+
     .kpi{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -312,10 +371,10 @@
     .kpi .box{
       border-radius:18px;
       padding:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(2,6,23,.35);
+      border:1px solid var(--stroke);
+      background:var(--soft2);
     }
-    .kpi .box b{display:block;color:#fff;font-size:1rem}
+    .kpi .box b{display:block;font-size:1rem}
     .kpi .box span{display:block;margin-top:6px;color:var(--muted);line-height:1.45}
 
     /* VISION MISSION */
@@ -329,15 +388,15 @@
     .vm .item{
       border-radius:20px;
       padding:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      background:var(--soft);
     }
     .vm .item h3{
       font-size:1.05rem;
-      color:#fff;
       display:flex;align-items:center;gap:10px;
     }
     .vm .item p{margin-top:10px;color:rgba(229,231,235,.85);line-height:1.8}
+    body.light .vm .item p{color:rgba(15,23,42,.80)}
 
     /* TRIDHARMA */
     .tri-grid{
@@ -350,8 +409,8 @@
     .tri{
       border-radius:22px;
       padding:22px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      background:var(--soft);
       position:relative;
       overflow:hidden;
       transition:.28s;
@@ -359,15 +418,16 @@
     .tri::before{
       content:"";
       position:absolute;inset:-40px;
-      background:radial-gradient(circle at 25% 25%, rgba(56,189,248,.22), transparent 55%);
+      background:radial-gradient(circle at 25% 25%, rgba(56,189,248,.18), transparent 55%);
       opacity:.0;
       transition:.28s;
     }
     .tri:hover{transform:translateY(-6px);border-color:rgba(56,189,248,.30)}
     .tri:hover::before{opacity:.8}
     .tri .inner{position:relative;z-index:1}
-    .tri h4{font-size:1.05rem;color:#fff;margin-bottom:10px}
+    .tri h4{font-size:1.05rem;margin-bottom:10px}
     .tri p{color:rgba(229,231,235,.84);line-height:1.75}
+    body.light .tri p{color:rgba(15,23,42,.80)}
 
     /* UNITS */
     .units-grid{
@@ -378,22 +438,24 @@
     }
     @media (max-width:1100px){.units-grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.units-grid{grid-template-columns:1fr}}
+
     .unit{
       border-radius:24px;
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, var(--card2), var(--card));
       padding:22px;
       position:relative;
       overflow:hidden;
       transition:.28s;
-      box-shadow:0 18px 45px rgba(0,0,0,.25);
+      box-shadow:0 18px 45px rgba(0,0,0,.18);
       min-height:250px;
     }
+    body.light .unit{box-shadow:0 18px 45px rgba(2,6,23,.10)}
     .unit:hover{transform:translateY(-8px);border-color:rgba(56,189,248,.32)}
     .unit::after{
       content:"";
       position:absolute;inset:-50px;
-      background:linear-gradient(120deg, transparent, rgba(56,189,248,.20), transparent);
+      background:linear-gradient(120deg, transparent, rgba(56,189,248,.18), transparent);
       opacity:0;
       transition:.35s;
     }
@@ -411,21 +473,21 @@
       object-fit:contain;
       filter: drop-shadow(0 0 10px rgba(255,255,255,.50));
     }
-    .unit h3{text-align:center;font-size:1.12rem;color:#fff}
-    .unit p{text-align:center;color:rgba(229,231,235,.82);line-height:1.7;margin-top:10px;font-size:.95rem}
-    .unit .go{
-      margin-top:16px;
-      display:flex;justify-content:center;
+    body.light .unit .logo img{
+      filter: drop-shadow(0 0 10px rgba(2,6,23,.22));
     }
+    .unit h3{text-align:center;font-size:1.12rem}
+    .unit p{text-align:center;color:rgba(229,231,235,.82);line-height:1.7;margin-top:10px;font-size:.95rem}
+    body.light .unit p{color:rgba(15,23,42,.80)}
+    .unit .go{margin-top:16px;display:flex;justify-content:center}
     .unit .go a{
       display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;
+      padding:11px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(2,6,23,.40);
+      border:1px solid var(--stroke);
+      background:var(--soft2);
       transition:.25s;
-      font-weight:700;
-      color:#e2e8f0;
+      font-weight:900;
       font-size:.92rem;
     }
     .unit .go a:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
@@ -442,19 +504,24 @@
     .contact-box{
       border-radius:22px;
       padding:22px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      background:var(--soft);
     }
-    .contact-box h3{color:#fff;margin-bottom:10px}
+    @media (max-width:900px){.contact-box{padding:18px}}
+    .contact-box h3{margin-bottom:10px}
     .contact-box p{color:rgba(229,231,235,.84);line-height:1.8}
-    .contact-box a{color:var(--brand);font-weight:700}
+    body.light .contact-box p{color:rgba(15,23,42,.80)}
+    .contact-box a{color:var(--brand);font-weight:900}
     iframe{border:0;border-radius:18px;width:100%;height:280px}
 
     /* FOOTER */
     footer{
-      padding:60px 20px 30px;
-      border-top:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.95));
+      padding:60px 18px 30px;
+      border-top:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(2,6,23,.20), rgba(2,6,23,.90));
+    }
+    body.light footer{
+      background:linear-gradient(180deg, rgba(248,250,252,.35), rgba(248,250,252,.95));
     }
     .footer-wrap{max-width:1200px;margin:auto}
     .footer-top{
@@ -465,12 +532,13 @@
     @media (max-width:900px){.footer-top{grid-template-columns:1fr}}
     .f-card{
       border-radius:24px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+      border:1px solid var(--stroke);
+      background:var(--soft);
       padding:22px;
     }
-    .f-card h4{color:#fff;margin-bottom:12px}
+    .f-card h4{margin-bottom:12px}
     .f-card p,.f-card a{color:rgba(229,231,235,.78);line-height:1.7;font-size:.95rem}
+    body.light .f-card p, body.light .f-card a{color:rgba(15,23,42,.75)}
     .f-card a:hover{color:var(--brand)}
     .social{
       display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;
@@ -479,71 +547,70 @@
       display:inline-flex;align-items:center;gap:10px;
       padding:10px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(2,6,23,.45);
+      border:1px solid var(--stroke);
+      background:var(--soft2);
       transition:.25s;
-      font-weight:800;
+      font-weight:900;
     }
     .social a:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
     .footer-bottom{
       margin-top:18px;
       padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.08);
+      border-top:1px solid var(--stroke);
       display:flex;
       justify-content:space-between;
       gap:14px;
       flex-wrap:wrap;
-      color:rgba(148,163,184,.95);
+      color:var(--muted);
       font-size:.88rem;
     }
 
     /* FLOATING */
     .float{
-      position:fixed;right:18px;bottom:18px;z-index:99999;
+      position:fixed;right:16px;bottom:16px;z-index:99999;
       display:flex;flex-direction:column;gap:10px;
     }
     .fab{
       width:54px;height:54px;border-radius:999px;
       display:flex;align-items:center;justify-content:center;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(2,6,23,.60);
+      border:1px solid var(--stroke);
+      background:var(--soft2);
       backdrop-filter:blur(12px);
-      box-shadow:0 20px 45px rgba(0,0,0,.35);
+      box-shadow:0 20px 45px rgba(0,0,0,.25);
       cursor:pointer;
       transition:.25s;
       user-select:none;
     }
+    body.light .fab{box-shadow:0 18px 40px rgba(2,6,23,.10)}
     .fab:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
     .fab svg{width:22px;height:22px}
-    .fab.whatsapp{background:rgba(37,211,102,.12)}
-    .fab.instagram{background:rgba(225,48,108,.12)}
-    .fab.linkedin{background:rgba(10,102,194,.12)}
     .fab.music{background:rgba(56,189,248,.10)}
-    .fab span{display:none}
 
     /* small helper */
     .tag{
       display:inline-flex;align-items:center;gap:10px;
-      padding:9px 12px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:rgba(229,231,235,.85);
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
       font-size:.86rem;
+      font-weight:800;
     }
-    .tag b{color:#fff}
   </style>
 </head>
 
 <body>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home" data-lang="home" onclick="toggleMenu()">Beranda</a>
-    <a href="#about" data-lang="about" onclick="toggleMenu()">Tentang</a>
-    <a href="#vision" data-lang="vision" onclick="toggleMenu()">Visi & Misi</a>
-    <a href="#tridharma" data-lang="tridharma" onclick="toggleMenu()">Tri Dharma</a>
-    <a href="#units" data-lang="units" onclick="toggleMenu()">Unit Bisnis</a>
-    <a href="#contact" data-lang="contact" onclick="toggleMenu()">Kontak</a>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#home" data-lang="home" onclick="toggleMenu(true)">Beranda</a>
+    <a href="#about" data-lang="about" onclick="toggleMenu(true)">Tentang</a>
+    <a href="#vision" data-lang="vision" onclick="toggleMenu(true)">Visi & Misi</a>
+    <a href="#tridharma" data-lang="tridharma" onclick="toggleMenu(true)">Tri Dharma</a>
+    <a href="#units" data-lang="units" onclick="toggleMenu(true)">Unit Bisnis</a>
+    <a href="#contact" data-lang="contact" onclick="toggleMenu(true)">Kontak</a>
+    <div class="close">
+      <div class="pill" onclick="toggleMenu(true)">✕ Close</div>
+    </div>
   </div>
 
   <!-- NAV -->
@@ -567,10 +634,20 @@
       </ul>
 
       <div class="nav-actions">
+        <!-- THEME TOGGLE -->
+        <div class="pill" id="themeToggle" title="Dark / Light">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path id="themeIconPath" d="M21 12.7A8.5 8.5 0 1 1 11.3 3a7 7 0 0 0 9.7 9.7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span id="themeLabel">Dark</span>
+        </div>
+
+        <!-- LANG TOGGLE -->
         <div class="pill" id="langToggle" title="Language">
           <strong id="langLabel">ID</strong>
           <span style="opacity:.8">/ EN</span>
         </div>
+
         <div class="pill" id="menuBtn" onclick="toggleMenu()" title="Menu">
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <span data-lang="menu">Menu</span>
@@ -583,7 +660,7 @@
     </div>
   </nav>
 
-  <!-- AUDIO (TARUH DI SINI) -->
+  <!-- AUDIO -->
   <audio id="bgMusic" loop preload="auto">
     <source src="https://github.com/jenderal45/astria/raw/main/source/background-music-453291.mp3" type="audio/mpeg" />
   </audio>
@@ -595,8 +672,8 @@
     <div class="wrap">
       <div>
         <div class="tag">
-          <b>PT Astria Sukses Internasional</b>
-          <span style="opacity:.8">• Holding Company</span>
+          <span>PT Astria Sukses Internasional</span>
+          <span style="opacity:.75">• Holding Company</span>
         </div>
 
         <h1 style="margin-top:14px" data-lang="heroTitle">
@@ -642,7 +719,7 @@
             </div>
           </div>
 
-          <div style="margin-top:14px;color:rgba(229,231,235,.72);font-size:.88rem;line-height:1.6">
+          <div style="margin-top:14px;color:var(--muted);font-size:.88rem;line-height:1.6">
             <span data-lang="panelNote">
               Tip: Klik tombol musik di kanan bawah untuk memulai audio (browser biasanya memblok autoplay).
             </span>
@@ -669,7 +746,7 @@
           <p data-lang="aboutP1">
             <b>PT Astria Sukses Internasional (Astria Group)</b> merupakan hasil transformasi dari <b>PT Agra Sinergi Tria</b>, sebuah holding company yang berkomitmen membangun ekosistem bisnis yang terintegrasi.
           </p>
-          <p data-lang="aboutP2">
+          <p data-lang="aboutP2" style="margin-top:12px">
             Nama “Astria” merupakan akronim dari Agra Sinergi Tria. Selain itu, “Astria” juga berasal dari bahasa Yunani yang berarti “bintang”, yang merefleksikan kesinambungan nilai, filosofi, dan semangat pendirian perusahaan.
           </p>
         </div>
@@ -738,7 +815,8 @@
           <div class="inner">
             <h4 data-lang="d1Title">Mengelola Sumber Daya Alam</h4>
             <p data-lang="d1Desc">
-              Kami berdedikasi untuk melindungi dan memanfaatkan sumber daya alam Indonesia secara bertanggung jawab. Operasional kami memastikan dampak ekonomi yang kuat sekaligus keberlanjutan lingkungan demi generasi mendatang.
+              Kami berdedikasi untuk melindungi dan memanfaatkan sumber daya alam Indonesia secara bertanggung jawab.
+              Operasional kami memastikan dampak ekonomi yang kuat sekaligus keberlanjutan lingkungan demi generasi mendatang.
             </p>
           </div>
         </div>
@@ -747,7 +825,8 @@
           <div class="inner">
             <h4 data-lang="d2Title">Membangun Sumber Daya Manusia</h4>
             <p data-lang="d2Desc">
-              Kami berinvestasi pada potensi individu melalui sektor-sektor yang menyediakan produk dan layanan yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat. SDM adalah fondasi utama kemajuan bangsa.
+              Kami berinvestasi pada potensi individu melalui sektor-sektor yang menyediakan produk dan layanan yang mencerdaskan,
+              menyehatkan, dan memberdayakan masyarakat. SDM adalah fondasi utama kemajuan bangsa.
             </p>
           </div>
         </div>
@@ -756,16 +835,19 @@
           <div class="inner">
             <h4 data-lang="d3Title">Mengkapitalisasi Sumber Daya Keuangan</h4>
             <p data-lang="d3Desc">
-              Kami menggunakan keahlian finansial untuk menciptakan stabilitas dan kemakmuran. Fokus kami adalah investasi strategis yang mendorong pertumbuhan ekonomi yang adil, menciptakan lapangan kerja, dan mendukung inisiatif sosial.
+              Kami menggunakan keahlian finansial untuk menciptakan stabilitas dan kemakmuran.
+              Fokus kami adalah investasi strategis yang mendorong pertumbuhan ekonomi yang adil, menciptakan lapangan kerja,
+              dan mendukung inisiatif sosial.
             </p>
           </div>
         </div>
       </div>
 
-      <div style="margin-top:18px;color:rgba(229,231,235,.78);line-height:1.7">
+      <div style="margin-top:18px;color:var(--muted);line-height:1.7">
         <b data-lang="triNoteTitle">Komitmen Berkelanjutan</b><br/>
         <span data-lang="triNoteDesc">
-          Tri Dharma Astria bukan sekadar filosofi, tetapi panduan nyata dalam setiap keputusan bisnis kami untuk menciptakan nilai berkelanjutan bagi stakeholder, masyarakat, dan bangsa Indonesia.
+          Tri Dharma Astria bukan sekadar filosofi, tetapi panduan nyata dalam setiap keputusan bisnis kami
+          untuk menciptakan nilai berkelanjutan bagi stakeholder, masyarakat, dan bangsa Indonesia.
         </span>
       </div>
     </div>
@@ -781,6 +863,9 @@
         </p>
       </div>
     </div>
+
+    <div class="glass">
+      <div class="units-grid">
 
     <div class="glass">
       <div class="units-grid">
@@ -856,7 +941,7 @@
         <!--<div class="unit">
           <div class="inner">
             <div class="logo">
-              <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-fdx-management.jpg" alt="FDX Management">
+              <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-fdx-management.png" alt="FDX Management">
             </div>
             <h3>FDX Management</h3>
             <p data-lang="fdxDesc">
@@ -935,9 +1020,7 @@
                  style="height:46px;width:auto;filter:drop-shadow(0 0 10px rgba(255,255,255,.45))">
             <div>
               <h4 style="margin:0">Astria Group</h4>
-              <p style="margin-top:6px" data-lang="footerTag">
-                Building Integrated Future
-              </p>
+              <p style="margin-top:6px" data-lang="footerTag">Building Integrated Future</p>
             </div>
           </div>
           <p style="margin-top:14px" data-lang="footerDesc">
@@ -957,7 +1040,7 @@
           <h4 data-lang="footerContact">Kontak</h4>
           <p>📧 <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a></p>
           <p>💬 <a href="https://wa.me/6289652435067" target="_blank" rel="noopener">+62 896-5243-5067</a></p>
-          <p style="margin-top:12px;color:rgba(229,231,235,.72)" data-lang="crafted">
+          <p style="margin-top:12px;color:var(--muted)" data-lang="crafted">
             Proudly crafted by Exmind Digital
           </p>
         </div>
@@ -972,25 +1055,62 @@
 
   <!-- FLOATING BUTTONS -->
   <div class="float">
-    <a class="fab whatsapp" href="https://wa.me/6289652435067" target="_blank" rel="noopener" title="WhatsApp">
+    <a class="fab" href="https://wa.me/6289652435067" target="_blank" rel="noopener" title="WhatsApp">
       <svg viewBox="0 0 24 24" fill="none"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1l-3.9 1 1.1-3.8c-.7-1.3-1.1-2.8-1.1-4.4C4 7.5 7.8 3.7 12.5 3.7s8 3.5 8 8.2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
 
-    <a class="fab instagram" href="https://www.instagram.com/astriagroup/" target="_blank" rel="noopener" title="Instagram">
+    <a class="fab" href="https://www.instagram.com/astriagroup/" target="_blank" rel="noopener" title="Instagram">
       <svg viewBox="0 0 24 24" fill="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" stroke-width="2"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
     </a>
 
-    <a class="fab linkedin" href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" rel="noopener" title="LinkedIn">
+    <a class="fab" href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" rel="noopener" title="LinkedIn">
       <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h4v16H4V4Zm6 6h4v2c.6-1.2 1.9-2.2 4-2.2 3.3 0 4 2.1 4 5.3V20h-4v-4.2c0-2 0-3.3-1.8-3.3-1.8 0-2.2 1.3-2.2 3.2V20h-4V10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="currentColor"/></svg>
     </a>
 
     <div class="fab music" id="musicBtn" title="Music On/Off">
-      <svg id="musicIcon" viewBox="0 0 24 24" fill="none"><path d="M9 18V6l12-2v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/><path d="M21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l12-2v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/><path d="M21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/></svg>
     </div>
   </div>
 
   <script>
+    // =========================
+    // THEME (DARK/LIGHT) + SAVE
+    // =========================
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+
+    function setTheme(mode){
+      if(mode === "light"){
+        document.body.classList.add("light");
+        themeLabel.textContent = "Light";
+        document.querySelector('meta[name="theme-color"]').setAttribute("content","#f8fafc");
+      }else{
+        document.body.classList.remove("light");
+        themeLabel.textContent = "Dark";
+        document.querySelector('meta[name="theme-color"]').setAttribute("content","#020617");
+      }
+      localStorage.setItem("astria_theme", mode);
+    }
+
+    // init theme (saved -> system -> dark)
+    (function initTheme(){
+      const saved = localStorage.getItem("astria_theme");
+      if(saved){
+        setTheme(saved);
+      }else{
+        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        setTheme(prefersLight ? "light" : "dark");
+      }
+    })();
+
+    themeToggle.addEventListener("click", ()=>{
+      const isLight = document.body.classList.contains("light");
+      setTheme(isLight ? "dark" : "light");
+    });
+
+    // =========================
     // PARTICLES
+    // =========================
     window.addEventListener("load", () => {
       if(window.particlesJS){
         particlesJS("particles-js",{
@@ -1013,28 +1133,45 @@
       }
     });
 
+    // =========================
     // MOBILE MENU
-    function toggleMenu(){
-      document.getElementById("mobileMenu").classList.toggle("show");
+    // =========================
+    function toggleMenu(forceClose=false){
+      const m = document.getElementById("mobileMenu");
+      if(forceClose){
+        m.classList.remove("show");
+        m.setAttribute("aria-hidden","true");
+        return;
+      }
+      m.classList.toggle("show");
+      m.setAttribute("aria-hidden", m.classList.contains("show") ? "false" : "true");
     }
 
+    // Close menu on ESC
+    window.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape") toggleMenu(true);
+    });
+
+    // =========================
     // CLOCK
+    // =========================
     function pad(n){return String(n).padStart(2,"0");}
+    let currentLang = "id";
+
     function updateClock(){
       const now = new Date();
       const dateID = now.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
       const dateEN = now.toLocaleDateString("en-US",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
       const time = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
 
-      const dateEl = document.getElementById("currentDate");
-      const timeEl = document.getElementById("currentTime");
-
-      timeEl.textContent = time;
-      dateEl.textContent = (currentLang === "id") ? dateID : dateEN;
+      document.getElementById("currentTime").textContent = time;
+      document.getElementById("currentDate").textContent = (currentLang === "id") ? dateID : dateEN;
     }
     setInterval(updateClock,1000);
 
-    // MUSIC (Browser biasanya blok autoplay, jadi pakai tombol)
+    // =========================
+    // MUSIC
+    // =========================
     const music = document.getElementById("bgMusic");
     const musicBtn = document.getElementById("musicBtn");
     let musicOn = false;
@@ -1056,10 +1193,11 @@
       }
     });
 
+    // =========================
     // MULTI LANGUAGE
+    // =========================
     const langToggle = document.getElementById("langToggle");
     const langLabel = document.getElementById("langLabel");
-    let currentLang = "id";
 
     const t = {
       en:{
@@ -1142,11 +1280,8 @@
       document.querySelectorAll("[data-lang]").forEach(el=>{
         const key = el.getAttribute("data-lang");
         if(currentLang === "en" && t.en[key]) el.textContent = t.en[key];
-        if(currentLang === "id" && t.en[key]) {
-          // fallback: biarkan teks Indonesia default (yang ada di HTML)
-        }
+        // ID tetap default HTML
       });
-
       langLabel.textContent = (currentLang === "id") ? "ID" : "EN";
       updateClock();
     }
