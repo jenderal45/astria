@@ -1,642 +1,660 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#020617" />
   <title>Astria Group | Integrated Business Ecosystem</title>
 
+  <!-- SEO -->
+  <meta name="description" content="PT Astria Sukses Internasional (Astria Group) membangun ekosistem bisnis terintegrasi melalui unit Oravita Global, Neulink News, Exmind Digital, dan FDX Management." />
+  <meta name="keywords" content="Astria Group, Astria, Oravita, Neulink News, Exmind Digital, FDX Management, Holding Company Indonesia" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Astria Group | Integrated Business Ecosystem" />
+  <meta property="og:description" content="Holding company yang membangun ekosistem bisnis terintegrasi untuk masa depan berkelanjutan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" />
+
   <!-- PARTICLES -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <style>
     /* =========================
-       RESET + ROOT
-    ========================== */
-    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+       THEME TOKENS (DARK DEFAULT)
+       ========================= */
     :root{
-      --bg:#f5f7fb;
-      --card:#ffffff;
-      --text:#0b1220;
-      --muted:#5b6475;
-      --border:rgba(15,23,42,.12);
-      --brand:#0ea5e9;
-      --brand2:#2563eb;
-      --shadow:0 12px 30px rgba(2,6,23,.08);
-      --soft:rgba(15,23,42,.05);
-      --glass:rgba(255,255,255,.65);
-      --glassBorder:rgba(255,255,255,.35);
-    }
-    body.dark{
       --bg:#020617;
-      --card:#0b1220;
+      --bg2:#07122a;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.12);
       --text:#e5e7eb;
-      --muted:#a8b3c7;
-      --border:rgba(148,163,184,.18);
-      --shadow:0 18px 40px rgba(0,0,0,.35);
-      --soft:rgba(255,255,255,.06);
-      --glass:rgba(2,6,23,.55);
-      --glassBorder:rgba(148,163,184,.16);
+      --muted:#94a3b8;
+      --brand:#38bdf8;
+      --brand2:#60a5fa;
+      --shadow:0 20px 60px rgba(0,0,0,.55);
+      --radius:22px;
+
+      --navbg: rgba(2,6,23,.72);
+      --soft: rgba(255,255,255,.04);
+      --soft2: rgba(2,6,23,.40);
     }
 
-    body{
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x:hidden;
+    /* LIGHT MODE OVERRIDE */
+    body.light{
+      --bg:#f8fafc;
+      --bg2:#eef2ff;
+      --card:rgba(15,23,42,.05);
+      --card2:rgba(15,23,42,.06);
+      --stroke:rgba(15,23,42,.12);
+      --text:#0f172a;
+      --muted:#475569;
+      --brand:#0284c7;
+      --brand2:#2563eb;
+      --shadow:0 18px 55px rgba(2,6,23,.12);
+
+      --navbg: rgba(248,250,252,.78);
+      --soft: rgba(2,6,23,.04);
+      --soft2: rgba(248,250,252,.60);
     }
-    a{ text-decoration:none; color:inherit; }
-    section{ padding: 90px 60px; }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background:
+        radial-gradient(900px 500px at 20% 15%, rgba(56,189,248,.14), transparent 60%),
+        radial-gradient(800px 500px at 85% 30%, rgba(96,165,250,.10), transparent 55%),
+        radial-gradient(800px 600px at 50% 95%, rgba(34,197,94,.06), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    a, button, .pill, .fab{ -webkit-tap-highlight-color: transparent; }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    section{padding:90px 60px}
+    @media (max-width:900px){section{padding:70px 18px}}
 
     /* =========================
-       NAVBAR (RAPIH)
-    ========================== */
+       NAV (RAPIH: DESKTOP/TAB/MOBILE)
+       ========================= */
     nav{
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      width: 100%;
-      background: var(--glass);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      position:sticky;top:0;z-index:9999;
+      background:var(--navbg);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--stroke);
     }
-    .nav-inner{
-      max-width: 1240px;
-      margin: auto;
-      padding: 14px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
+
+    .nav-wrap{
+      max-width:1200px;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;
+      gap:14px;
     }
 
     .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 200px;
+      display:flex;align-items:center;gap:12px;
+      min-width:210px;
+      cursor:pointer;
+      flex:0 0 auto;
     }
     .brand img{
-      height: 56px;
-      width:auto;
-      display:block;
-      filter: drop-shadow(0 0 10px rgba(255,255,255,.65));
+      height:48px;width:auto;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,.45));
     }
-    body.dark .brand img{
-      filter: drop-shadow(0 0 14px rgba(255,255,255,.75));
+    body.light .brand img{
+      filter: drop-shadow(0 0 10px rgba(2,6,23,.22));
     }
+    .brand .txt{display:flex;flex-direction:column;line-height:1.05}
+    .brand .txt b{font-size:1.05rem;letter-spacing:.2px}
+    .brand .txt span{font-size:.78rem;color:var(--muted)}
 
     .nav-links{
-      display:flex;
-      align-items:center;
-      gap: 18px;
       list-style:none;
-      flex-wrap: wrap;
+      display:flex;gap:8px;align-items:center;
+      flex:1 1 auto;
       justify-content:center;
+      min-width:0;
     }
     .nav-links a{
-      font-weight: 600;
-      font-size: .95rem;
-      padding: 10px 10px;
-      border-radius: 10px;
-      opacity:.92;
+      font-size:.95rem;
+      opacity:.9;
       transition:.25s;
+      padding:10px 12px;
+      border-radius:12px;
+      white-space:nowrap;
     }
     .nav-links a:hover{
-      background: var(--soft);
-      color: var(--brand);
-      opacity: 1;
+      opacity:1;
+      background:var(--soft);
     }
 
     .nav-actions{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      min-width: 200px;
-      justify-content:flex-end;
+      display:flex;align-items:center;gap:10px;
+      flex:0 0 auto;
     }
 
-    .chip{
-      cursor:pointer;
-      user-select:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: .85rem;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: 0 8px 18px rgba(2,6,23,.06);
-      transition:.25s;
-    }
-    .chip:hover{ transform: translateY(-1px); }
-    .chip.primary{
-      background: linear-gradient(90deg, var(--brand), var(--brand2));
-      color:#fff;
-      border-color: transparent;
-      box-shadow: 0 16px 28px rgba(14,165,233,.18);
-    }
-
-    /* Hamburger */
-    .hamburger{
-      display:none;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: 0 8px 18px rgba(2,6,23,.06);
-      cursor:pointer;
-      align-items:center;
-      justify-content:center;
-      gap: 5px;
-      flex-direction: column;
-    }
-    .hamburger span{
-      width: 20px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 99px;
-      opacity:.9;
-    }
-
-    /* Mobile menu overlay */
-    .mobile-overlay{
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,.35);
-      opacity:0;
-      pointer-events:none;
-      transition:.25s;
-      z-index: 998;
-    }
-    .mobile-overlay.show{
-      opacity:1;
-      pointer-events:auto;
-    }
-
-    .mobile-menu{
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: min(360px, 92vw);
-      background: var(--glass);
-      backdrop-filter: blur(18px);
-      border-left: 1px solid var(--border);
-      transform: translateX(110%);
-      transition: .35s ease;
-      z-index: 999;
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
-    }
-    .mobile-menu.show{
-      transform: translateX(0);
-    }
-    .mobile-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-head strong{ font-size: 1.05rem; }
-    .close-btn{
-      cursor:pointer;
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 900;
-    }
-
-    .mobile-links{
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      padding-top: 12px;
-    }
-    .mobile-links a{
-      padding: 14px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--border);
-      font-weight: 700;
-    }
-    .mobile-links a:hover{ color: var(--brand); }
-
-    .mobile-actions{
-      margin-top:auto;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-    .hero{
-      height: 100vh;
-      position: relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding: 0 18px;
-      overflow:hidden;
-    }
-    .hero video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter: contrast(1.1) saturate(1.1);
-    }
-    #particles-js{
-      position:absolute;
-      inset:0;
-      z-index:1;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:2;
-      background: linear-gradient(
-        180deg,
-        rgba(2,6,23,.55),
-        rgba(2,6,23,.55)
-      );
-    }
-    body.dark .hero::after{
-      background: linear-gradient(
-        180deg,
-        rgba(2,6,23,.72),
-        rgba(2,6,23,.72)
-      );
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:3;
-      max-width: 920px;
-      padding: 10px;
-      color:#fff;
-    }
-    .hero h1{
-      font-size: clamp(2.0rem, 4vw, 3.4rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      background: linear-gradient(90deg,#7dd3fc,#60a5fa,#2563eb);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .hero p{
-      margin-top: 18px;
-      font-size: clamp(1rem, 1.3vw, 1.15rem);
-      opacity:.92;
-    }
-    .hero-cta{
-      margin-top: 26px;
-      display:flex;
-      justify-content:center;
-      gap: 12px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 12px 18px;
-      border-radius: 16px;
-      font-weight: 800;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      color:#fff;
-      transition:.25s;
-      min-width: 160px;
-    }
-    .btn:hover{ transform: translateY(-2px); }
-    .btn.primary{
-      background: linear-gradient(90deg, var(--brand), var(--brand2));
-      border-color: transparent;
-      box-shadow: 0 18px 30px rgba(14,165,233,.2);
-    }
-
-    /* =========================
-       TIME BAR
-    ========================== */
-    #currentTime{
-      text-align:center;
-      margin: 28px 0 0;
-      font-weight: 800;
-      color: var(--brand);
-      padding: 0 14px;
-    }
-
-    /* =========================
-       SECTION HEAD
-    ========================== */
-    .wrap{
-      max-width: 1240px;
-      margin:auto;
-    }
-    .title{
-      text-align:center;
-      margin-bottom: 50px;
-    }
-    .title h2{
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
-    .title p{
-      max-width: 900px;
-      margin: auto;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* =========================
-       ABOUT + VISION MISSION + TRIDHARMA
-    ========================== */
-    .about{
-      background: var(--bg);
-    }
-    .about-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 34px;
-      align-items:start;
-    }
-    .about-card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-    .about-card p{
-      line-height: 1.85;
-      color: var(--muted);
-      margin-top: 14px;
-    }
     .pill{
-      display:inline-flex;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(14,165,233,.08);
-      color: var(--brand);
-      font-weight: 800;
-      font-size: .85rem;
-    }
-
-    .side-stack{
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
-    }
-    .mini{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 18px 18px;
-      box-shadow: 0 10px 24px rgba(2,6,23,.06);
-    }
-    .mini h3{
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .mini p{
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: .98rem;
-    }
-
-    /* =========================
-       UNITS (RAPIH — FIX BAGIAN ANEH)
-    ========================== */
-    .units{
-      background: linear-gradient(180deg, rgba(14,165,233,.06), rgba(37,99,235,.03));
-    }
-    body.dark .units{
-      background: radial-gradient(1000px 500px at 50% 0%, rgba(14,165,233,.12), transparent 60%);
-    }
-
-    .units-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 22px;
-    }
-    .unit-card{
-      grid-column: span 4;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      padding: 26px 22px;
-      box-shadow: var(--shadow);
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:.85rem;
+      cursor:pointer;
       transition:.25s;
-      position:relative;
-      overflow:hidden;
-      min-height: 220px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      user-select:none;
+      display:inline-flex;align-items:center;gap:8px;
+      min-height:40px;
+      white-space:nowrap;
     }
-    .unit-card::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: linear-gradient(120deg, transparent, rgba(56,189,248,.35), transparent);
-      opacity:0;
-      transition:.35s;
-      pointer-events:none;
-    }
-    .unit-card:hover::before{ opacity:.22; }
-    .unit-card:hover{ transform: translateY(-10px); }
+    .pill:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.35)}
+    .pill strong{color:var(--brand)}
+    .pill svg{width:16px;height:16px;opacity:.9}
 
-    .unit-top{
-      display:flex;
-      gap: 14px;
-      align-items:center;
-    }
-    .unit-top img{
-      width: 62px;
-      height: 62px;
-      object-fit:contain;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      padding: 10px;
-      border: 1px solid var(--border);
-    }
-    .unit-top h3{
-      font-size: 1.1rem;
-      margin-bottom: 2px;
-    }
-    .unit-top small{
-      color: var(--muted);
-      font-weight: 700;
-    }
+    /* Hamburger only on <=900px */
+    .hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer}
+    .hamburger span{width:26px;height:2px;background:currentColor;border-radius:10px;opacity:.9}
 
-    .unit-card p{
-      margin-top: 14px;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: .98rem;
-    }
-
-    .unit-link{
-      margin-top: 18px;
-      display:inline-flex;
-      font-weight: 900;
-      color: var(--brand);
-      gap: 8px;
-      align-items:center;
-    }
-    .unit-link:hover{ text-decoration: underline; }
-
-    /* =========================
-       FOOTER
-    ========================== */
-    footer{
-      background:#020617;
-      color:#e5e7eb;
-      padding: 60px 22px 28px;
-    }
-    .footer-grid{
-      max-width:1240px;
-      margin:auto;
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 22px;
-      align-items:start;
-    }
-    .f-col{
-      grid-column: span 4;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 22px;
-      padding: 22px;
-    }
-    .f-col h4{
-      margin-bottom: 10px;
-      color:#fff;
-    }
-    .f-col p, .f-col a{
-      color:#cbd5e1;
-      line-height: 1.7;
-      font-size: .95rem;
-    }
-    .f-col a:hover{ color:#7dd3fc; }
-
-    .map{
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.08);
-      margin-top: 12px;
-    }
-    .map iframe{
-      width:100%;
-      height: 220px;
-      border:0;
-      display:block;
-    }
-
-    .footer-bottom{
-      max-width:1240px;
-      margin: 22px auto 0;
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding-top: 16px;
-      text-align:center;
-      font-size: .85rem;
-      color:#94a3b8;
-      line-height: 1.6;
-    }
-
-    /* =========================
-       REVEAL ANIMATION
-    ========================== */
-    .reveal{
-      opacity:0;
-      transform: translateY(26px);
-      transition: .6s ease;
-    }
-    .reveal.show{
-      opacity:1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       RESPONSIVE BREAKPOINTS
-    ========================== */
-
-    /* Tablet */
-    @media (max-width: 980px){
-      section{ padding: 75px 26px; }
-      .nav-links{ display:none; }
-      .hamburger{ display:flex; }
-      .nav-actions{ min-width: unset; }
-      .brand{ min-width: unset; }
-      .about-grid{ grid-template-columns: 1fr; }
-      .unit-card{ grid-column: span 6; }
-      .f-col{ grid-column: span 6; }
+    /* Tablet optimization */
+    @media (max-width:1100px){
+      .brand{min-width:180px}
+      .nav-links{gap:6px}
+      .nav-links a{padding:10px 10px;font-size:.92rem}
     }
 
     /* Mobile */
-    @media (max-width: 640px){
-      .nav-inner{ padding: 12px 14px; }
-      .brand img{ height: 48px; }
-      .unit-card{ grid-column: span 12; }
-      .f-col{ grid-column: span 12; }
-      .hero-cta .btn{ width: 100%; }
-      .chip{ padding: 10px 10px; }
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .brand .txt{display:none}
+
+      .nav-actions{
+        gap:8px;
+      }
+
+      /* pills jadi icon-only biar ga sempit */
+      #themeToggle span,
+      #langToggle span,
+      #menuBtn span{
+        display:none;
+      }
+      .pill{
+        padding:10px 10px;
+        min-width:42px;
+        justify-content:center;
+      }
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu{
+      position:fixed;inset:0;
+      background:rgba(2,6,23,.92);
+      backdrop-filter:blur(18px);
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      gap:14px;
+      transform:translateY(-110%);
+      transition:.38s;
+      z-index:9998;
+      padding:22px;
+    }
+    body.light .mobile-menu{
+      background:rgba(248,250,252,.94);
+    }
+    .mobile-menu.show{transform:translateY(0)}
+    .mobile-menu a{
+      font-size:1.15rem;
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      width:min(460px,92%);
+      text-align:center;
+      font-weight:800;
+    }
+    .mobile-menu .close{
+      margin-top:10px;
+      width:min(460px,92%);
+      display:flex;justify-content:center;
+      gap:10px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:flex;align-items:center;
+      padding:110px 18px 70px;
+    }
+    .hero .wrap{
+      max-width:1200px;margin:auto;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:40px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+    @media (max-width:900px){
+      .hero{padding-top:95px}
+      .hero .wrap{grid-template-columns:1fr;gap:22px}
+    }
+
+    #particles-js{position:absolute;inset:0;z-index:1;opacity:.55}
+    body.light #particles-js{opacity:.30}
+
+    .hero h1{
+      font-size:3.15rem;
+      line-height:1.05;
+      letter-spacing:-.8px;
+      background:linear-gradient(90deg, var(--text), var(--brand), var(--brand2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 35px rgba(56,189,248,.12);
+    }
+    @media (max-width:900px){.hero h1{font-size:2.15rem}}
+    .hero p{
+      margin-top:18px;
+      color:rgba(229,231,235,.86);
+      font-size:1.05rem;
+      line-height:1.75;
+      max-width:58ch;
+    }
+    body.light .hero p{color:rgba(15,23,42,.80)}
+
+    .hero-cta{
+      margin-top:26px;
+      display:flex;gap:12px;flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:13px 18px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.95rem;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      transition:.25s;
+      display:inline-flex;align-items:center;gap:10px;
+      min-height:46px;
+    }
+    .btn:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
+    .btn.primary{
+      background:linear-gradient(90deg, rgba(56,189,248,.95), rgba(96,165,250,.95));
+      color:#041025;
+      border:none;
+      box-shadow:0 18px 45px rgba(56,189,248,.20);
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn svg{width:18px;height:18px}
+
+    /* right hero card */
+    .hero-panel{
+      border-radius:var(--radius);
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, var(--card2), var(--card));
+      box-shadow:var(--shadow);
+      padding:22px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-panel::before{
+      content:"";
+      position:absolute;inset:-40px;
+      background:radial-gradient(circle at 30% 20%, rgba(56,189,248,.22), transparent 55%),
+                 radial-gradient(circle at 70% 70%, rgba(96,165,250,.18), transparent 55%);
+      filter:blur(10px);
+      opacity:.9;
+      z-index:0;
+    }
+    body.light .hero-panel::before{opacity:.55}
+    .hero-panel .inner{position:relative;z-index:1}
+    .panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .panel-title b{font-size:1rem}
+    .panel-title span{font-size:.8rem;color:var(--muted)}
+    .clock{
+      margin-top:14px;
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:var(--soft2);
+    }
+    .clock .date{color:rgba(229,231,235,.88);font-size:.95rem}
+    body.light .clock .date{color:rgba(15,23,42,.80)}
+    .clock .time{
+      font-size:2rem;
+      font-weight:900;
+      letter-spacing:1px;
+      margin-top:8px;
+      color:var(--text);
+      text-shadow:0 0 20px rgba(56,189,248,.15);
+    }
+
+    .mini-grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:520px){.mini-grid{grid-template-columns:1fr}}
+    .mini{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+    }
+    .mini b{display:block;font-size:.9rem}
+    .mini span{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;line-height:1.4}
+
+    /* SECTION HEAD */
+    .sec-head{
+      max-width:1200px;margin:0 auto 40px;
+      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+    }
+    .sec-head h2{
+      font-size:2.1rem;
+      letter-spacing:-.4px;
+    }
+    .sec-head p{
+      max-width:60ch;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:1rem;
+    }
+    @media (max-width:900px){
+      .sec-head{flex-direction:column;align-items:flex-start}
+      .sec-head h2{font-size:1.75rem}
+    }
+
+    /* GLASS BLOCK */
+    .glass{
+      max-width:1200px;margin:auto;
+      border-radius:var(--radius);
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, var(--card2), var(--card));
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+    @media (max-width:900px){.glass{padding:20px}}
+
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+      margin-top:20px;
+    }
+    @media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+    .about-grid p{color:rgba(229,231,235,.86);line-height:1.85}
+    body.light .about-grid p{color:rgba(15,23,42,.80)}
+
+    .kpi{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    @media (max-width:900px){.kpi{grid-template-columns:1fr}}
+    .kpi .box{
+      border-radius:18px;
+      padding:16px;
+      border:1px solid var(--stroke);
+      background:var(--soft2);
+    }
+    .kpi .box b{display:block;font-size:1rem}
+    .kpi .box span{display:block;margin-top:6px;color:var(--muted);line-height:1.45}
+
+    /* VISION MISSION */
+    .vm{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    @media (max-width:900px){.vm{grid-template-columns:1fr}}
+    .vm .item{
+      border-radius:20px;
+      padding:18px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+    }
+    .vm .item h3{
+      font-size:1.05rem;
+      display:flex;align-items:center;gap:10px;
+    }
+    .vm .item p{margin-top:10px;color:rgba(229,231,235,.85);line-height:1.8}
+    body.light .vm .item p{color:rgba(15,23,42,.80)}
+
+    /* TRIDHARMA */
+    .tri-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    @media (max-width:900px){.tri-grid{grid-template-columns:1fr}}
+    .tri{
+      border-radius:22px;
+      padding:22px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      position:relative;
+      overflow:hidden;
+      transition:.28s;
+    }
+    .tri::before{
+      content:"";
+      position:absolute;inset:-40px;
+      background:radial-gradient(circle at 25% 25%, rgba(56,189,248,.18), transparent 55%);
+      opacity:.0;
+      transition:.28s;
+    }
+    .tri:hover{transform:translateY(-6px);border-color:rgba(56,189,248,.30)}
+    .tri:hover::before{opacity:.8}
+    .tri .inner{position:relative;z-index:1}
+    .tri h4{font-size:1.05rem;margin-bottom:10px}
+    .tri p{color:rgba(229,231,235,.84);line-height:1.75}
+    body.light .tri p{color:rgba(15,23,42,.80)}
+
+    /* UNITS */
+    .units-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:16px;
+    }
+    @media (max-width:1100px){.units-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.units-grid{grid-template-columns:1fr}}
+
+    .unit{
+      border-radius:24px;
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg, var(--card2), var(--card));
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+      transition:.28s;
+      box-shadow:0 18px 45px rgba(0,0,0,.18);
+      min-height:250px;
+    }
+    body.light .unit{box-shadow:0 18px 45px rgba(2,6,23,.10)}
+    .unit:hover{transform:translateY(-8px);border-color:rgba(56,189,248,.32)}
+    .unit::after{
+      content:"";
+      position:absolute;inset:-50px;
+      background:linear-gradient(120deg, transparent, rgba(56,189,248,.18), transparent);
+      opacity:0;
+      transition:.35s;
+    }
+    .unit:hover::after{opacity:.9}
+    .unit .inner{position:relative;z-index:1}
+    .unit .logo{
+      width:86px;height:86px;
+      margin:0 auto 14px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .unit .logo img{
+      max-height:86px;
+      max-width:86px;
+      width:auto;height:auto;
+      object-fit:contain;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,.50));
+    }
+    body.light .unit .logo img{
+      filter: drop-shadow(0 0 10px rgba(2,6,23,.22));
+    }
+    .unit h3{text-align:center;font-size:1.12rem}
+    .unit p{text-align:center;color:rgba(229,231,235,.82);line-height:1.7;margin-top:10px;font-size:.95rem}
+    body.light .unit p{color:rgba(15,23,42,.80)}
+    .unit .go{margin-top:16px;display:flex;justify-content:center}
+    .unit .go a{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:var(--soft2);
+      transition:.25s;
+      font-weight:900;
+      font-size:.92rem;
+    }
+    .unit .go a:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
+    .unit .go a span{color:var(--brand)}
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+    .contact-box{
+      border-radius:22px;
+      padding:22px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+    }
+    @media (max-width:900px){.contact-box{padding:18px}}
+    .contact-box h3{margin-bottom:10px}
+    .contact-box p{color:rgba(229,231,235,.84);line-height:1.8}
+    body.light .contact-box p{color:rgba(15,23,42,.80)}
+    .contact-box a{color:var(--brand);font-weight:900}
+    iframe{border:0;border-radius:18px;width:100%;height:280px}
+
+    /* FOOTER */
+    footer{
+      padding:60px 18px 30px;
+      border-top:1px solid var(--stroke);
+      background:linear-gradient(180deg, rgba(2,6,23,.20), rgba(2,6,23,.90));
+    }
+    body.light footer{
+      background:linear-gradient(180deg, rgba(248,250,252,.35), rgba(248,250,252,.95));
+    }
+    .footer-wrap{max-width:1200px;margin:auto}
+    .footer-top{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr;
+      gap:18px;
+    }
+    @media (max-width:900px){.footer-top{grid-template-columns:1fr}}
+    .f-card{
+      border-radius:24px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      padding:22px;
+    }
+    .f-card h4{margin-bottom:12px}
+    .f-card p,.f-card a{color:rgba(229,231,235,.78);line-height:1.7;font-size:.95rem}
+    body.light .f-card p, body.light .f-card a{color:rgba(15,23,42,.75)}
+    .f-card a:hover{color:var(--brand)}
+    .social{
+      display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;
+    }
+    .social a{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:var(--soft2);
+      transition:.25s;
+      font-weight:900;
+    }
+    .social a:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
+    .footer-bottom{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid var(--stroke);
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    /* FLOATING */
+    .float{
+      position:fixed;right:16px;bottom:16px;z-index:99999;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .fab{
+      width:54px;height:54px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--stroke);
+      background:var(--soft2);
+      backdrop-filter:blur(12px);
+      box-shadow:0 20px 45px rgba(0,0,0,.25);
+      cursor:pointer;
+      transition:.25s;
+      user-select:none;
+    }
+    body.light .fab{box-shadow:0 18px 40px rgba(2,6,23,.10)}
+    .fab:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.35)}
+    .fab svg{width:22px;height:22px}
+    .fab.music{background:rgba(56,189,248,.10)}
+
+    /* small helper */
+    .tag{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--stroke);
+      background:var(--soft);
+      font-size:.86rem;
+      font-weight:800;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MOBILE OVERLAY + MENU -->
-  <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
-
-  <aside class="mobile-menu" id="mobileMenu">
-    <div class="mobile-head">
-      <strong>Astria Group</strong>
-      <div class="close-btn" onclick="closeMenu()">✕</div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#home" data-lang="home" onclick="toggleMenu(true)">Beranda</a>
+    <a href="#about" data-lang="about" onclick="toggleMenu(true)">Tentang</a>
+    <a href="#vision" data-lang="vision" onclick="toggleMenu(true)">Visi & Misi</a>
+    <a href="#tridharma" data-lang="tridharma" onclick="toggleMenu(true)">Tri Dharma</a>
+    <a href="#units" data-lang="units" onclick="toggleMenu(true)">Unit Bisnis</a>
+    <a href="#contact" data-lang="contact" onclick="toggleMenu(true)">Kontak</a>
+    <div class="close">
+      <div class="pill" onclick="toggleMenu(true)">✕ Close</div>
     </div>
+  </div>
 
-    <nav class="mobile-links">
-      <a href="#home" onclick="closeMenu()" data-lang="home">Beranda</a>
-      <a href="#about" onclick="closeMenu()" data-lang="about">Tentang</a>
-      <a href="#vision" onclick="closeMenu()" data-lang="vision">Visi & Misi</a>
-      <a href="#tridharma" onclick="closeMenu()" data-lang="tridharma">Tri Dharma</a>
-      <a href="#units" onclick="closeMenu()" data-lang="units">Unit Bisnis</a>
-      <a href="#contact" onclick="closeMenu()" data-lang="contact">Kontak</a>
-    </nav>
-
-    <div class="mobile-actions">
-      <div class="chip" onclick="toggleLang()" id="langBtnMobile">EN</div>
-      <div class="chip primary" onclick="toggleDark()" id="modeBtnMobile">Dark</div>
-    </div>
-  </aside>
-
-  <!-- NAVBAR -->
+  <!-- NAV -->
   <nav>
-    <div class="nav-inner">
+    <div class="nav-wrap">
       <a class="brand" href="#home" aria-label="Astria Group">
-        <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" alt="Astria Group Logo" />
+        <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" alt="Astria Group Logo">
+        <div class="txt">
+          <b>Astria Group</b>
+          <span data-lang="navSub">Building Integrated Future</span>
+        </div>
       </a>
 
       <ul class="nav-links">
@@ -649,109 +667,165 @@
       </ul>
 
       <div class="nav-actions">
-        <div class="chip" onclick="toggleLang()" id="langBtn">EN</div>
-        <div class="chip primary" onclick="toggleDark()" id="modeBtn">Dark</div>
+        <!-- THEME TOGGLE -->
+        <div class="pill" id="themeToggle" title="Dark / Light">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path id="themeIconPath" d="M21 12.7A8.5 8.5 0 1 1 11.3 3a7 7 0 0 0 9.7 9.7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span id="themeLabel">Dark</span>
+        </div>
 
-        <div class="hamburger" onclick="openMenu()" aria-label="Open Menu">
+        <!-- LANG TOGGLE -->
+        <div class="pill" id="langToggle" title="Language">
+          <strong id="langLabel">ID</strong>
+          <span style="opacity:.8">/ EN</span>
+        </div>
+
+        <!-- MENU BUTTON (MOBILE ONLY USE) -->
+        <div class="pill" id="menuBtn" onclick="toggleMenu()" title="Menu">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span data-lang="menu">Menu</span>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()" aria-label="Open Menu">
           <span></span><span></span><span></span>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <video autoplay muted loop playsinline>
-      <source src="https://cdn.pixabay.com/vimeo/524780719/abstract-visual-59639.mp4" type="video/mp4" />
-    </video>
+  <!-- AUDIO -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://github.com/jenderal45/astria/raw/main/source/background-music-453291.mp3" type="audio/mpeg" />
+  </audio>
 
+  <!-- HERO -->
+  <header class="hero" id="home">
     <div id="particles-js"></div>
 
-    <div class="hero-content reveal">
-      <h1 data-lang="heroTitle">Membangun Ekosistem Bisnis Terintegrasi</h1>
-      <p data-lang="heroDesc">
-        Holding company multibisnis berorientasi inovasi, integrasi, dan pertumbuhan berkelanjutan.
-      </p>
+    <div class="wrap">
+      <div>
+        <div class="tag">
+          <span>PT Astria Sukses Internasional</span>
+          <span style="opacity:.75">• Holding Company</span>
+        </div>
 
-      <div class="hero-cta">
-        <a href="#about" class="btn" data-lang="cta1">Pelajari Lebih Lanjut</a>
-        <a href="#units" class="btn primary" data-lang="cta2">Lihat Unit Bisnis</a>
+        <h1 style="margin-top:14px" data-lang="heroTitle">
+          Membangun Ekosistem Bisnis Terintegrasi
+        </h1>
+
+        <p data-lang="heroDesc">
+          Holding company yang berkomitmen menciptakan nilai berkelanjutan melalui pengembangan portofolio multibisnis yang inovatif dan kompetitif secara global.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn primary" href="#about">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-lang="learnMore">Pelajari Lebih Lanjut</span>
+          </a>
+          <a class="btn" href="#units">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-lang="viewUnits">Lihat Unit Bisnis</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="inner">
+          <div class="panel-title">
+            <b data-lang="panelTitle">Company Dashboard</b>
+            <span data-lang="panelSub">Real-time info</span>
+          </div>
+
+          <div class="clock">
+            <div class="date" id="currentDate">—</div>
+            <div class="time" id="currentTime">—</div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <b data-lang="mini1Title">Ecosystem</b>
+              <span data-lang="mini1Desc">Integrated multi-business portfolio</span>
+            </div>
+            <div class="mini">
+              <b data-lang="mini2Title">Vision</b>
+              <span data-lang="mini2Desc">Sustainable value & global competitiveness</span>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;color:var(--muted);font-size:.88rem;line-height:1.6">
+            <span data-lang="panelNote">
+              Tip: Klik tombol musik di kanan bawah untuk memulai audio (browser biasanya memblok autoplay).
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <div id="currentTime"></div>
+  </header>
 
   <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="wrap">
-      <div class="title reveal">
-        <h2 data-lang="aboutTitle">Tentang Astria Group</h2>
-        <p data-lang="aboutDesc">
-          Astria Group membangun ekosistem bisnis yang terintegrasi, adaptif, dan berorientasi pada nilai jangka panjang.
+  <section id="about">
+    <div class="sec-head">
+      <div>
+        <h2 data-lang="aboutTitle">Tentang Kami</h2>
+        <p data-lang="aboutSub">
+          Astria Group membangun ekosistem bisnis terintegrasi yang berorientasi pada inovasi, efisiensi, dan nilai jangka panjang.
         </p>
       </div>
+    </div>
 
+    <div class="glass">
       <div class="about-grid">
-        <div class="about-card reveal">
-          <span class="pill" data-lang="aboutTag">Profil Perusahaan</span>
+        <div>
           <p data-lang="aboutP1">
-            <strong>PT Astria Sukses Internasional (Astria Group)</strong> merupakan hasil transformasi dari
-            <strong>PT Agra Sinergi Tria</strong>, sebuah holding company yang berkomitmen membangun ekosistem bisnis terintegrasi.
+            <b>PT Astria Sukses Internasional (Astria Group)</b> merupakan hasil transformasi dari <b>PT Agra Sinergi Tria</b>, sebuah holding company yang berkomitmen membangun ekosistem bisnis yang terintegrasi.
           </p>
-          <p data-lang="aboutP2">
-            Nama <strong>“Astria”</strong> merupakan akronim dari <em>Agra Sinergi Tria</em>.
-            Selain itu, “Astria” berasal dari bahasa Yunani yang berarti <strong>“bintang”</strong>,
-            merefleksikan kesinambungan nilai, filosofi, serta semangat pendirian perusahaan.
+          <p data-lang="aboutP2" style="margin-top:12px">
+            Nama “Astria” merupakan akronim dari Agra Sinergi Tria. Selain itu, “Astria” juga berasal dari bahasa Yunani yang berarti “bintang”, yang merefleksikan kesinambungan nilai, filosofi, dan semangat pendirian perusahaan.
           </p>
         </div>
 
-        <div class="side-stack">
-          <div class="mini reveal">
-            <h3 data-lang="val1Title">Fokus Berkelanjutan</h3>
-            <p data-lang="val1Desc">
-              Penciptaan nilai melalui portofolio multibisnis yang strategis dan bertanggung jawab.
-            </p>
+        <div class="kpi">
+          <div class="box">
+            <b data-lang="k1Title">Fokus Berkelanjutan</b>
+            <span data-lang="k1Desc">Penciptaan nilai jangka panjang melalui portofolio strategis.</span>
           </div>
-          <div class="mini reveal">
-            <h3 data-lang="val2Title">Strategi Integrasi</h3>
-            <p data-lang="val2Desc">
-              Membangun sinergi antarunit untuk efisiensi operasional, inovasi, dan daya saing.
-            </p>
+          <div class="box">
+            <b data-lang="k2Title">Strategi Integrasi</b>
+            <span data-lang="k2Desc">Sinergi antarunit usaha untuk efisiensi dan inovasi.</span>
           </div>
-          <div class="mini reveal">
-            <h3 data-lang="val3Title">Visi Global</h3>
-            <p data-lang="val3Desc">
-              Mendorong transformasi ekonomi nasional menuju masa depan kompetitif secara global.
-            </p>
+          <div class="box">
+            <b data-lang="k3Title">Visi Global</b>
+            <span data-lang="k3Desc">Transformasi menuju daya saing tingkat dunia.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VISION & MISSION -->
+  <!-- VISION MISSION -->
   <section id="vision">
-    <div class="wrap">
-      <div class="title reveal">
+    <div class="sec-head">
+      <div>
         <h2 data-lang="vmTitle">Visi & Misi</h2>
-        <p data-lang="vmDesc">
-          Landasan strategis Astria Group dalam membangun pertumbuhan dan dampak jangka panjang.
+        <p data-lang="vmSub">
+          Kerangka strategis Astria Group untuk memastikan pertumbuhan, keberlanjutan, dan dampak nyata.
         </p>
       </div>
+    </div>
 
-      <div class="about-grid">
-        <div class="about-card reveal">
-          <span class="pill" data-lang="visionTag">Visi</span>
-          <p data-lang="visionText">
-            Menjadi holding company terkemuka dalam sektor strategis yang mampu menciptakan dampak sosial dan finansial secara berkelanjutan.
+    <div class="glass">
+      <div class="vm">
+        <div class="item">
+          <h3>✨ <span data-lang="visionTitle">Visi</span></h3>
+          <p data-lang="visionDesc">
+            Menjadi holding company terkemuka dalam sektor strategis yang menciptakan dampak sosial dan finansial yang positif, serta berkontribusi pada kemajuan bangsa dan negara.
           </p>
         </div>
-
-        <div class="about-card reveal">
-          <span class="pill" data-lang="missionTag">Misi</span>
-          <p data-lang="missionText">
-            Mengembangkan portofolio bisnis yang terintegrasi, inovatif, dan kompetitif secara global melalui sinergi, tata kelola yang baik, serta penguatan sumber daya.
+        <div class="item">
+          <h3>🎯 <span data-lang="missionTitle">Misi</span></h3>
+          <p data-lang="missionDesc">
+            Mengembangkan portofolio multibisnis yang terintegrasi, adaptif, dan berkelanjutan melalui inovasi, sinergi, dan tata kelola yang profesional.
           </p>
         </div>
       </div>
@@ -760,248 +834,369 @@
 
   <!-- TRIDHARMA -->
   <section id="tridharma">
-    <div class="wrap">
-      <div class="title reveal">
+    <div class="sec-head">
+      <div>
         <h2 data-lang="triTitle">Tri Dharma Astria</h2>
-        <p data-lang="triDesc">
-          Tiga pilar utama Astria Group dalam membangun dampak bisnis dan sosial.
+        <p data-lang="triSub">
+          Tiga pilar fundamental yang menjadi landasan operasional dan komitmen Astria Group untuk kemajuan bangsa dan negara.
         </p>
       </div>
+    </div>
 
-      <div class="units-grid">
-        <div class="unit-card reveal">
-          <div class="unit-top">
-            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oravita.png" alt="">
-            <div>
-              <h3 data-lang="tri1Title">Mengelola Sumber Daya Alam</h3>
-              <small data-lang="tri1Small">Natural Resources</small>
-            </div>
+    <div class="glass">
+      <div class="tri-grid">
+        <div class="tri">
+          <div class="inner">
+            <h4 data-lang="d1Title">Mengelola Sumber Daya Alam</h4>
+            <p data-lang="d1Desc">
+              Kami berdedikasi untuk melindungi dan memanfaatkan sumber daya alam Indonesia secara bertanggung jawab.
+              Operasional kami memastikan dampak ekonomi yang kuat sekaligus keberlanjutan lingkungan demi generasi mendatang.
+            </p>
           </div>
-          <p data-lang="tri1Desc">
-            Memanfaatkan sumber daya alam secara bertanggung jawab, menjaga keberlanjutan lingkungan, dan memberikan nilai bagi generasi mendatang.
-          </p>
         </div>
 
-        <div class="unit-card reveal">
-          <div class="unit-top">
-            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-exmind-digital.png" alt="">
-            <div>
-              <h3 data-lang="tri2Title">Membangun Sumber Daya Manusia</h3>
-              <small data-lang="tri2Small">Human Capital</small>
-            </div>
+        <div class="tri">
+          <div class="inner">
+            <h4 data-lang="d2Title">Membangun Sumber Daya Manusia</h4>
+            <p data-lang="d2Desc">
+              Kami berinvestasi pada potensi individu melalui sektor-sektor yang menyediakan produk dan layanan yang mencerdaskan,
+              menyehatkan, dan memberdayakan masyarakat. SDM adalah fondasi utama kemajuan bangsa.
+            </p>
           </div>
-          <p data-lang="tri2Desc">
-            Menyediakan layanan dan produk yang mencerdaskan, menyehatkan, dan memberdayakan masyarakat sebagai fondasi kemajuan bangsa.
-          </p>
         </div>
 
-        <div class="unit-card reveal">
-          <div class="unit-top">
-            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-dmultipro.png" alt="">
-            <div>
-              <h3 data-lang="tri3Title">Mengkapitalisasi Sumber Daya Keuangan</h3>
-              <small data-lang="tri3Small">Capital Management</small>
-            </div>
+        <div class="tri">
+          <div class="inner">
+            <h4 data-lang="d3Title">Mengkapitalisasi Sumber Daya Keuangan</h4>
+            <p data-lang="d3Desc">
+              Kami menggunakan keahlian finansial untuk menciptakan stabilitas dan kemakmuran.
+              Fokus kami adalah investasi strategis yang mendorong pertumbuhan ekonomi yang adil, menciptakan lapangan kerja,
+              dan mendukung inisiatif sosial.
+            </p>
           </div>
-          <p data-lang="tri3Desc">
-            Menggunakan keahlian finansial untuk stabilitas, kemakmuran, investasi strategis, pembukaan lapangan kerja, dan inisiatif sosial.
-          </p>
         </div>
+      </div>
+
+      <div style="margin-top:18px;color:var(--muted);line-height:1.7">
+        <b data-lang="triNoteTitle">Komitmen Berkelanjutan</b><br/>
+        <span data-lang="triNoteDesc">
+          Tri Dharma Astria bukan sekadar filosofi, tetapi panduan nyata dalam setiap keputusan bisnis kami
+          untuk menciptakan nilai berkelanjutan bagi stakeholder, masyarakat, dan bangsa Indonesia.
+        </span>
       </div>
     </div>
   </section>
 
   <!-- UNITS -->
-  <section id="units" class="units">
-    <div class="wrap">
-      <div class="title reveal">
+  <section id="units">
+    <div class="sec-head">
+      <div>
         <h2 data-lang="unitsTitle">Unit Bisnis Kami</h2>
-        <p data-lang="unitsDesc">
+        <p data-lang="unitsSub">
           Empat unit bisnis yang saling terintegrasi untuk membentuk ekosistem usaha yang adaptif, inovatif, dan kompetitif.
         </p>
       </div>
-
+    </div>
+  
+    <div class="glass">
       <div class="units-grid">
-        <a href="https://neulinknews.vercel.app" target="_blank" class="unit-card reveal">
-          <div>
-            <div class="unit-top">
-              <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-neulink-news.png" alt="Neulink News">
-              <div>
-                <h3>Neulink News</h3>
-                <small data-lang="unitTypeMedia">Digital Media</small>
-              </div>
-            </div>
-            <p data-lang="unitNeulink">
-              Portal berita dan konten kreatif yang informatif, edukatif, dan inspiratif.
-            </p>
-          </div>
-          <span class="unit-link" data-lang="visit">Kunjungi Website →</span>
-        </a>
-
-        <a href="https://exmind.co.id" target="_blank" class="unit-card reveal">
-          <div>
-            <div class="unit-top">
+  
+        <div class="unit">
+          <div class="inner">
+            <div class="logo">
               <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-exmind-digital.png" alt="Exmind Digital">
-              <div>
-                <h3>Exmind Digital</h3>
-                <small data-lang="unitTypeAgency">Digital Agency</small>
-              </div>
             </div>
-            <p data-lang="unitExmind">
-              Branding, social media, website, dan kampanye kreatif profesional.
+            <h3>Exmind Digital</h3>
+            <p data-lang="exmindDesc">
+              Digital Agency — branding, social media, website, creative campaign, dan solusi digital profesional.
             </p>
+            <div class="go">
+              <a href="https://exmind.vercel.app/#contact" target="_blank" rel="noopener">
+                <span data-lang="visit">Kunjungi Website</span> →
+              </a>
+            </div>
           </div>
-          <span class="unit-link" data-lang="visit">Kunjungi Website →</span>
-        </a>
-
-        <a href="https://dmultipro.vercel.app" target="_blank" class="unit-card reveal">
-          <div>
-            <div class="unit-top">
+        </div>
+  
+        <div class="unit">
+          <div class="inner">
+            <div class="logo">
+              <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-neulink-news.png" alt="Neulink News">
+            </div>
+            <h3>Neulink News</h3>
+            <p data-lang="neulinkDesc">
+              Media Digital — kanal informasi, publikasi, dan konten kreatif yang informatif, edukatif, dan inspiratif.
+            </p>
+            <div class="go">
+              <a href="https://neulinknews.vercel.app/" target="_blank" rel="noopener">
+                <span data-lang="visit">Kunjungi Website</span> →
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="unit">
+          <div class="inner">
+            <div class="logo">
               <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-dmultipro.png" alt="D'Multi Pro">
-              <div>
-                <h3>D'Multi Pro</h3>
-                <small data-lang="unitTypeConsult">Consulting</small>
-              </div>
             </div>
-            <p data-lang="unitDMulti">
-              Consulting management untuk mendukung strategi, organisasi, dan eksekusi bisnis.
+            <h3>D'Multi Pro</h3>
+            <p data-lang="dMultiproDesc">
+              Konsumen & Agribisnis — pengembangan dan distribusi produk kebutuhan harian dengan fokus kualitas dan keberlanjutan.
             </p>
+            <div class="go">
+              <a href="https://d-multipro.vercel.app/" target="_blank" rel="noopener">
+                <span data-lang="visit">Kunjungi Website</span> →
+              </a>
+            </div>
           </div>
-          <span class="unit-link" data-lang="visit">Kunjungi Website →</span>
-        </a>
+        </div>
+  
+      </div>
+    </div>
+  </section>
 
-        <a href="https://oravita.vercel.app" target="_blank" class="unit-card reveal">
-          <div>
-            <div class="unit-top">
-              <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oravita.png" alt="Oravita Global">
-              <div>
-                <h3>Oravita Global</h3>
-                <small data-lang="unitTypeAgri">Consumer & Agribusiness</small>
-              </div>
-            </div>
-            <p data-lang="unitOravita">
-              Produk konsumen dan agribisnis berkelanjutan dengan fokus pada kualitas.
-            </p>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sec-head">
+      <div>
+        <h2 data-lang="contactTitle">Hubungi Kami</h2>
+        <p data-lang="contactSub">
+          Mari bergabung dalam membangun masa depan yang lebih baik bersama Astria Group.
+        </p>
+      </div>
+    </div>
+
+    <div class="glass">
+      <div class="contact-grid">
+        <div class="contact-box">
+          <h3 data-lang="contactInfo">Informasi Kontak</h3>
+          <p>
+            📧 Email:
+            <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a>
+            <br><br>
+            💬 WhatsApp:
+            <a href="https://wa.me/6289652435067" target="_blank" rel="noopener">+62 896-5243-5067</a>
+            <br><br>
+            📍 Alamat:
+            <span data-lang="addr">
+              Gedung Puskopal Lt. 2, Komplek TNI AL Jl. Tabah Raya No.19, Kelapa Gading, Jakarta Utara
+            </span>
+          </p>
+
+          <div class="social">
+            <a href="https://www.instagram.com/astriagroup/" target="_blank" rel="noopener">📸 Instagram</a>
+            <a href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" rel="noopener">in LinkedIn</a>
           </div>
-          <span class="unit-link" data-lang="visit">Kunjungi Website →</span>
-        </a>
+        </div>
+
+        <div class="contact-box">
+          <h3 data-lang="officeLoc">Lokasi Kantor Pusat</h3>
+          <iframe
+            src="https://www.google.com/maps?q=Gedung+Puskopal+Kelapa+Gading+Jakarta&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div style="margin-top:10px">
+            📍 <a href="https://maps.app.goo.gl/nPcEpCTuhe8e6bgM8" target="_blank" rel="noopener">
+              <span data-lang="openMaps">Buka titik presisi di Google Maps</span> →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer id="contact">
-    <div class="footer-grid">
-
-      <div class="f-col reveal">
-        <h4 data-lang="footOffice">Alamat Kantor Pusat</h4>
-        <p data-lang="footAddr">
-          Gedung Puskopal Lantai 2, Komplek TNI AL<br>
-          Jl. Tabah Raya No.19, Kodamar Kelapa Gading, Jakarta Utara, DKI Jakarta
-        </p>
-      </div>
-
-      <div class="f-col reveal">
-        <h4 data-lang="footContact">Informasi Kontak</h4>
-        <p>
-          📧 Email:<br>
-          <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a>
-        </p>
-        <p style="margin-top:10px">
-          💬 WhatsApp:<br>
-          <a href="https://wa.me/6289652435067" target="_blank">+62 896-5243-5067</a>
-        </p>
-      </div>
-
-      <div class="f-col reveal">
-        <h4 data-lang="footMap">Lokasi Kantor Pusat</h4>
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps?q=Gedung+Puskopal+Kelapa+Gading+Jakarta&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-top">
+        <div class="f-card">
+          <div style="display:flex;align-items:center;gap:12px">
+            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png"
+                 alt="Astria Group"
+                 style="height:46px;width:auto;filter:drop-shadow(0 0 10px rgba(255,255,255,.45))">
+            <div>
+              <h4 style="margin:0">Astria Group</h4>
+              <p style="margin-top:6px" data-lang="footerTag">Building Integrated Future</p>
+            </div>
+          </div>
+          <p style="margin-top:14px" data-lang="footerDesc">
+            Holding company yang membangun ekosistem bisnis terintegrasi untuk masa depan yang berkelanjutan dan kompetitif secara global.
+          </p>
         </div>
-        <p style="margin-top:10px">
-          📍 <a href="https://maps.app.goo.gl/nPcEpCTuhe8e6bgM8" target="_blank" data-lang="footPrecise">
-            Lihat titik lokasi presisi di Google Maps →
-          </a>
-        </p>
+
+        <div class="f-card">
+          <h4 data-lang="quickLinks">Tautan Cepat</h4>
+          <p><a href="#home" data-lang="home">Beranda</a></p>
+          <p><a href="#about" data-lang="about">Tentang</a></p>
+          <p><a href="#units" data-lang="units">Unit Bisnis</a></p>
+          <p><a href="#contact" data-lang="contact">Kontak</a></p>
+        </div>
+
+        <div class="f-card">
+          <h4 data-lang="footerContact">Kontak</h4>
+          <p>📧 <a href="mailto:astriainternasional@gmail.com">astriainternasional@gmail.com</a></p>
+          <p>💬 <a href="https://wa.me/6289652435067" target="_blank" rel="noopener">+62 896-5243-5067</a></p>
+          <p style="margin-top:12px;color:var(--muted)" data-lang="crafted">
+            Proudly crafted by Exmind Digital
+          </p>
+        </div>
       </div>
 
-    </div>
-
-    <div class="footer-bottom">
-      © 2025 <strong>PT Astria Sukses Internasional</strong> — All Rights Reserved<br>
-      Proudly crafted by Exmind Digital
+      <div class="footer-bottom">
+        <div>© 2025 PT Astria Sukses Internasional (Astria Group). All Rights Reserved.</div>
+        <div data-lang="legal">Tidak ada bagian dari website ini yang boleh direproduksi tanpa izin tertulis.</div>
+      </div>
     </div>
   </footer>
 
+  <!-- FLOATING BUTTONS -->
+  <div class="float">
+    <a class="fab" href="https://wa.me/6289652435067" target="_blank" rel="noopener" title="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-2.9-.4-4.1-1l-3.9 1 1.1-3.8c-.7-1.3-1.1-2.8-1.1-4.4C4 7.5 7.8 3.7 12.5 3.7s8 3.5 8 8.2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <a class="fab" href="https://www.instagram.com/astriagroup/" target="_blank" rel="noopener" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" stroke-width="2"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    </a>
+
+    <a class="fab" href="https://www.linkedin.com/company/astria-group/?viewAsMember=true" target="_blank" rel="noopener" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h4v16H4V4Zm6 6h4v2c.6-1.2 1.9-2.2 4-2.2 3.3 0 4 2.1 4 5.3V20h-4v-4.2c0-2 0-3.3-1.8-3.3-1.8 0-2.2 1.3-2.2 3.2V20h-4V10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="currentColor"/></svg>
+    </a>
+
+    <div class="fab music" id="musicBtn" title="Music On/Off">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l12-2v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/><path d="M21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/></svg>
+    </div>
+  </div>
+
   <script>
-    /* =========================
-       PARTICLES
-    ========================== */
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 65 },
-        color: { value: "#38bdf8" },
-        size: { value: 3 },
-        line_linked: { enable: true, distance: 140, opacity: 0.25 },
-        move: { enable: true, speed: 2 }
+    // =========================
+    // THEME (DARK/LIGHT) + SAVE
+    // =========================
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+
+    function setTheme(mode){
+      if(mode === "light"){
+        document.body.classList.add("light");
+        themeLabel.textContent = "Light";
+        document.querySelector('meta[name="theme-color"]').setAttribute("content","#f8fafc");
+      }else{
+        document.body.classList.remove("light");
+        themeLabel.textContent = "Dark";
+        document.querySelector('meta[name="theme-color"]').setAttribute("content","#020617");
+      }
+      localStorage.setItem("astria_theme", mode);
+    }
+
+    (function initTheme(){
+      const saved = localStorage.getItem("astria_theme");
+      if(saved){
+        setTheme(saved);
+      }else{
+        const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        setTheme(prefersLight ? "light" : "dark");
+      }
+    })();
+
+    themeToggle.addEventListener("click", ()=>{
+      const isLight = document.body.classList.contains("light");
+      setTheme(isLight ? "dark" : "light");
+    });
+
+    // =========================
+    // PARTICLES
+    // =========================
+    window.addEventListener("load", () => {
+      if(window.particlesJS){
+        particlesJS("particles-js",{
+          particles:{
+            number:{value:65,density:{enable:true,value_area:900}},
+            color:{value:"#38bdf8"},
+            shape:{type:"circle"},
+            opacity:{value:.45,random:true},
+            size:{value:2.6,random:true},
+            line_linked:{enable:true,distance:140,color:"#38bdf8",opacity:.18,width:1},
+            move:{enable:true,speed:1.6}
+          },
+          interactivity:{
+            detect_on:"canvas",
+            events:{onhover:{enable:true,mode:"grab"},onclick:{enable:true,mode:"push"}},
+            modes:{grab:{distance:160,line_linked:{opacity:.25}},push:{particles_nb:2}}
+          },
+          retina_detect:true
+        });
       }
     });
 
-    /* =========================
-       MOBILE MENU
-    ========================== */
-    const overlay = document.getElementById("overlay");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    function openMenu(){
-      overlay.classList.add("show");
-      mobileMenu.classList.add("show");
-    }
-    function closeMenu(){
-      overlay.classList.remove("show");
-      mobileMenu.classList.remove("show");
-    }
-
-    /* =========================
-       DARK MODE (SAVE)
-    ========================== */
-    const modeBtn = document.getElementById("modeBtn");
-    const modeBtnMobile = document.getElementById("modeBtnMobile");
-
-    function applyMode(isDark){
-      if(isDark) document.body.classList.add("dark");
-      else document.body.classList.remove("dark");
-
-      const label = isDark ? "Light" : "Dark";
-      modeBtn.innerText = label;
-      modeBtnMobile.innerText = label;
-
-      localStorage.setItem("astria_mode", isDark ? "dark" : "light");
+    // =========================
+    // MOBILE MENU
+    // =========================
+    function toggleMenu(forceClose=false){
+      const m = document.getElementById("mobileMenu");
+      if(forceClose){
+        m.classList.remove("show");
+        m.setAttribute("aria-hidden","true");
+        return;
+      }
+      m.classList.toggle("show");
+      m.setAttribute("aria-hidden", m.classList.contains("show") ? "false" : "true");
     }
 
-    function toggleDark(){
-      const isDark = !document.body.classList.contains("dark");
-      applyMode(isDark);
+    window.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape") toggleMenu(true);
+    });
+
+    // =========================
+    // CLOCK
+    // =========================
+    function pad(n){return String(n).padStart(2,"0");}
+    let currentLang = "id";
+
+    function updateClock(){
+      const now = new Date();
+      const dateID = now.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+      const dateEN = now.toLocaleDateString("en-US",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+      const time = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+      document.getElementById("currentTime").textContent = time;
+      document.getElementById("currentDate").textContent = (currentLang === "id") ? dateID : dateEN;
+    }
+    setInterval(updateClock,1000);
+
+    // =========================
+    // MUSIC
+    // =========================
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+    let musicOn = false;
+
+    function tryPlay(){
+      music.volume = 0.55;
+      music.play().then(()=>{musicOn=true;}).catch(()=>{musicOn=false;});
     }
 
-    // init mode
-    const savedMode = localStorage.getItem("astria_mode");
-    if(savedMode === "dark") applyMode(true);
-    else applyMode(false);
+    window.addEventListener("load", () => setTimeout(tryPlay, 800));
 
-    /* =========================
-       LANGUAGE (ID/EN)
-    ========================== */
-    let currentLang = localStorage.getItem("astria_lang") || "id";
-    const langBtn = document.getElementById("langBtn");
-    const langBtnMobile = document.getElementById("langBtnMobile");
+    musicBtn.addEventListener("click", () => {
+      if(!musicOn){
+        tryPlay();
+      }else{
+        music.pause();
+        musicOn=false;
+      }
+    });
 
-    const translations = {
-      en: {
+    // =========================
+    // MULTI LANGUAGE
+    // =========================
+    const langToggle = document.getElementById("langToggle");
+    const langLabel = document.getElementById("langLabel");
+
+    const t = {
+      en:{
+        navSub:"Building Integrated Future",
+        menu:"Menu",
         home:"Home",
         about:"About",
         vision:"Vision & Mission",
@@ -1010,126 +1205,87 @@
         contact:"Contact",
 
         heroTitle:"Building an Integrated Business Ecosystem",
-        heroDesc:"A multi-business holding company focused on innovation, integration, and sustainable growth.",
-        cta1:"Learn More",
-        cta2:"View Business Units",
+        heroDesc:"A holding company committed to creating sustainable value through innovative and globally competitive multi-business portfolios.",
+        learnMore:"Learn More",
+        viewUnits:"View Business Units",
 
-        aboutTitle:"About Astria Group",
-        aboutDesc:"Astria Group builds an integrated, adaptive, and long-term value driven business ecosystem.",
-        aboutTag:"Company Profile",
-        aboutP1:"PT Astria Sukses Internasional (Astria Group) is a transformation of PT Agra Sinergi Tria, a holding company committed to building an integrated business ecosystem.",
-        aboutP2:"The name “Astria” is an acronym of Agra Sinergi Tria. It also comes from Greek meaning “star”, reflecting continuity of values, philosophy, and long-term growth spirit.",
+        panelTitle:"Company Dashboard",
+        panelSub:"Real-time info",
+        mini1Title:"Ecosystem",
+        mini1Desc:"Integrated multi-business portfolio",
+        mini2Title:"Vision",
+        mini2Desc:"Sustainable value & global competitiveness",
+        panelNote:"Tip: Click the music button on the bottom-right to start audio (browsers usually block autoplay).",
 
-        val1Title:"Sustainable Focus",
-        val1Desc:"Creating value through strategic and responsible multi-business portfolio development.",
-        val2Title:"Integration Strategy",
-        val2Desc:"Building synergy across units to improve operational efficiency, innovation, and competitiveness.",
-        val3Title:"Global Vision",
-        val3Desc:"Driving national economic transformation towards a globally competitive future.",
+        aboutTitle:"About Us",
+        aboutSub:"Astria Group builds an integrated business ecosystem focused on innovation, efficiency, and long-term value.",
+        aboutP1:"PT Astria Sukses Internasional (Astria Group) is the transformation of PT Agra Sinergi Tria, a holding company committed to building an integrated business ecosystem.",
+        aboutP2:"The name “Astria” is an acronym of Agra Sinergi Tria. It also comes from Greek meaning “star”, reflecting continuity of values, philosophy, and founding spirit.",
+        k1Title:"Sustainable Focus",
+        k1Desc:"Long-term value creation through strategic portfolios.",
+        k2Title:"Integration Strategy",
+        k2Desc:"Synergy across units for efficiency and innovation.",
+        k3Title:"Global Vision",
+        k3Desc:"Transformation toward world-class competitiveness.",
 
         vmTitle:"Vision & Mission",
-        vmDesc:"Astria Group’s strategic foundation for sustainable growth and long-term impact.",
-        visionTag:"Vision",
-        visionText:"To become a leading holding company in strategic sectors that creates sustainable social and financial impact.",
-        missionTag:"Mission",
-        missionText:"To develop an integrated, innovative, and globally competitive business portfolio through synergy, good governance, and resource strengthening.",
+        vmSub:"Astria Group strategic framework to ensure growth, sustainability, and real impact.",
+        visionTitle:"Vision",
+        visionDesc:"To become a leading holding company in strategic sectors that creates positive social and financial impact, contributing to national progress.",
+        missionTitle:"Mission",
+        missionDesc:"Develop an integrated, adaptive, and sustainable multi-business portfolio through innovation, synergy, and professional governance.",
 
         triTitle:"Astria Tri Dharma",
-        triDesc:"Three main pillars of Astria Group in building business and social impact.",
-        tri1Title:"Managing Natural Resources",
-        tri1Small:"Natural Resources",
-        tri1Desc:"Utilizing natural resources responsibly, ensuring sustainability and value for future generations.",
-        tri2Title:"Developing Human Capital",
-        tri2Small:"Human Capital",
-        tri2Desc:"Providing services and products that educate, empower, and improve public well-being.",
-        tri3Title:"Capitalizing Financial Resources",
-        tri3Small:"Capital Management",
-        tri3Desc:"Leveraging financial expertise for stability, prosperity, strategic investments, jobs, and social initiatives.",
+        triSub:"Three fundamental pillars that guide our operations and commitment to the nation.",
+        d1Title:"Managing Natural Resources",
+        d1Desc:"We are dedicated to protecting and utilizing Indonesia’s natural resources responsibly, ensuring strong economic impact and environmental sustainability for future generations.",
+        d2Title:"Developing Human Capital",
+        d2Desc:"We invest in human potential through sectors that educate, empower, and promote public health. Human capital is the foundation of national progress.",
+        d3Title:"Capitalizing Financial Resources",
+        d3Desc:"We leverage financial expertise to create stability and prosperity through strategic investments that drive fair economic growth, jobs, and social initiatives.",
+        triNoteTitle:"Sustainable Commitment",
+        triNoteDesc:"Tri Dharma Astria is not just philosophy, but a real guide for every business decision to create sustainable value for stakeholders and Indonesia.",
 
         unitsTitle:"Our Business Units",
-        unitsDesc:"Four integrated business units forming an adaptive, innovative, and competitive ecosystem.",
-        unitTypeMedia:"Digital Media",
-        unitTypeAgency:"Digital Agency",
-        unitTypeConsult:"Consulting",
-        unitTypeAgri:"Consumer & Agribusiness",
+        unitsSub:"Four integrated business units forming an adaptive, innovative, and competitive ecosystem.",
+        oravitaDesc:"Consumer & Agribusiness — development and distribution of daily needs products with quality and sustainability focus.",
+        neulinkDesc:"Digital Media — information channels, publications, and creative content that are informative, educational, and inspiring.",
+        exmindDesc:"Digital Agency — branding, social media, websites, creative campaigns, and professional digital solutions.",
+        fdxDesc:"Talent Agency — talent management, influencers, KOLs, collaborations, and creative campaigns.",
+        visit:"Visit Website",
 
-        unitNeulink:"A digital news portal and creative content that is informative, educational, and inspiring.",
-        unitExmind:"Branding, social media, websites, and professional creative campaigns.",
-        unitDMulti:"Management consulting to support strategy, organization, and business execution.",
-        unitOravita:"Sustainable consumer and agribusiness products with strong quality focus.",
+        contactTitle:"Contact Us",
+        contactSub:"Join us in building a better future together with Astria Group.",
+        contactInfo:"Contact Information",
+        addr:"Gedung Puskopal 2nd Floor, Indonesian Navy Complex, Jl. Tabah Raya No.19, Kelapa Gading, North Jakarta",
+        officeLoc:"Head Office Location",
+        openMaps:"Open precise location in Google Maps",
 
-        visit:"Visit Website →",
-
-        footOffice:"Head Office Address",
-        footAddr:"Puskopal Building 2nd Floor, Indonesian Navy Complex<br>Jl. Tabah Raya No.19, Kelapa Gading, North Jakarta, DKI Jakarta",
-        footContact:"Contact Information",
-        footMap:"Office Location",
-        footPrecise:"View precise location on Google Maps →"
+        footerTag:"Building Integrated Future",
+        footerDesc:"A holding company building an integrated business ecosystem for a sustainable and globally competitive future.",
+        quickLinks:"Quick Links",
+        footerContact:"Contact",
+        crafted:"Proudly crafted by Exmind Digital",
+        legal:"No part of this website may be reproduced without written permission."
       }
     };
 
-    function applyLang(lang){
-      const els = document.querySelectorAll("[data-lang]");
-      els.forEach(el=>{
+    function applyLang(){
+      document.querySelectorAll("[data-lang]").forEach(el=>{
         const key = el.getAttribute("data-lang");
-        if(lang === "en" && translations.en[key]){
-          el.innerHTML = translations.en[key];
-        }else{
-          // default ID (original)
-          // do nothing if ID
-        }
+        if(currentLang === "en" && t.en[key]) el.textContent = t.en[key];
       });
-
-      langBtn.innerText = lang === "id" ? "EN" : "ID";
-      langBtnMobile.innerText = lang === "id" ? "EN" : "ID";
-
-      localStorage.setItem("astria_lang", lang);
-      currentLang = lang;
+      langLabel.textContent = (currentLang === "id") ? "ID" : "EN";
+      updateClock();
     }
 
-    function resetToID(){
-      // reload page to restore original Indonesian text safely
-      localStorage.setItem("astria_lang", "id");
-      location.reload();
-    }
+    langToggle.addEventListener("click", ()=>{
+      currentLang = (currentLang === "id") ? "en" : "id";
+      applyLang();
+    });
 
-    function toggleLang(){
-      if(currentLang === "id") applyLang("en");
-      else resetToID();
-    }
-
-    // init language
-    if(currentLang === "en") applyLang("en");
-
-    /* =========================
-       TIME
-    ========================== */
-    function updateTime(){
-      const now = new Date();
-      const dateStr = now.toLocaleDateString("id-ID", {
-        weekday:"long", day:"numeric", month:"long", year:"numeric"
-      });
-      const timeStr = now.toLocaleTimeString("id-ID");
-      document.getElementById("currentTime").innerText = `${dateStr} | ${timeStr}`;
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
-
-    /* =========================
-       REVEAL ON SCROLL
-    ========================== */
-    const revealEls = document.querySelectorAll(".reveal");
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
-
-    revealEls.forEach(el=>obs.observe(el));
+    applyLang();
+    updateClock();
   </script>
-
 </body>
 </html>
