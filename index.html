@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astria Group - Integrated Business Ecosystem</title>
+
+    <!-- Favicon Astria Group -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png">
+
+    <!-- SEO -->
+    <meta name="description" content="PT Astria Sukses Internasional (Astria Group) membangun ekosistem bisnis terintegrasi melalui unit FDX Management, Oqline, dan Oravita." />
+    <meta name="keywords" content="Astria Group, Astria, FDX Management, Oqline, Oravita, Holding Company Indonesia" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Astria Group | Integrated Business Ecosystem" />
+    <meta property="og:description" content="Holding company yang membangun ekosistem bisnis terintegrasi untuk masa depan berkelanjutan." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- PARTICLES -->
+    <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -33,187 +53,183 @@
         }
     </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f6f1;
             color: #0a1628;
             overflow-x: hidden;
         }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8f6f1; }
+        ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 4px; }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f8f6f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c9a84c;
-            border-radius: 4px;
-        }
-
-        /* Hero Animation */
         .hero-bg {
             background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #0a1628 100%);
             position: relative;
             overflow: hidden;
         }
-        
         .hero-bg::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
+            top: -50%; right: -20%;
+            width: 800px; height: 800px;
             background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
             border-radius: 50%;
             animation: pulse 8s ease-in-out infinite;
         }
-        
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.5; }
             50% { transform: scale(1.2); opacity: 0.8; }
         }
-
-        /* Grid Pattern Overlay */
         .grid-pattern {
             background-image: 
                 linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
             background-size: 50px 50px;
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
+            position: absolute; inset: 0; pointer-events: none;
         }
-
-        /* Glassmorphism Cards */
         .glass-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(201,168,76,0.2);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
         .glass-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(10, 22, 40, 0.15);
             border-color: rgba(201,168,76,0.5);
         }
-
-        /* Subsidiary Cards */
         .subsidiary-card {
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
         .subsidiary-card::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 4px;
             background: linear-gradient(90deg, #c9a84c, #e8d5a3);
-            transform: scaleX(0);
-            transform-origin: left;
+            transform: scaleX(0); transform-origin: left;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        .subsidiary-card:hover::after {
-            transform: scaleX(1);
-        }
-        
-        .subsidiary-card:hover {
-            transform: translateY(-12px);
-        }
-
-        /* Text Reveal Animation */
-        .reveal-text {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* Navigation */
+        .subsidiary-card:hover::after { transform: scaleX(1); }
+        .subsidiary-card:hover { transform: translateY(-12px); }
+        .reveal-text { opacity: 0; transform: translateY(30px); }
         .nav-scrolled {
             background: rgba(10, 22, 40, 0.95);
             backdrop-filter: blur(20px);
             box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
-
-        /* Gold Accent Line */
         .gold-line {
-            width: 60px;
-            height: 3px;
+            width: 60px; height: 3px;
             background: linear-gradient(90deg, #c9a84c, #e8d5a3);
         }
-
-        /* Stats Counter */
-        .stat-number {
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Mobile Menu */
+        .stat-number { font-variant-numeric: tabular-nums; }
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
         }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        /* Image Hover Zoom */
-        .img-zoom {
-            overflow: hidden;
-        }
-        .img-zoom img {
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .img-zoom:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Button Styles */
+        .mobile-menu.active { transform: translateX(0); }
+        .img-zoom { overflow: hidden; }
+        .img-zoom img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .img-zoom:hover img { transform: scale(1.1); }
         .btn-primary {
             background: linear-gradient(135deg, #c9a84c, #a88b3a);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
             transition: all 0.3s ease;
         }
         .btn-primary::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s ease;
         }
-        .btn-primary:hover::before {
-            left: 100%;
-        }
+        .btn-primary:hover::before { left: 100%; }
         .btn-primary:hover {
             box-shadow: 0 10px 30px rgba(201,168,76,0.4);
             transform: translateY(-2px);
         }
-
-        /* Footer Wave */
         .footer-wave {
             background: linear-gradient(135deg, #0a1628 0%, #1e293b 100%);
         }
+
+        /* Particles container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Unit card styles */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .unit {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .unit:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201,168,76,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .unit .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .unit .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .unit h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .unit p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .unit .go a {
+            color: #c9a84c;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .unit .go a:hover {
+            color: #e8d5a3;
+            gap: 1rem;
+        }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -221,26 +237,21 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
                 <a href="#" class="flex items-center gap-3 group">
                     <div class="w-10 h-10 bg-gradient-to-br from-astria-gold to-astria-goldLight rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-astria-gold/50 transition-shadow">
-                        <span class="text-astria-navy font-bold text-xl font-serif">A</span>
+                        <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" alt="Astria Group" class="w-8 h-8 object-contain">
                     </div>
                     <div class="flex flex-col">
                         <span class="text-white font-bold text-xl tracking-wide">ASTRIA</span>
                         <span class="text-astria-gold text-[10px] tracking-[0.3em] uppercase">Group</span>
                     </div>
                 </a>
-
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#about" class="text-gray-300 hover:text-astria-gold transition-colors text-sm font-medium tracking-wide">Tentang Kami</a>
                     <a href="#subsidiaries" class="text-gray-300 hover:text-astria-gold transition-colors text-sm font-medium tracking-wide">Unit Bisnis</a>
                     <a href="#vision" class="text-gray-300 hover:text-astria-gold transition-colors text-sm font-medium tracking-wide">Visi & Misi</a>
                     <a href="#contact" class="btn-primary px-6 py-2.5 rounded-full text-white text-sm font-semibold tracking-wide">Hubungi Kami</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <button id="mobileMenuBtn" class="md:hidden text-white p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -265,8 +276,9 @@
 
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center relative">
+        <div id="particles-js"></div>
         <div class="grid-pattern"></div>
-        
+
         <div class="max-w-7xl mx-auto px-6 lg:px-8 py-32 relative z-10 w-full">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8">
@@ -291,42 +303,40 @@
                         </a>
                     </div>
                 </div>
-                
-                <!-- Hero Visual -->
+
                 <div class="hidden lg:block relative">
                     <div class="relative w-full aspect-square max-w-lg mx-auto">
                         <div class="absolute inset-0 bg-gradient-to-br from-astria-gold/20 to-transparent rounded-full blur-3xl"></div>
-                        <div class="relative grid grid-cols-2 gap-4 p-4">
-                            <div class="glass-card rounded-2xl p-6 transform translate-y-8">
-                                <div class="w-12 h-12 bg-astria-gold/20 rounded-xl flex items-center justify-center mb-4">
-                                    <svg class="w-6 h-6 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                    </svg>
+                        <div class="relative p-4">
+                            <div class="glass rounded-3xl p-8 border border-astria-gold/20">
+                                <div class="text-center mb-6">
+                                    <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" alt="Astria Group" class="w-24 h-24 mx-auto object-contain mb-4">
+                                    <h3 class="text-white text-xl font-bold">Astria Group</h3>
+                                    <p class="text-astria-gold text-sm">Holding Company</p>
                                 </div>
-                                <h3 class="text-white font-semibold mb-1">Oqline</h3>
-                                <p class="text-gray-400 text-sm">Teknologi Digital</p>
-                            </div>
-                            <div class="glass-card rounded-2xl p-6">
-                                <div class="w-12 h-12 bg-astria-gold/20 rounded-xl flex items-center justify-center mb-4">
-                                    <svg class="w-6 h-6 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                                    </svg>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                        <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oqline.png" alt="Oqline" class="w-8 h-8 object-contain rounded">
+                                        <div>
+                                            <div class="text-white text-sm font-semibold">Oqline</div>
+                                            <div class="text-gray-400 text-xs">Digital & Technology</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                        <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-fdx-management.jpeg" alt="FDX" class="w-8 h-8 object-contain rounded">
+                                        <div>
+                                            <div class="text-white text-sm font-semibold">FDX Management</div>
+                                            <div class="text-gray-400 text-xs">Digital & Creative</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                        <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oravita.png" alt="Oravita" class="w-8 h-8 object-contain rounded">
+                                        <div>
+                                            <div class="text-white text-sm font-semibold">Oravita</div>
+                                            <div class="text-gray-400 text-xs">General Trading</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 class="text-white font-semibold mb-1">Oravita</h3>
-                                <p class="text-gray-400 text-sm">Perdagangan Umum</p>
-                            </div>
-                            <div class="glass-card rounded-2xl p-6 transform translate-y-4">
-                                <div class="w-12 h-12 bg-astria-gold/20 rounded-xl flex items-center justify-center mb-4">
-                                    <svg class="w-6 h-6 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="text-white font-semibold mb-1">FDX</h3>
-                                <p class="text-gray-400 text-sm">Agency Kreatif</p>
-                            </div>
-                            <div class="glass-card rounded-2xl p-6 bg-astria-gold/10 border-astria-gold/30">
-                                <div class="text-3xl font-bold text-astria-gold mb-1">3+</div>
-                                <p class="text-gray-300 text-sm">Unit Bisnis</p>
                             </div>
                         </div>
                     </div>
@@ -334,8 +344,7 @@
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
             <svg class="w-6 h-6 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
             </svg>
@@ -369,7 +378,6 @@
     <!-- About Section -->
     <section id="about" class="py-24 bg-astria-cream relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-astria-gold/5 rounded-full blur-3xl"></div>
-        
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-6">
@@ -386,7 +394,6 @@
                     <p class="reveal-text text-gray-600 leading-relaxed">
                         Dengan tiga pilar fundamental <strong class="text-astria-navy">Tri Dharma Astria</strong> — mengelola sumber daya alam, membangun sumber daya manusia, dan mengkapitalisasi sumber daya keuangan — kami berkomitmen menciptakan nilai berkelanjutan bagi stakeholder dan masyarakat Indonesia.
                     </p>
-                    
                     <div class="reveal-text grid grid-cols-3 gap-6 pt-6">
                         <div class="text-center p-4 rounded-xl bg-white shadow-sm border border-gray-100">
                             <div class="w-10 h-10 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
@@ -414,7 +421,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-astria-gold/20 to-astria-gold/5 rounded-3xl blur-2xl"></div>
                     <div class="relative img-zoom rounded-3xl overflow-hidden shadow-2xl">
@@ -448,175 +454,58 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="units-grid">
                 <!-- Oqline -->
-                <div class="subsidiary-card group bg-astria-cream rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-blue-900 to-astria-navy relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-20">
-                            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <pattern id="oqline-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <circle cx="2" cy="2" r="1" fill="white"/>
-                                    <circle cx="10" cy="10" r="1" fill="white"/>
-                                    <circle cx="18" cy="18" r="1" fill="white"/>
-                                </pattern>
-                                <rect width="100" height="100" fill="url(#oqline-pattern)"/>
-                            </svg>
+                <div class="unit">
+                    <div class="inner">
+                        <div class="logo">
+                            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oqline.png" alt="Oqline">
                         </div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
-                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 mb-4">
-                            <h3 class="text-2xl font-bold text-astria-navy">Oqline</h3>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">Technology</span>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Software House yang menyediakan solusi teknologi digital terpadu untuk bisnis. Dari pengembangan aplikasi, sistem enterprise, hingga transformasi digital.
+                        <h3>Oqline</h3>
+                        <p data-lang="oqlineDesc">
+                            Digital & Technology — Solusi terpadu teknologi digital untuk bisnis dan entitas lain.
                         </p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Software Development
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Digital Transformation
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                IT Consulting
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center gap-2 text-astria-navy font-semibold group-hover:text-astria-gold transition-colors">
-                            Pelajari Lebih Lanjut
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Oravita -->
-                <div class="subsidiary-card group bg-astria-cream rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-emerald-800 to-emerald-950 relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-20">
-                            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <pattern id="oravita-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <rect x="0" y="0" width="10" height="10" fill="white" opacity="0.3"/>
-                                    <rect x="10" y="10" width="10" height="10" fill="white" opacity="0.3"/>
-                                </pattern>
-                                <rect width="100" height="100" fill="url(#oravita-pattern)"/>
-                            </svg>
+                        <div class="go">
+                            <a href="https://oqline.astria-group.com" target="_blank" rel="noopener">
+                                <span data-lang="visit">Kunjungi Website</span> →
+                            </a>
                         </div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
-                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 mb-4">
-                            <h3 class="text-2xl font-bold text-astria-navy">Oravita</h3>
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">Trading</span>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Solusi terpadu distribusi dan pemenuhan produk kebutuhan sehari-hari dengan fokus pada kualitas, keberlanjutan, dan jaringan distribusi nasional.
-                        </p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Distribution & Supply
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                General Trading
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Supply Chain Management
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center gap-2 text-astria-navy font-semibold group-hover:text-astria-gold transition-colors">
-                            Pelajari Lebih Lanjut
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </a>
                     </div>
                 </div>
 
                 <!-- FDX Management -->
-                <div class="subsidiary-card group bg-astria-cream rounded-3xl overflow-hidden border border-gray-100 shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-purple-900 to-astria-navy relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-20">
-                            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <pattern id="fdx-pattern" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
-                                    <polygon points="7.5,0 15,15 0,15" fill="white"/>
-                                </pattern>
-                                <rect width="100" height="100" fill="url(#fdx-pattern)"/>
-                            </svg>
+                <div class="unit">
+                    <div class="inner">
+                        <div class="logo">
+                            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-fdx-management.jpeg" alt="FDX Management">
                         </div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
-                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                </svg>
-                            </div>
+                        <h3>FDX Management</h3>
+                        <p data-lang="fdxDesc">
+                            Digital & Creative — Solusi terpadu untuk kreativitas berbasis teknologi digital.
+                        </p>
+                        <div class="go">
+                            <a href="https://fdx-mg.asia/" target="_blank" rel="noopener">
+                                <span data-lang="visit">Kunjungi Website</span> →
+                            </a>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <div class="flex items-center gap-3 mb-4">
-                            <h3 class="text-2xl font-bold text-astria-navy">FDX Management</h3>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">Creative</span>
+                </div>
+
+                <!-- Oravita -->
+                <div class="unit">
+                    <div class="inner">
+                        <div class="logo">
+                            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-oravita.png" alt="Oravita">
                         </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Agency kreatif yang menghadirkan solusi terpadu untuk kreativitas berbasis teknologi digital. Branding, marketing, dan konten kreatif yang impactful.
+                        <h3>Oravita</h3>
+                        <p data-lang="oravitaDesc">
+                            General Trading & Business Solutions — Menyediakan layanan perdagangan umum, pengadaan barang, dan solusi kebutuhan bisnis secara terpadu melalui jaringan pemasok yang terpercaya, efisien, dan berorientasi pada nilai tambah.
                         </p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Brand Strategy
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Digital Marketing
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700 text-sm">
-                                <svg class="w-5 h-5 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                Creative Content
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-flex items-center gap-2 text-astria-navy font-semibold group-hover:text-astria-gold transition-colors">
-                            Pelajari Lebih Lanjut
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </a>
+                        <div class="go">
+                            <a href="https://oravita.vercel.app/" target="_blank" rel="noopener">
+                                <span data-lang="visit">Kunjungi Website</span> →
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -628,15 +517,12 @@
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 20% 50%, rgba(201,168,76,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(201,168,76,0.2) 0%, transparent 50%);"></div>
         </div>
-        
         <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
             <div class="text-center mb-16">
                 <span class="text-astria-gold font-semibold tracking-wider uppercase text-sm">Visi & Misi</span>
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mt-4 mb-6">Arah Strategis Astria Group</h2>
             </div>
-
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Vision -->
                 <div class="glass-card rounded-3xl p-10 border border-astria-gold/20">
                     <div class="w-16 h-16 bg-astria-gold/20 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -649,8 +535,6 @@
                         Menjadi holding company terkemuka dalam sektor strategis yang menciptakan dampak sosial dan finansial yang positif, serta berkontribusi pada kemajuan bangsa dan negara.
                     </p>
                 </div>
-
-                <!-- Mission -->
                 <div class="glass-card rounded-3xl p-10 border border-astria-gold/20">
                     <div class="w-16 h-16 bg-astria-gold/20 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -663,8 +547,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Tri Dharma -->
             <div class="mt-16">
                 <h3 class="text-center text-astria-gold font-serif text-2xl mb-10">Tri Dharma Astria</h3>
                 <div class="grid md:grid-cols-3 gap-6">
@@ -706,7 +588,6 @@
             <div class="absolute -top-24 -right-24 w-96 h-96 bg-astria-gold/20 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-astria-navy/10 rounded-full blur-3xl"></div>
         </div>
-        
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative">
             <h2 class="reveal-text text-4xl md:text-5xl font-serif font-bold text-astria-navy mb-6">
                 Siap Berkembang Bersama Kami?
@@ -738,7 +619,6 @@
                     <p class="reveal-text text-gray-600 mb-8 leading-relaxed">
                         Kami siap membantu Anda menemukan solusi terbaik untuk kebutuhan bisnis Anda. Jangan ragu untuk menghubungi tim kami.
                     </p>
-                    
                     <div class="space-y-6">
                         <div class="reveal-text flex items-start gap-4">
                             <div class="w-12 h-12 bg-astria-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -752,7 +632,6 @@
                                 <p class="text-gray-600">Jakarta, Indonesia</p>
                             </div>
                         </div>
-                        
                         <div class="reveal-text flex items-start gap-4">
                             <div class="w-12 h-12 bg-astria-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-6 h-6 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -764,7 +643,6 @@
                                 <p class="text-gray-600">info@astria-group.com</p>
                             </div>
                         </div>
-                        
                         <div class="reveal-text flex items-start gap-4">
                             <div class="w-12 h-12 bg-astria-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <svg class="w-6 h-6 text-astria-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -778,7 +656,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="reveal-text">
                     <form class="bg-astria-cream rounded-3xl p-8 shadow-lg border border-gray-100">
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -821,7 +698,7 @@
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 bg-gradient-to-br from-astria-gold to-astria-goldLight rounded-lg flex items-center justify-center">
-                            <span class="text-astria-navy font-bold text-xl font-serif">A</span>
+                            <img src="https://raw.githubusercontent.com/jenderal45/astria/main/img/logo-astria-group.png" alt="Astria Group" class="w-8 h-8 object-contain">
                         </div>
                         <div class="flex flex-col">
                             <span class="text-white font-bold text-xl tracking-wide">ASTRIA</span>
@@ -843,16 +720,14 @@
                         </a>
                     </div>
                 </div>
-                
                 <div>
                     <h4 class="text-white font-semibold mb-6">Unit Bisnis</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-400 hover:text-astria-gold transition-colors">Oqline</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-astria-gold transition-colors">Oravita</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-astria-gold transition-colors">FDX Management</a></li>
+                        <li><a href="https://oqline.astria-group.com" target="_blank" class="text-gray-400 hover:text-astria-gold transition-colors">Oqline</a></li>
+                        <li><a href="https://oravita.vercel.app/" target="_blank" class="text-gray-400 hover:text-astria-gold transition-colors">Oravita</a></li>
+                        <li><a href="https://fdx-mg.asia/" target="_blank" class="text-gray-400 hover:text-astria-gold transition-colors">FDX Management</a></li>
                     </ul>
                 </div>
-                
                 <div>
                     <h4 class="text-white font-semibold mb-6">Perusahaan</h4>
                     <ul class="space-y-4">
@@ -862,7 +737,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-500 text-sm">© 2026 PT Astria Sukses Internasional. All rights reserved.</p>
                 <div class="flex gap-6 text-sm">
@@ -873,12 +747,55 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // GSAP ScrollTrigger Registration
+        // Particles.js configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 60, density: { enable: true, value_area: 800 } },
+                        color: { value: '#c9a84c' },
+                        shape: { type: 'circle' },
+                        opacity: { value: 0.15, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#c9a84c',
+                            opacity: 0.1,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 0.8,
+                            direction: 'none',
+                            random: true,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: { enable: true, mode: 'grab' },
+                            onclick: { enable: true, mode: 'push' },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { distance: 140, line_linked: { opacity: 0.3 } },
+                            push: { particles_nb: 4 }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+        });
+
+        // GSAP ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // Navbar Scroll Effect
+        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -890,74 +807,53 @@
             }
         });
 
-        // Mobile Menu
+        // Mobile menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const closeMenuBtn = document.getElementById('closeMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
         closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
-
-        // Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.remove('active'));
         });
 
-        // Hero Animations
+        // Hero animations
         gsap.to('.reveal-text', {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power3.out',
-            delay: 0.3
+            opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.3
         });
 
-        // Scroll Reveal Animations
+        // Scroll reveal
         gsap.utils.toArray('.reveal-text').forEach(element => {
             gsap.fromTo(element, 
                 { opacity: 0, y: 30 },
                 {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    }
+                    opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+                    scrollTrigger: { trigger: element, start: 'top 85%', toggleActions: 'play none none none' }
                 }
             );
         });
 
-        // Stats Counter Animation
+        // Stats counter
         const stats = document.querySelectorAll('.stat-number');
         stats.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
             gsap.to(stat, {
-                innerHTML: target,
-                duration: 2,
-                snap: { innerHTML: 1 },
-                scrollTrigger: {
-                    trigger: stat,
-                    start: 'top 85%',
-                }
+                innerHTML: target, duration: 2, snap: { innerHTML: 1 },
+                scrollTrigger: { trigger: stat, start: 'top 85%' }
             });
         });
 
-        // Smooth Scroll for Anchor Links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Form Submission Handler
+        // Form handler
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Terima kasih! Pesan Anda telah terkirim. Tim kami akan menghubungi Anda segera.');
